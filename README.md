@@ -7,7 +7,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
 [![Docker Stars](https://img.shields.io/docker/stars/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE)
 
 **[NPM Package](https://www.npmjs.com/package/@brave/brave-search-mcp-server)** • **[GitHub Repository](https://github.com/mekayelanik/brave-search-mcp-docker)** • **[Docker Hub](https://hub.docker.com/r/mekayelanik/brave-search-mcp)**
 
@@ -871,9 +871,9 @@ Monitor your usage in the [Brave API Dashboard](https://brave.com/search/api/)
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
+GPL License - See [LICENSE](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE) for details.
 
-**Disclaimer:** Unofficial Docker image for [@brave/brave-search-mcp-server](https://www.npmjs.com/package/@brave/brave-search-mcp-server). Users are responsible for compliance with Brave Search API terms of service and applicable laws.
+**Disclaimer:** Unofficial Docker image for [@brave/brave-search-mcp-server](https://www.npmjs.com/package/@brave/brave-search-mcp-server). Users are responsible for compliance with the Brave Search API terms of service and applicable laws.
 
 ---
 
