@@ -2,8 +2,8 @@ name: Check for New NPM Versions
 
 on:
   schedule:
-    # Check every 6 hours
-    - cron: '0 */6 * * *'
+    # Check every hour
+    - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
       force_build:
