@@ -15,7 +15,7 @@ on:
     inputs:
       build_profile:
         description: 'Build profile'
-        required: true
+        required: false
         default: 'production'
         type: choice
         options:
@@ -23,45 +23,120 @@ on:
           - production
           - ci
       version:
-        description: 'Version to build (e.g., 2.0.61)'
+        description: 'Version to build (e.g., 2.0.61). Leave empty to use default.'
         required: false
         type: string
       publish_latest:
         description: 'Publish as latest tag'
         required: false
-        type: boolean
-        default: false
+        type: string
+        default: 'false'
       publish_stable:
         description: 'Publish as stable tag'
         required: false
-        type: boolean
-        default: false
+        type: string
+        default: 'false'
       publish_beta:
         description: 'Publish as beta tag'
         required: false
-        type: boolean
-        default: false
-  schedule:
-    # Build weekly on Sunday at midnight UTC
-    - cron: '0 0 * * 0'
+        type: string
+        default: 'false'
+  workflow_call:
+    inputs:
+      version:
+        description: 'Version to build'
+        required: true
+        type: string
+      build_profile:
+        description: 'Build profile'
+        required: false
+        type: string
+        default: 'production'
+      publish_latest:
+        description: 'Publish as latest tag'
+        required: false
+        type: string
+        default: 'false'
+      publish_stable:
+        description: 'Publish as stable tag'
+        required: false
+        type: string
+        default: 'false'
 
 env:
   REPO_NAME: brave-search-mcp
   REGISTRY: docker.io
   IMAGE_NAME: mekayelanik/brave-search-mcp
+  NPM_PACKAGE: '@brave/brave-search-mcp-server'
   # Build configuration
   BASE_IMAGE: node:alpine
   SUPERGATEWAY_REPO: supergateway
   SUPERGATEWAY_VERSION: latest
-  # Default versions (update these when releasing new versions)
-  LATEST_VERSION: '2.0.61'
-  STABLE_VERSION: '2.0.61'
-  BETA_VERSION: '2.0.50-rc-beta'
 
 jobs:
+  # Determine what version to build
+  prepare:
+    name: Prepare Build
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      is_new_version: ${{ steps.version.outputs.is_new_version }}
+      publish_latest: ${{ steps.version.outputs.publish_latest }}
+      publish_stable: ${{ steps.version.outputs.publish_stable }}
+      publish_beta: ${{ steps.version.outputs.publish_beta }}
+    steps:
+      - name: Determine version to build
+        id: version
+        run: |
+          # Check for version input (from workflow_dispatch or workflow_call)
+          INPUT_VERSION="${{ inputs.version || github.event.inputs.version }}"
+          PUBLISH_LATEST="${{ inputs.publish_latest || github.event.inputs.publish_latest || 'false' }}"
+          PUBLISH_STABLE="${{ inputs.publish_stable || github.event.inputs.publish_stable || 'false' }}"
+          PUBLISH_BETA="${{ inputs.publish_beta || github.event.inputs.publish_beta || 'false' }}"
+
+          if [[ -n "$INPUT_VERSION" ]]; then
+            # Use the provided version
+            VERSION="$INPUT_VERSION"
+            IS_NEW_VERSION="true"
+            echo "Using provided version: $VERSION"
+          else
+            # Fetch latest version from npm registry
+            echo "Fetching latest version from npm..."
+            VERSION=$(curl -s "https://registry.npmjs.org/${{ env.NPM_PACKAGE }}" | jq -r '.["dist-tags"].latest')
+
+            if [[ -z "$VERSION" || "$VERSION" == "null" ]]; then
+              echo "Error: Could not fetch latest version from npm"
+              exit 1
+            fi
+
+            IS_NEW_VERSION="false"
+            echo "Using latest npm version: $VERSION"
+
+            # For scheduled/push builds, auto-publish as latest and stable
+            if [[ "${{ github.event_name }}" == "schedule" ]] || [[ "${{ github.event_name }}" == "push" ]]; then
+              PUBLISH_LATEST="true"
+              PUBLISH_STABLE="true"
+            fi
+          fi
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "is_new_version=$IS_NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "publish_latest=$PUBLISH_LATEST" >> $GITHUB_OUTPUT
+          echo "publish_stable=$PUBLISH_STABLE" >> $GITHUB_OUTPUT
+          echo "publish_beta=$PUBLISH_BETA" >> $GITHUB_OUTPUT
+
+          echo "## Build Configuration" >> $GITHUB_STEP_SUMMARY
+          echo "| Setting | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Version | \`$VERSION\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Publish Latest | $PUBLISH_LATEST |" >> $GITHUB_STEP_SUMMARY
+          echo "| Publish Stable | $PUBLISH_STABLE |" >> $GITHUB_STEP_SUMMARY
+          echo "| Publish Beta | $PUBLISH_BETA |" >> $GITHUB_STEP_SUMMARY
+
   lint:
     name: Pre-build Validation
     runs-on: ubuntu-latest
+    needs: prepare
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -84,21 +159,10 @@ jobs:
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
-    needs: lint
+    needs: [prepare, lint]
     permissions:
-      contents: read
+      contents: write
       packages: write
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - version: '2.0.61'
-            is_latest: true
-            is_stable: true
-          # Add more versions here as needed
-          # - version: '2.0.56'
-          #   is_latest: false
-          #   is_stable: false
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -121,21 +185,10 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Determine version to build
-        id: version
-        run: |
-          if [[ -n "${{ github.event.inputs.version }}" ]]; then
-            VERSION="${{ github.event.inputs.version }}"
-          else
-            VERSION="${{ matrix.version }}"
-          fi
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "Building version: $VERSION"
-
       - name: Set build profile
         id: profile
         run: |
-          PROFILE="${{ github.event.inputs.build_profile || 'production' }}"
+          PROFILE="${{ inputs.build_profile || github.event.inputs.build_profile || 'production' }}"
 
           case "$PROFILE" in
             "development"|"dev")
@@ -162,7 +215,7 @@ jobs:
         run: |
           mkdir -p build_data
           echo "${{ env.BASE_IMAGE }}" > build_data/base-image
-          echo "${{ steps.version.outputs.version }}" > build_data/version
+          echo "${{ needs.prepare.outputs.version }}" > build_data/version
           echo "${{ env.SUPERGATEWAY_REPO }}" > build_data/supergateway_repo
           echo "${{ env.SUPERGATEWAY_VERSION }}" > build_data/supergateway_version
           touch build_data/npm_dependencies
@@ -176,16 +229,36 @@ jobs:
         run: |
           TZ='UTC' date +"This Image Was Built At: %Y-%m-%d %H:%M:%S %Z" > resources/build-timestamp.txt
 
-      - name: Extract metadata for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_NAME }}
-          tags: |
-            type=raw,value=${{ steps.version.outputs.version }}
-            type=raw,value=${{ steps.version.outputs.version }}-{{date 'DDMMYYYYHHmm'}}
-            type=raw,value=latest,enable=${{ matrix.is_latest == true && github.event_name != 'pull_request' }}
-            type=raw,value=stable,enable=${{ matrix.is_stable == true && github.event_name != 'pull_request' }}
+      - name: Determine tags
+        id: tags
+        run: |
+          VERSION="${{ needs.prepare.outputs.version }}"
+          PUBLISH_LATEST="${{ needs.prepare.outputs.publish_latest }}"
+          PUBLISH_STABLE="${{ needs.prepare.outputs.publish_stable }}"
+          PUBLISH_BETA="${{ needs.prepare.outputs.publish_beta }}"
+          DATE_TAG=$(date "+%d%m%Y%H%M")
+
+          # Start with version tags
+          TAGS="${{ env.IMAGE_NAME }}:${VERSION}"
+          TAGS="${TAGS},${{ env.IMAGE_NAME }}:${VERSION}-${DATE_TAG}"
+
+          # Add latest tag if requested
+          if [[ "$PUBLISH_LATEST" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+            TAGS="${TAGS},${{ env.IMAGE_NAME }}:latest"
+          fi
+
+          # Add stable tag if requested
+          if [[ "$PUBLISH_STABLE" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+            TAGS="${TAGS},${{ env.IMAGE_NAME }}:stable"
+          fi
+
+          # Add beta tag if requested
+          if [[ "$PUBLISH_BETA" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+            TAGS="${TAGS},${{ env.IMAGE_NAME }}:beta"
+          fi
+
+          echo "tags=$TAGS" >> $GITHUB_OUTPUT
+          echo "Tags to build: $TAGS"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -194,14 +267,48 @@ jobs:
           file: Dockerfile.${{ env.REPO_NAME }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache-${{ steps.version.outputs.version }}
-          cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.IMAGE_NAME, steps.version.outputs.version) || '' }}
+          tags: ${{ steps.tags.outputs.tags }}
+          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache-${{ needs.prepare.outputs.version }}
+          cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.IMAGE_NAME, needs.prepare.outputs.version) || '' }}
           build-args: |
             BUILDKIT_INLINE_CACHE=1
           provenance: false
           sbom: false
+
+      - name: Create GitHub Release
+        if: github.event_name != 'pull_request' && needs.prepare.outputs.is_new_version == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ needs.prepare.outputs.version }}
+          name: v${{ needs.prepare.outputs.version }}
+          body: |
+            ## Brave Search MCP Server v${{ needs.prepare.outputs.version }}
+
+            Automated build from NPM package `${{ env.NPM_PACKAGE }}@${{ needs.prepare.outputs.version }}`
+
+            ### Docker Image
+
+            ```bash
+            docker pull ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}
+            ```
+
+            ### Quick Start
+
+            ```bash
+            docker run -d \
+              --name=brave-search-mcp \
+              -p 8040:8040 \
+              -e BRAVE_API_KEY=your-api-key-here \
+              ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}
+            ```
+
+            ### Supported Architectures
+
+            - `linux/amd64` (Intel/AMD 64-bit)
+            - `linux/arm64` (ARM 64-bit / Apple Silicon)
+          draft: false
+          prerelease: ${{ contains(needs.prepare.outputs.version, 'beta') || contains(needs.prepare.outputs.version, 'rc') || contains(needs.prepare.outputs.version, 'alpha') }}
+          generate_release_notes: true
 
       - name: Cleanup build artifacts
         if: always()
@@ -209,49 +316,24 @@ jobs:
           rm -rf build_data
           rm -f Dockerfile.${{ env.REPO_NAME }}
 
-  publish-tags:
-    name: Publish Tag Aliases
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name != 'pull_request' && (github.event.inputs.publish_latest == 'true' || github.event.inputs.publish_stable == 'true' || github.event.inputs.publish_beta == 'true')
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Publish latest tag
-        if: github.event.inputs.publish_latest == 'true'
+      - name: Build Summary
         run: |
-          docker buildx imagetools create \
-            --tag ${{ env.IMAGE_NAME }}:latest \
-            ${{ env.IMAGE_NAME }}:${{ env.LATEST_VERSION }}
-
-      - name: Publish stable tag
-        if: github.event.inputs.publish_stable == 'true'
-        run: |
-          docker buildx imagetools create \
-            --tag ${{ env.IMAGE_NAME }}:stable \
-            ${{ env.IMAGE_NAME }}:${{ env.STABLE_VERSION }}
-
-      - name: Publish beta tag
-        if: github.event.inputs.publish_beta == 'true'
-        run: |
-          docker buildx imagetools create \
-            --tag ${{ env.IMAGE_NAME }}:beta \
-            ${{ env.IMAGE_NAME }}:${{ env.BETA_VERSION }}
+          echo "## Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Docker Image" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "docker pull ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Tags Published" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.tags.outputs.tags }}" | tr ',' '\n' >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
   security-scan:
     name: Security Scan
     runs-on: ubuntu-latest
-    needs: build
+    needs: [prepare, build]
     if: github.event_name != 'pull_request'
     steps:
       - name: Checkout repository
@@ -260,16 +342,18 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ env.IMAGE_NAME }}:${{ env.LATEST_VERSION }}'
+          image-ref: '${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
+        continue-on-error: true
 
       - name: Upload Trivy scan results
         uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
+        continue-on-error: true
 
   update-docker-hub-description:
     name: Update Docker Hub Description

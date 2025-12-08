@@ -1,0 +1,142 @@
+name: Check for New NPM Versions
+
+on:
+  schedule:
+    # Check every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_build:
+        description: 'Force build even if version exists'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NPM_PACKAGE: '@brave/brave-search-mcp-server'
+  IMAGE_NAME: mekayelanik/brave-search-mcp
+
+jobs:
+  check-version:
+    name: Check for New Version
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.check.outputs.new_version }}
+      latest_version: ${{ steps.check.outputs.latest_version }}
+      should_build: ${{ steps.check.outputs.should_build }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get latest NPM version
+        id: npm
+        run: |
+          # Fetch latest version from npm registry
+          LATEST_VERSION=$(curl -s "https://registry.npmjs.org/${{ env.NPM_PACKAGE }}" | jq -r '.["dist-tags"].latest')
+
+          if [[ -z "$LATEST_VERSION" || "$LATEST_VERSION" == "null" ]]; then
+            echo "Error: Could not fetch latest version from npm"
+            exit 1
+          fi
+
+          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          echo "Latest NPM version: $LATEST_VERSION"
+
+      - name: Check if version already built
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LATEST_VERSION="${{ steps.npm.outputs.latest_version }}"
+          FORCE_BUILD="${{ github.event.inputs.force_build }}"
+
+          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+
+          # Check if Docker image tag already exists on Docker Hub
+          echo "Checking if image tag exists on Docker Hub..."
+          DOCKER_TAG_EXISTS=$(curl -s "https://hub.docker.com/v2/repositories/${{ env.IMAGE_NAME }}/tags/${LATEST_VERSION}" | jq -r '.name // empty')
+
+          # Also check GitHub releases
+          echo "Checking GitHub releases..."
+          RELEASE_EXISTS=$(gh release view "v${LATEST_VERSION}" --json tagName 2>/dev/null | jq -r '.tagName // empty' || echo "")
+
+          if [[ "$FORCE_BUILD" == "true" ]]; then
+            echo "Force build requested"
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "new_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          elif [[ -n "$DOCKER_TAG_EXISTS" ]]; then
+            echo "Version $LATEST_VERSION already exists on Docker Hub"
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "new_version=" >> $GITHUB_OUTPUT
+          elif [[ -n "$RELEASE_EXISTS" ]]; then
+            echo "Version $LATEST_VERSION already has a GitHub release"
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "new_version=" >> $GITHUB_OUTPUT
+          else
+            echo "New version detected: $LATEST_VERSION"
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "new_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Version Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Property | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| NPM Package | \`${{ env.NPM_PACKAGE }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Latest Version | \`${{ steps.check.outputs.latest_version }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| Should Build | ${{ steps.check.outputs.should_build }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Force Build | ${{ github.event.inputs.force_build || 'false' }} |" >> $GITHUB_STEP_SUMMARY
+
+  trigger-build:
+    name: Trigger Docker Build
+    runs-on: ubuntu-latest
+    needs: check-version
+    if: needs.check-version.outputs.should_build == 'true'
+    steps:
+      - name: Trigger Docker Build Workflow
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const version = '${{ needs.check-version.outputs.new_version }}';
+
+            console.log(`Triggering build for version: ${version}`);
+
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'docker-build.yml',
+              ref: 'main',
+              inputs: {
+                version: version,
+                build_profile: 'production',
+                publish_latest: 'true',
+                publish_stable: 'true'
+              }
+            });
+
+            console.log('Build workflow triggered successfully');
+
+      - name: Build Triggered Summary
+        run: |
+          echo "## Build Triggered" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "A new Docker build has been triggered for version \`${{ needs.check-version.outputs.new_version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check the [Docker Build workflow](/${{ github.repository }}/actions/workflows/docker-build.yml) for progress." >> $GITHUB_STEP_SUMMARY
+
+  notify-no-update:
+    name: No Update Required
+    runs-on: ubuntu-latest
+    needs: check-version
+    if: needs.check-version.outputs.should_build == 'false'
+    steps:
+      - name: Log Status
+        run: |
+          echo "No new version to build"
+          echo "Current latest: ${{ needs.check-version.outputs.latest_version }}"
+
+          echo "## No Update Required" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The latest NPM version \`${{ needs.check-version.outputs.latest_version }}\` has already been built." >> $GITHUB_STEP_SUMMARY
