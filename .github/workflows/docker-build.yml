@@ -263,17 +263,21 @@ jobs:
             COMPRESSION_TYPE="zstd"
           fi
 
-          # Determine compression level based on type defaults if not explicitly set
-          if [[ -n "$INPUT_COMPRESSION_LEVEL" ]]; then
+          # Get default compression level for the type
+          if [[ "$COMPRESSION_TYPE" == "gzip" ]]; then
+            DEFAULT_LEVEL="9"
+          else
+            DEFAULT_LEVEL="22"
+          fi
+
+          # Validate compression level is an integer, otherwise use default
+          if [[ -n "$INPUT_COMPRESSION_LEVEL" ]] && [[ "$INPUT_COMPRESSION_LEVEL" =~ ^[0-9]+$ ]]; then
             COMPRESSION_LEVEL="$INPUT_COMPRESSION_LEVEL"
           else
-            # Apply defaults based on compression type
-            if [[ "$COMPRESSION_TYPE" == "gzip" ]]; then
-              COMPRESSION_LEVEL="9"
-            else
-              # zstd default
-              COMPRESSION_LEVEL="22"
+            if [[ -n "$INPUT_COMPRESSION_LEVEL" ]]; then
+              echo "Warning: Invalid compression level '$INPUT_COMPRESSION_LEVEL' (not an integer). Using default: $DEFAULT_LEVEL"
             fi
+            COMPRESSION_LEVEL="$DEFAULT_LEVEL"
           fi
 
           echo "compression_type=$COMPRESSION_TYPE" >> $GITHUB_OUTPUT
