@@ -8,8 +8,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      day: "friday"
+      time: "00:00"
       timezone: "UTC"
     commit-message:
       prefix: "ci"
@@ -32,8 +32,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      day: "friday"
+      time: "00:00"
       timezone: "UTC"
     commit-message:
       prefix: "docker"
