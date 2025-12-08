@@ -41,6 +41,16 @@ on:
         required: false
         type: string
         default: 'false'
+      skip_dockerhub:
+        description: 'Skip Docker Hub publishing'
+        required: false
+        type: boolean
+        default: false
+      skip_ghcr:
+        description: 'Skip GitHub Container Registry publishing'
+        required: false
+        type: boolean
+        default: false
   workflow_call:
     inputs:
       version:
@@ -67,11 +77,23 @@ on:
         required: false
         type: string
         default: 'false'
+      skip_dockerhub:
+        description: 'Skip Docker Hub publishing'
+        required: false
+        type: boolean
+        default: false
+      skip_ghcr:
+        description: 'Skip GitHub Container Registry publishing'
+        required: false
+        type: boolean
+        default: false
 
 env:
   REPO_NAME: brave-search-mcp
-  REGISTRY: docker.io
-  IMAGE_NAME: mekayelanik/brave-search-mcp
+  # Docker Hub
+  DOCKERHUB_IMAGE: mekayelanik/brave-search-mcp
+  # GitHub Container Registry
+  GHCR_IMAGE: ghcr.io/${{ github.repository_owner }}/brave-search-mcp
   NPM_PACKAGE: '@brave/brave-search-mcp-server'
   # Build configuration
   BASE_IMAGE: node:alpine
@@ -89,6 +111,8 @@ jobs:
       publish_latest: ${{ steps.version.outputs.publish_latest }}
       publish_stable: ${{ steps.version.outputs.publish_stable }}
       publish_beta: ${{ steps.version.outputs.publish_beta }}
+      skip_dockerhub: ${{ steps.version.outputs.skip_dockerhub }}
+      skip_ghcr: ${{ steps.version.outputs.skip_ghcr }}
     steps:
       - name: Determine version to build
         id: version
@@ -98,6 +122,8 @@ jobs:
           PUBLISH_LATEST="${{ inputs.publish_latest || github.event.inputs.publish_latest || 'false' }}"
           PUBLISH_STABLE="${{ inputs.publish_stable || github.event.inputs.publish_stable || 'false' }}"
           PUBLISH_BETA="${{ inputs.publish_beta || github.event.inputs.publish_beta || 'false' }}"
+          SKIP_DOCKERHUB="${{ inputs.skip_dockerhub || github.event.inputs.skip_dockerhub || 'false' }}"
+          SKIP_GHCR="${{ inputs.skip_ghcr || github.event.inputs.skip_ghcr || 'false' }}"
 
           if [[ -n "$INPUT_VERSION" ]]; then
             # Use the provided version
@@ -129,6 +155,8 @@ jobs:
           echo "publish_latest=$PUBLISH_LATEST" >> $GITHUB_OUTPUT
           echo "publish_stable=$PUBLISH_STABLE" >> $GITHUB_OUTPUT
           echo "publish_beta=$PUBLISH_BETA" >> $GITHUB_OUTPUT
+          echo "skip_dockerhub=$SKIP_DOCKERHUB" >> $GITHUB_OUTPUT
+          echo "skip_ghcr=$SKIP_GHCR" >> $GITHUB_OUTPUT
 
           echo "## Build Configuration" >> $GITHUB_STEP_SUMMARY
           echo "| Setting | Value |" >> $GITHUB_STEP_SUMMARY
@@ -137,6 +165,8 @@ jobs:
           echo "| Publish Latest | $PUBLISH_LATEST |" >> $GITHUB_STEP_SUMMARY
           echo "| Publish Stable | $PUBLISH_STABLE |" >> $GITHUB_STEP_SUMMARY
           echo "| Publish Beta | $PUBLISH_BETA |" >> $GITHUB_STEP_SUMMARY
+          echo "| Skip Docker Hub | $SKIP_DOCKERHUB |" >> $GITHUB_STEP_SUMMARY
+          echo "| Skip GHCR | $SKIP_GHCR |" >> $GITHUB_STEP_SUMMARY
 
   lint:
     name: Pre-build Validation
@@ -184,11 +214,19 @@ jobs:
             network=host
 
       - name: Login to Docker Hub
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && needs.prepare.outputs.skip_dockerhub != 'true'
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Login to GitHub Container Registry
+        if: github.event_name != 'pull_request' && needs.prepare.outputs.skip_ghcr != 'true'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set build profile
         id: profile
@@ -241,28 +279,71 @@ jobs:
           PUBLISH_LATEST="${{ needs.prepare.outputs.publish_latest }}"
           PUBLISH_STABLE="${{ needs.prepare.outputs.publish_stable }}"
           PUBLISH_BETA="${{ needs.prepare.outputs.publish_beta }}"
+          SKIP_DOCKERHUB="${{ needs.prepare.outputs.skip_dockerhub }}"
+          SKIP_GHCR="${{ needs.prepare.outputs.skip_ghcr }}"
           DATE_TAG=$(date "+%d%m%Y%H%M")
 
-          # Start with version tags
-          TAGS="${{ env.IMAGE_NAME }}:${VERSION}"
-          TAGS="${TAGS},${{ env.IMAGE_NAME }}:${VERSION}-${DATE_TAG}"
-
-          # Add latest tag if requested
-          if [[ "$PUBLISH_LATEST" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
-            TAGS="${TAGS},${{ env.IMAGE_NAME }}:latest"
+          # Check if both registries are skipped
+          if [[ "$SKIP_DOCKERHUB" == "true" && "$SKIP_GHCR" == "true" ]]; then
+            echo "Error: Cannot skip both Docker Hub and GHCR publishing"
+            exit 1
           fi
 
-          # Add stable tag if requested
-          if [[ "$PUBLISH_STABLE" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
-            TAGS="${TAGS},${{ env.IMAGE_NAME }}:stable"
+          TAGS=""
+
+          # Docker Hub tags (if not skipped)
+          if [[ "$SKIP_DOCKERHUB" != "true" ]]; then
+            DOCKERHUB_TAGS="${{ env.DOCKERHUB_IMAGE }}:${VERSION}"
+            DOCKERHUB_TAGS="${DOCKERHUB_TAGS},${{ env.DOCKERHUB_IMAGE }}:${VERSION}-${DATE_TAG}"
+
+            # Add latest tag if requested
+            if [[ "$PUBLISH_LATEST" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              DOCKERHUB_TAGS="${DOCKERHUB_TAGS},${{ env.DOCKERHUB_IMAGE }}:latest"
+            fi
+
+            # Add stable tag if requested
+            if [[ "$PUBLISH_STABLE" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              DOCKERHUB_TAGS="${DOCKERHUB_TAGS},${{ env.DOCKERHUB_IMAGE }}:stable"
+            fi
+
+            # Add beta tag if requested
+            if [[ "$PUBLISH_BETA" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              DOCKERHUB_TAGS="${DOCKERHUB_TAGS},${{ env.DOCKERHUB_IMAGE }}:beta"
+            fi
+
+            TAGS="${DOCKERHUB_TAGS}"
           fi
 
-          # Add beta tag if requested
-          if [[ "$PUBLISH_BETA" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
-            TAGS="${TAGS},${{ env.IMAGE_NAME }}:beta"
+          # GHCR tags (if not skipped)
+          if [[ "$SKIP_GHCR" != "true" ]]; then
+            GHCR_TAGS="${{ env.GHCR_IMAGE }}:${VERSION}"
+            GHCR_TAGS="${GHCR_TAGS},${{ env.GHCR_IMAGE }}:${VERSION}-${DATE_TAG}"
+
+            # Add latest tag if requested
+            if [[ "$PUBLISH_LATEST" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              GHCR_TAGS="${GHCR_TAGS},${{ env.GHCR_IMAGE }}:latest"
+            fi
+
+            # Add stable tag if requested
+            if [[ "$PUBLISH_STABLE" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              GHCR_TAGS="${GHCR_TAGS},${{ env.GHCR_IMAGE }}:stable"
+            fi
+
+            # Add beta tag if requested
+            if [[ "$PUBLISH_BETA" == "true" && "${{ github.event_name }}" != "pull_request" ]]; then
+              GHCR_TAGS="${GHCR_TAGS},${{ env.GHCR_IMAGE }}:beta"
+            fi
+
+            if [[ -n "$TAGS" ]]; then
+              TAGS="${TAGS},${GHCR_TAGS}"
+            else
+              TAGS="${GHCR_TAGS}"
+            fi
           fi
 
           echo "tags=$TAGS" >> $GITHUB_OUTPUT
+          echo "skip_dockerhub=$SKIP_DOCKERHUB" >> $GITHUB_OUTPUT
+          echo "skip_ghcr=$SKIP_GHCR" >> $GITHUB_OUTPUT
           echo "Tags to build: $TAGS"
 
       - name: Build and push Docker image
@@ -273,8 +354,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.tags.outputs.tags }}
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}:buildcache-${{ needs.prepare.outputs.version }}
-          cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.IMAGE_NAME, needs.prepare.outputs.version) || '' }}
+          cache-from: type=registry,ref=${{ env.DOCKERHUB_IMAGE }}:buildcache-${{ needs.prepare.outputs.version }}
+          cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.DOCKERHUB_IMAGE, needs.prepare.outputs.version) || '' }}
           build-args: |
             BUILDKIT_INLINE_CACHE=1
           provenance: false
@@ -291,10 +372,16 @@ jobs:
 
             Automated build from NPM package `${{ env.NPM_PACKAGE }}@${{ needs.prepare.outputs.version }}`
 
-            ### Docker Image
+            ### Docker Images
 
+            **Docker Hub:**
             ```bash
-            docker pull ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}
+            docker pull ${{ env.DOCKERHUB_IMAGE }}:${{ needs.prepare.outputs.version }}
+            ```
+
+            **GitHub Container Registry:**
+            ```bash
+            docker pull ${{ env.GHCR_IMAGE }}:${{ needs.prepare.outputs.version }}
             ```
 
             ### Quick Start
@@ -304,7 +391,7 @@ jobs:
               --name=brave-search-mcp \
               -p 8040:8040 \
               -e BRAVE_API_KEY=your-api-key-here \
-              ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}
+              ${{ env.DOCKERHUB_IMAGE }}:${{ needs.prepare.outputs.version }}
             ```
 
             ### Supported Architectures
@@ -325,12 +412,19 @@ jobs:
         run: |
           echo "## Build Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Docker Image" >> $GITHUB_STEP_SUMMARY
+          echo "### Docker Images" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Docker Hub:**" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
-          echo "docker pull ${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "docker pull ${{ env.DOCKERHUB_IMAGE }}:${{ needs.prepare.outputs.version }}" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Tags Published" >> $GITHUB_STEP_SUMMARY
+          echo "**GitHub Container Registry:**" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          echo "docker pull ${{ env.GHCR_IMAGE }}:${{ needs.prepare.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### All Tags Published" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "${{ steps.tags.outputs.tags }}" | tr ',' '\n' >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
@@ -339,7 +433,7 @@ jobs:
     name: Security Scan
     runs-on: ubuntu-latest
     needs: [prepare, build]
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && needs.prepare.outputs.skip_dockerhub != 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -347,7 +441,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.33.1
         with:
-          image-ref: '${{ env.IMAGE_NAME }}:${{ needs.prepare.outputs.version }}'
+          image-ref: '${{ env.DOCKERHUB_IMAGE }}:${{ needs.prepare.outputs.version }}'
           format: 'sarif'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
@@ -363,8 +457,8 @@ jobs:
   update-docker-hub-description:
     name: Update Docker Hub Description
     runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [prepare, build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.prepare.outputs.skip_dockerhub != 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -374,6 +468,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ env.IMAGE_NAME }}
+          repository: ${{ env.DOCKERHUB_IMAGE }}
           readme-filepath: ./README.md
           short-description: "Brave Search MCP Server - Multi-Architecture Docker Image"
