@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       build_profile:
-        description: 'Build profile'
+        description: 'Build profile (only affects defaults if compression not set)'
         required: false
         default: 'production'
         type: choice
@@ -22,6 +22,18 @@ on:
           - development
           - production
           - ci
+      compression_type:
+        description: 'Compression algorithm'
+        required: false
+        default: 'zstd'
+        type: choice
+        options:
+          - zstd
+          - gzip
+      compression_level:
+        description: 'Compression level (default: zstd=22, gzip=9). Leave empty for default.'
+        required: false
+        type: string
       version:
         description: 'Version to build (e.g., 2.0.61). Leave empty to use default.'
         required: false
@@ -58,10 +70,19 @@ on:
         required: true
         type: string
       build_profile:
-        description: 'Build profile'
+        description: 'Build profile (only affects defaults if compression not set)'
         required: false
         type: string
         default: 'production'
+      compression_type:
+        description: 'Compression algorithm (zstd or gzip)'
+        required: false
+        type: string
+        default: 'zstd'
+      compression_level:
+        description: 'Compression level (default: zstd=22, gzip=9)'
+        required: false
+        type: string
       publish_latest:
         description: 'Publish as latest tag'
         required: false
@@ -232,27 +253,34 @@ jobs:
         id: profile
         run: |
           PROFILE="${{ inputs.build_profile || github.event.inputs.build_profile || 'production' }}"
+          INPUT_COMPRESSION_TYPE="${{ inputs.compression_type || github.event.inputs.compression_type }}"
+          INPUT_COMPRESSION_LEVEL="${{ inputs.compression_level || github.event.inputs.compression_level }}"
 
-          case "$PROFILE" in
-            "development"|"dev")
-              echo "compression_type=gzip" >> $GITHUB_OUTPUT
-              echo "compression_level=1" >> $GITHUB_OUTPUT
-              ;;
-            "production"|"prod")
-              echo "compression_type=zstd" >> $GITHUB_OUTPUT
-              echo "compression_level=22" >> $GITHUB_OUTPUT
-              ;;
-            "ci"|"continuous-integration")
-              echo "compression_type=zstd" >> $GITHUB_OUTPUT
-              echo "compression_level=2" >> $GITHUB_OUTPUT
-              ;;
-            *)
-              echo "compression_type=zstd" >> $GITHUB_OUTPUT
-              echo "compression_level=15" >> $GITHUB_OUTPUT
-              ;;
-          esac
+          # Determine compression type (default: zstd)
+          if [[ -n "$INPUT_COMPRESSION_TYPE" ]]; then
+            COMPRESSION_TYPE="$INPUT_COMPRESSION_TYPE"
+          else
+            COMPRESSION_TYPE="zstd"
+          fi
 
+          # Determine compression level based on type defaults if not explicitly set
+          if [[ -n "$INPUT_COMPRESSION_LEVEL" ]]; then
+            COMPRESSION_LEVEL="$INPUT_COMPRESSION_LEVEL"
+          else
+            # Apply defaults based on compression type
+            if [[ "$COMPRESSION_TYPE" == "gzip" ]]; then
+              COMPRESSION_LEVEL="9"
+            else
+              # zstd default
+              COMPRESSION_LEVEL="22"
+            fi
+          fi
+
+          echo "compression_type=$COMPRESSION_TYPE" >> $GITHUB_OUTPUT
+          echo "compression_level=$COMPRESSION_LEVEL" >> $GITHUB_OUTPUT
           echo "profile=$PROFILE" >> $GITHUB_OUTPUT
+
+          echo "Compression: $COMPRESSION_TYPE (level $COMPRESSION_LEVEL)"
 
       - name: Prepare build data
         run: |
