@@ -385,12 +385,13 @@ jobs:
           file: Dockerfile.${{ env.REPO_NAME }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
+          pull: true
           tags: ${{ steps.tags.outputs.tags }}
           cache-from: type=registry,ref=${{ env.DOCKERHUB_IMAGE }}:buildcache-${{ needs.prepare.outputs.version }}
           cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.DOCKERHUB_IMAGE, needs.prepare.outputs.version) || '' }}
           build-args: |
             BUILDKIT_INLINE_CACHE=1
-          outputs: type=image,oci-mediatypes=true,compression=${{ steps.profile.outputs.compression_type }},compression-level=${{ steps.profile.outputs.compression_level }},force-compression=true
+          outputs: type=image,oci-mediatypes=true,compression=${{ steps.profile.outputs.compression_type }},compression-level=${{ steps.profile.outputs.compression_level }},force-compression=true,push=${{ github.event_name != 'pull_request' }},export-cache-concurrency=4,export-layers-concurrency=4
           provenance: false
           sbom: false
 
