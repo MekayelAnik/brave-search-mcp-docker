@@ -62,6 +62,11 @@ on:
         required: false
         type: string
         default: 'false'
+      publish_beta:
+        description: 'Publish as beta tag'
+        required: false
+        type: string
+        default: 'false'
 
 env:
   REPO_NAME: brave-search-mcp

@@ -94,6 +94,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-version
     if: needs.check-version.outputs.should_build == 'true'
+    permissions:
+      actions: write
+      contents: read
     steps:
       - name: Trigger Docker Build Workflow
         uses: actions/github-script@v8
@@ -101,13 +104,20 @@ jobs:
           script: |
             const version = '${{ needs.check-version.outputs.new_version }}';
 
-            console.log(`Triggering build for version: ${version}`);
+            // Get the default branch
+            const { data: repo } = await github.rest.repos.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const defaultBranch = repo.default_branch;
+
+            console.log(`Triggering build for version: ${version} on branch: ${defaultBranch}`);
 
             await github.rest.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: 'docker-build.yml',
-              ref: 'main',
+              ref: defaultBranch,
               inputs: {
                 version: version,
                 build_profile: 'production',
