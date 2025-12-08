@@ -358,6 +358,7 @@ jobs:
           cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.DOCKERHUB_IMAGE, needs.prepare.outputs.version) || '' }}
           build-args: |
             BUILDKIT_INLINE_CACHE=1
+          outputs: type=image,oci-mediatypes=true,compression=${{ steps.profile.outputs.compression_type }},compression-level=${{ steps.profile.outputs.compression_level }},force-compression=true
           provenance: false
           sbom: false
 
@@ -411,6 +412,13 @@ jobs:
       - name: Build Summary
         run: |
           echo "## Build Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Build Settings" >> $GITHUB_STEP_SUMMARY
+          echo "| Setting | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|---------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Profile | ${{ steps.profile.outputs.profile }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Compression | ${{ steps.profile.outputs.compression_type }} (level ${{ steps.profile.outputs.compression_level }}) |" >> $GITHUB_STEP_SUMMARY
+          echo "| Platforms | linux/amd64, linux/arm64 |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Docker Images" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
