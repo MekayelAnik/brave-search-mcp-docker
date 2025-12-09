@@ -233,6 +233,9 @@ jobs:
         with:
           driver-opts: |
             network=host
+          buildkitd-config-inline: |
+            [worker.oci]
+              max-parallelism = 4
 
       - name: Login to Docker Hub
         if: github.event_name != 'pull_request' && needs.prepare.outputs.skip_dockerhub != 'true'
@@ -378,6 +381,22 @@ jobs:
           echo "skip_ghcr=$SKIP_GHCR" >> $GITHUB_OUTPUT
           echo "Tags to build: $TAGS"
 
+      - name: Determine cache registry
+        id: cache
+        run: |
+          SKIP_DOCKERHUB="${{ needs.prepare.outputs.skip_dockerhub }}"
+          VERSION="${{ needs.prepare.outputs.version }}"
+
+          # Use GHCR for cache if Docker Hub is skipped, otherwise use Docker Hub
+          if [[ "$SKIP_DOCKERHUB" == "true" ]]; then
+            CACHE_REGISTRY="${{ env.GHCR_IMAGE }}"
+          else
+            CACHE_REGISTRY="${{ env.DOCKERHUB_IMAGE }}"
+          fi
+
+          echo "registry=$CACHE_REGISTRY" >> $GITHUB_OUTPUT
+          echo "Using cache registry: $CACHE_REGISTRY"
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
@@ -387,8 +406,14 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           pull: true
           tags: ${{ steps.tags.outputs.tags }}
-          cache-from: type=registry,ref=${{ env.DOCKERHUB_IMAGE }}:buildcache-${{ needs.prepare.outputs.version }}
-          cache-to: ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', env.DOCKERHUB_IMAGE, needs.prepare.outputs.version) || '' }}
+          cache-from: |
+            type=registry,ref=${{ steps.cache.outputs.registry }}:buildcache-${{ needs.prepare.outputs.version }}
+            type=registry,ref=${{ steps.cache.outputs.registry }}:buildcache-latest
+            type=gha,scope=${{ github.ref_name }}-build
+          cache-to: |
+            ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-{1},mode=max', steps.cache.outputs.registry, needs.prepare.outputs.version) || '' }}
+            ${{ github.event_name != 'pull_request' && format('type=registry,ref={0}:buildcache-latest,mode=max', steps.cache.outputs.registry) || '' }}
+            type=gha,scope=${{ github.ref_name }}-build,mode=max
           build-args: |
             BUILDKIT_INLINE_CACHE=1
           outputs: type=image,oci-mediatypes=true,compression=${{ steps.profile.outputs.compression_type }},compression-level=${{ steps.profile.outputs.compression_level }},force-compression=true,push=${{ github.event_name != 'pull_request' }},export-cache-concurrency=4,export-layers-concurrency=4
@@ -452,6 +477,7 @@ jobs:
           echo "| Profile | ${{ steps.profile.outputs.profile }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Compression | ${{ steps.profile.outputs.compression_type }} (level ${{ steps.profile.outputs.compression_level }}) |" >> $GITHUB_STEP_SUMMARY
           echo "| Platforms | linux/amd64, linux/arm64 |" >> $GITHUB_STEP_SUMMARY
+          echo "| Cache Registry | ${{ steps.cache.outputs.registry }} |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Docker Images" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
