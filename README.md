@@ -1,15 +1,15 @@
 # Brave Search MCP Server
-### Multi-Architecture Docker Image for Distributed Deployment
+### Multi-Architecture Docker Image for Privacy-Respecting Web Search
 
 <div align="left">
 
-<img alt="brave-search-mcp" src="https://img.shields.io/badge/Brave%20Search-MCP-FB542B?style=for-the-badge&logo=brave&logoColor=white" width="400">
+<img alt="brave-search-mcp" src="https://img.shields.io/badge/Brave Search-MCP-00E9A3?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiA3TDEyIDEyTDIyIDdMMTIgMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yIDEyTDEyIDE3TDIyIDEyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMiAxN0wxMiAyMkwyMiAxNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+&logoColor=white" width="400">
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
 [![Docker Stars](https://img.shields.io/docker/stars/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE)
+[![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square)](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE)
 
-**[NPM Package](https://www.npmjs.com/package/@brave/brave-search-mcp-server)** • **[GitHub Repository](https://github.com/mekayelanik/brave-search-mcp-docker)** • **[Docker Hub](https://hub.docker.com/r/mekayelanik/brave-search-mcp)**
+**[Official Website](https://brave.com/search/api/)** • **[Documentation](https://github.com/nicholasgriffintn/brave-search-mcp-server)** • **[Docker Hub](https://hub.docker.com/r/mekayelanik/brave-search-mcp)**
 
 </div>
 
@@ -18,64 +18,75 @@
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Supported Architectures](#supported-architectures)
+- [Available Tags](#available-tags)
 - [Quick Start](#quick-start)
 - [Configuration](#configuration)
-- [MCP Client Setup](#mcp-client-setup)
-- [Available Tools](#available-tools)
-- [Advanced Usage](#advanced-usage)
+- [MCP Client Configuration](#mcp-client-configuration)
+- [Network Configuration](#network-configuration)
+- [Updating](#updating)
 - [Troubleshooting](#troubleshooting)
-- [Resources & Support](#resources--support)
+- [Additional Resources](#additional-resources)
+- [Support & License](#support--license)
+- [Major Changes](#major-changes)
 
 ---
 
+## 😎 Buy Me a Coffee ☕︎
+**Your support encourages me to keep creating/supporting my open-source projects.** If you found value in this project, you can buy me a coffee to keep me inspired.
+
+<p align="center">
+<a href="https://07mekayel07.gumroad.com/coffee" target="_blank">
+<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="217" height="60">
+</a>
+</p>
+
 ## Overview
 
-Brave Search MCP Server provides AI assistants with comprehensive search capabilities through the privacy-focused Brave Search API. Access web search, local search, news, images, videos, and AI-powered summarization—all through a secure, containerized MCP server. Seamlessly integrates with VS Code, Cursor, Windsurf, Claude Desktop, and any MCP-compatible client.
+Brave Search MCP Server provides privacy-respecting web search capabilities through the Model Context Protocol via the Brave Search API. Built on Alpine Linux for minimal footprint and maximum security.
 
 ### Key Features
 
-✨ **Comprehensive Search** - Web, local, news, images, videos, and AI summarization  
-🔒 **Privacy-First** - Powered by Brave's privacy-focused search infrastructure  
-🛡️ **Secure & Configurable** - API key authentication with fine-grained tool control  
-⚡ **High Performance** - Built on Node.js Alpine for minimal footprint  
-🌐 **CORS Ready** - Built-in CORS support for browser-based clients  
-🚀 **Multiple Protocols** - HTTP, SSE, and WebSocket transport support  
-🎯 **Zero Configuration** - Works out of the box with API key  
-🔧 **Highly Customizable** - Fine-tune tools, logging, and transport via environment variables  
-📊 **Health Monitoring** - Built-in health check endpoint
+✨ **Multi-Architecture Support** - Native support for x86-64 and ARM64  
+🚀 **Multiple Transport Protocols** - HTTP, SSE, and WebSocket support  
+🔒 **Secure by Design** - Alpine-based with minimal attack surface  
+⚡ **High Performance** - ZSTD compression for faster deployments  
+🎯 **Production Ready** - Stable releases with comprehensive testing  
+🔧 **Easy Configuration** - Simple environment variable setup
 
-### Supported Architectures
+---
 
-| Architecture | Status | Notes |
-|:-------------|:------:|:------|
-| **x86-64** | ✅ Stable | Intel/AMD processors |
-| **ARM64** | ✅ Stable | Raspberry Pi, Apple Silicon |
+## Supported Architectures
 
-### Available Tags
+| Architecture | Tag Prefix | Status |
+|:-------------|:-----------|:------:|
+| **x86-64** | `amd64-<version>` | ✅ Stable |
+| **ARM64** | `arm64v8-<version>` | ✅ Stable |
 
-| Tag | Stability | Use Case |
-|:----|:---------:|:---------|
-| `stable` | ⭐⭐⭐ | **Production (recommended)** |
-| `latest` | ⭐⭐⭐ | Latest stable features |
-| `1.x.x` | ⭐⭐⭐ | Version pinning |
-| `beta` | ⚠️ | Testing only |
+> 💡 Multi-arch images automatically select the correct architecture for your system.
+
+---
+
+## Available Tags
+
+| Tag | Stability | Description | Use Case |
+|:----|:---------:|:------------|:---------|
+| `stable` | ⭐⭐⭐ | Most stable release | **Recommended for production** |
+| `latest` | ⭐⭐⭐ | Latest stable release | Stay current with stable features |
+| `1.0.21` | ⭐⭐⭐ | Specific version | Version pinning for consistency |
+| `beta` | ⚠️ | Beta releases | **Testing only** |
+
+### System Requirements
+
+- **Docker Engine:** 23.0+
+- **RAM:** Minimum 512MB
+- **CPU:** Single core sufficient
+
+> 🔒 **CRITICAL:** Do NOT expose this container directly to the internet without proper security measures (reverse proxy, SSL/TLS, authentication, firewall rules).
 
 ---
 
 ## Quick Start
-
-### Prerequisites
-
-- Docker Engine 23.0+
-- **Brave Search API Key** ([Get one here](https://brave.com/search/api/))
-- Network access for search operations
-
-### Obtaining a Brave Search API Key
-
-1. Visit [Brave Search API](https://brave.com/search/api/)
-2. Sign up for a free or pro account
-3. Generate your API key from the dashboard
-4. Copy the key for use in your Docker deployment
 
 ### Docker Compose (Recommended)
 
@@ -88,24 +99,22 @@ services:
     ports:
       - "8040:8040"
     environment:
-      # Required
-      - BRAVE_API_KEY=your-brave-api-key-here
-      
-      # Core settings
       - PORT=8040
+      - INTERNAL_PORT=38011
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Dhaka
-      - PROTOCOL=SHTTP
-      - CORS=*
-      
-      # Brave Search settings
-      - BRAVE_MCP_TRANSPORT=stdio
-      - BRAVE_MCP_LOG_LEVEL=info
+      - NODE_ENV=production
+      - PROTOCOL=HTTP
+      - ENABLE_HTTPS=false
+      - HTTP_VERSION_MODE=auto
+      # Optional: require Bearer token auth at HAProxy layer
+      # - API_KEY=replace-with-strong-secret
+    hostname: brave-search-mcp
+    domainname: local
 ```
 
 **Deploy:**
-
 ```bash
 docker compose up -d
 docker compose logs -f brave-search-mcp
@@ -118,12 +127,15 @@ docker run -d \
   --name=brave-search-mcp \
   --restart=unless-stopped \
   -p 8040:8040 \
-  -e BRAVE_API_KEY=your-brave-api-key-here \
   -e PORT=8040 \
+  -e INTERNAL_PORT=38011 \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e PROTOCOL=SHTTP \
-  -e CORS=* \
+  -e TZ=Asia/Dhaka \
+  -e NODE_ENV=production \
+  -e PROTOCOL=HTTP \
+  -e ENABLE_HTTPS=false \
+  -e HTTP_VERSION_MODE=auto \
   mekayelanik/brave-search-mcp:stable
 ```
 
@@ -131,12 +143,21 @@ docker run -d \
 
 | Protocol | Endpoint | Use Case |
 |:---------|:---------|:---------|
-| **HTTP** | `http://host-ip:8040/mcp` | **Recommended** |
+| **HTTP** | `http://host-ip:8040/mcp` | Best compatibility (recommended) |
 | **SSE** | `http://host-ip:8040/sse` | Real-time streaming |
-| **WebSocket** | `ws://host-ip:8040/message` | Bidirectional |
-| **Health** | `http://host-ip:8040/healthz` | Monitoring |
+| **WebSocket** | `ws://host-ip:8040/message` | Bidirectional communication |
 
-> ⏱️ Server ready in 5-10 seconds after container start
+When HTTPS is enabled (`ENABLE_HTTPS=true`), use TLS endpoints:
+
+| Protocol | Endpoint |
+|:---------|:---------|
+| **SHTTP** | `https://host-ip:8040/mcp` |
+| **SSE** | `https://host-ip:8040/sse` |
+| **WebSocket** | `wss://host-ip:8040/message` |
+
+> ⚠️ **Security Warning:** The container now defaults to HTTP (`ENABLE_HTTPS=false`) for easier local setup. Use `ENABLE_HTTPS=true` for production, public networks, or any untrusted environment.
+>
+> ⏱️ **ARM Devices:** Allow 30-60 seconds for initialization before accessing endpoints.
 
 ---
 
@@ -144,164 +165,145 @@ docker run -d \
 
 ### Environment Variables
 
-#### Core Settings
-
-| Variable | Default | Required | Description |
-|:---------|:-------:|:--------:|:------------|
-| `BRAVE_API_KEY` | _(none)_ | **✅ YES** | Your Brave Search API key |
-| `PORT` | `8040` | No | Server port (1-65535) |
-| `PUID` | `1000` | No | User ID for file permissions |
-| `PGID` | `1000` | No | Group ID for file permissions |
-| `TZ` | `Asia/Dhaka` | No | Container timezone |
-| `PROTOCOL` | `SHTTP` | No | Transport protocol |
-| `CORS` | _(none)_ | No | Cross-Origin configuration |
-
-#### Brave Search Settings
-
 | Variable | Default | Description |
 |:---------|:-------:|:------------|
-| `BRAVE_MCP_TRANSPORT` | `stdio` | Transport mode (`stdio`, `http`) |
-| `BRAVE_MCP_LOG_LEVEL` | `info` | Logging level (`debug`, `info`, `warning`, `error`) |
-| `BRAVE_MCP_ENABLED_TOOLS` | _(all)_ | Whitelist of enabled tools (comma-separated) |
-| `BRAVE_MCP_DISABLED_TOOLS` | _(none)_ | Blacklist of disabled tools (comma-separated) |
+| `PORT` | `8040` | Internal server port |
+| `INTERNAL_PORT` | `38011` | Internal MCP server port used by supergateway |
+| `PUID` | `1000` | User ID for file permissions |
+| `PGID` | `1000` | Group ID for file permissions |
+| `TZ` | `Asia/Dhaka` | Container timezone ([TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)) |
+| `NODE_ENV` | `production` | Node.js environment |
+| `PROTOCOL` | `SHTTP` | Default transport protocol |
+| `API_KEY` | *(empty)* | Enables Bearer token auth (`Authorization: Bearer <API_KEY>`) |
+| `CORS` | *(empty)* | Comma-separated CORS origins, supports `*` |
+| `ENABLE_HTTPS` | `false` | Enables TLS termination in HAProxy |
+| `TLS_CERT_PATH` | `/etc/haproxy/certs/server.crt` | TLS cert path |
+| `TLS_KEY_PATH` | `/etc/haproxy/certs/server.key` | TLS private key path |
+| `TLS_PEM_PATH` | `/etc/haproxy/certs/server.pem` | Combined PEM file used by HAProxy |
+| `TLS_CN` | `localhost` | CN for auto-generated certificate |
+| `TLS_SAN` | `DNS:<TLS_CN>` | SAN for auto-generated certificate |
+| `TLS_DAYS` | `365` | Auto-generated cert validity period |
+| `TLS_MIN_VERSION` | `TLSv1.3` | Minimum TLS protocol (`TLSv1.2` or `TLSv1.3`) |
+| `HTTP_VERSION_MODE` | `auto` | `auto`, `all`, `h1`, `h2`, `h3`, `h1+h2` |
+| `DEBUG_MODE` | *(empty)* | Enables debug hold mode when set truthy |
 
-#### Advanced Settings
+### HTTPS and HTTP Version Notes
 
-| Variable | Default | Description |
-|:---------|:-------:|:------------|
-| `DEBUG_MODE` | `false` | Enable debug mode (`true`, `false`, `verbose`) |
+- If `ENABLE_HTTPS=true` and cert files are missing, the container auto-generates a self-signed certificate.
+- If `TLS_CERT_PATH` and `TLS_KEY_PATH` exist, they are merged into `TLS_PEM_PATH` and used directly.
+- `HTTP_VERSION_MODE=h3` (or `auto`) enables HTTP/3 only when HAProxy build includes QUIC; otherwise it safely falls back.
 
-### Protocol Configuration
+### API Key Authentication Notes
 
-```yaml
-# HTTP/Streamable HTTP (Recommended)
-environment:
-  - PROTOCOL=SHTTP
+- Set `API_KEY` to enforce authentication at reverse proxy level.
+- Expected header format: `Authorization: Bearer <API_KEY>`.
+- Localhost health checks remain accessible for liveness/readiness.
 
-# Server-Sent Events
-environment:
-  - PROTOCOL=SSE
+### User & Group IDs
 
-# WebSocket
-environment:
-  - PROTOCOL=WS
+Find your IDs and set them to avoid permission issues:
+
+```bash
+id username
+# uid=1000(user) gid=1000(group)
 ```
 
-### CORS Configuration
+### Timezone Examples
 
 ```yaml
-# Development - Allow all origins
-environment:
-  - CORS=*
-
-# Production - Specific domains
-environment:
-  - CORS=https://example.com,https://app.example.com
-
-# Mixed domains and IPs
-environment:
-  - CORS=https://example.com,192.168.1.100:3000,/.*\.myapp\.com$/
-
-# Regex patterns
-environment:
-  - CORS=/^https:\/\/.*\.example\.com$/
-```
-
-> ⚠️ **Security:** Never use `CORS=*` in production environments
-
-### Tool Configuration
-
-#### Enable Specific Tools Only (Whitelist)
-
-```yaml
-environment:
-  - BRAVE_MCP_ENABLED_TOOLS=brave_web_search,brave_local_search,brave_news_search
-```
-
-#### Disable Specific Tools (Blacklist)
-
-```yaml
-environment:
-  - BRAVE_MCP_DISABLED_TOOLS=brave_image_search,brave_video_search
-```
-
-> 📝 **Note:** If both enabled and disabled tools are set, the whitelist takes precedence.
-
-### Log Level Examples
-
-```yaml
-# Debug mode - verbose logging
-environment:
-  - BRAVE_MCP_LOG_LEVEL=debug
-
-# Production - minimal logging
-environment:
-  - BRAVE_MCP_LOG_LEVEL=error
-
-# Default - balanced logging
-environment:
-  - BRAVE_MCP_LOG_LEVEL=info
+- TZ=Asia/Dhaka        # Bangladesh
+- TZ=America/New_York  # US Eastern
+- TZ=Europe/London     # UK
+- TZ=UTC               # Universal Time
 ```
 
 ---
 
-## MCP Client Setup
+## MCP Client Configuration
 
-### Transport Compatibility
+### Transport Support
 
 | Client | HTTP | SSE | WebSocket | Recommended |
 |:-------|:----:|:---:|:---------:|:------------|
 | **VS Code (Cline/Roo-Cline)** | ✅ | ✅ | ❌ | HTTP |
 | **Claude Desktop** | ✅ | ✅ | ⚠️* | HTTP |
+| **Claude CLI** | ✅ | ✅ | ⚠️* | HTTP |
+| **Codex CLI** | ✅ | ✅ | ⚠️* | HTTP |
+| **Codeium (Windsurf)** | ✅ | ✅ | ⚠️* | HTTP |
 | **Cursor** | ✅ | ✅ | ⚠️* | HTTP |
-| **Windsurf** | ✅ | ✅ | ⚠️* | HTTP |
 
-> ⚠️ *WebSocket support is experimental
+> ⚠️ *WebSocket is experimental ([Issue #1288](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1288))
+
+---
 
 ### VS Code (Cline/Roo-Cline)
 
-Add to `.vscode/settings.json`:
+Configure in `.vscode/settings.json`:
 
 ```json
 {
   "mcp.servers": {
     "brave-search": {
       "url": "http://host-ip:8040/mcp",
-      "transport": "http",
-      "autoApprove": [
-        "brave_web_search",
-        "brave_local_search",
-        "brave_video_search",
-        "brave_image_search",
-        "brave_news_search",
-        "brave_summarizer"
-      ]
+      "transport": "http"
     }
   }
 }
 ```
 
-### Claude Desktop
+---
 
-**Config Locations:**
-- **Linux:** `~/.config/Claude/claude_desktop_config.json`
-- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+### Claude Desktop App/Claude Code
+
+**Configuration:**
+### **With API_KEY**
+```
+claude mcp add-json github '{"type":"http","url":"http://localhost:8045/mcp","headers":{"Authorization":"Bearer <YOUR_API_KEY>"}}'
+```
+### **Without API_KEY**
+```
+claude mcp add-json github '{"type":"http","url":"http://localhost:8045/mcp"}'
+```
+
+---
+
+### Codex CLI
+
+Configure in `~/.codex/config.json`:
 
 ```json
 {
   "mcpServers": {
     "brave-search": {
       "transport": "http",
-      "url": "http://localhost:8040/mcp"
+      "url": "http://host-ip:8040/mcp"
     }
   }
 }
 ```
+
+---
+
+### Codeium (Windsurf)
+
+Configure in `.codeium/mcp_settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "brave-search": {
+      "transport": "http",
+      "url": "http://host-ip:8040/mcp"
+    }
+  }
+}
+```
+
+---
 
 ### Cursor
 
-Add to `~/.cursor/mcp.json`:
+Configure in `~/.cursor/mcp.json`:
 
 ```json
 {
@@ -314,347 +316,116 @@ Add to `~/.cursor/mcp.json`:
 }
 ```
 
-### Windsurf (Codeium)
+---
 
-Add to `.codeium/mcp_settings.json`:
+### Testing Configuration
 
-```json
-{
-  "mcpServers": {
-    "brave-search": {
-      "transport": "http",
-      "url": "http://host-ip:8040/mcp"
-    }
-  }
-}
-```
-
-### Claude Code
-
-Add to `~/.config/claude-code/mcp_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "brave-search": {
-      "transport": "http",
-      "url": "http://localhost:8040/mcp"
-    }
-  }
-}
-```
-
-Or configure via CLI:
+Verify with [MCP Inspector](https://github.com/modelcontextprotocol/inspector):
 
 ```bash
-claude-code config mcp add brave-search \
-  --transport http \
-  --url http://localhost:8040/mcp
-```
-
-### GitHub Copilot CLI
-
-Add to `~/.github-copilot/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "brave-search": {
-      "transport": "http",
-      "url": "http://host-ip:8040/mcp"
-    }
-  }
-}
-```
-
-Or use environment variable:
-
-```bash
-export GITHUB_COPILOT_MCP_SERVERS='{"brave-search":{"transport":"http","url":"http://localhost:8040/mcp"}}'
+npm install -g @modelcontextprotocol/inspector
+mcp-inspector http://host-ip:8040/mcp
 ```
 
 ---
 
-## Available Tools
+## Network Configuration
 
-### 🔍 brave_web_search
-Perform comprehensive web searches using Brave Search.
+### Comparison
 
-**Parameters:**
-- `query` (string, required): Search query
-- `count` (number, optional): Number of results (default: 10, max: 20)
-- `offset` (number, optional): Pagination offset
-- `country` (string, optional): Country code for localized results
-- `search_lang` (string, optional): Search language code
-- `freshness` (string, optional): Time filter (`pd` - past day, `pw` - past week, `pm` - past month, `py` - past year)
-- `text_decorations` (boolean, optional): Include text decorations in results
-- `spellcheck` (boolean, optional): Enable spell checking
-
-**Use Cases:**
-- General web search and research
-- Finding current information and news
-- Gathering diverse perspectives
-- Academic and technical research
-
-**Example Prompts:**
-- "Search for recent articles about artificial intelligence"
-- "Find information about climate change from the past week"
-- "Search for Python tutorials in English"
+| Network Mode | Complexity | Performance | Use Case |
+|:-------------|:----------:|:-----------:|:---------|
+| **Bridge** | ⭐ Easy | ⭐⭐⭐ Good | Default, isolated |
+| **Host** | ⭐⭐ Moderate | ⭐⭐⭐⭐ Excellent | Direct host access |
+| **MACVLAN** | ⭐⭐⭐ Advanced | ⭐⭐⭐⭐ Excellent | Dedicated IP |
 
 ---
 
-### 📍 brave_local_search
-Search for local businesses and places.
-
-**Parameters:**
-- `query` (string, required): Search query
-- `count` (number, optional): Number of results (default: 5, max: 20)
-
-**Use Cases:**
-- Finding nearby businesses and services
-- Restaurant and venue discovery
-- Local shopping and services
-- Place-based recommendations
-
-**Example Prompts:**
-- "Find coffee shops near me"
-- "Search for Italian restaurants"
-- "Find local hardware stores"
-
----
-
-### 🎥 brave_video_search
-Search for videos across the web.
-
-**Parameters:**
-- `query` (string, required): Search query
-- `count` (number, optional): Number of results (default: 10, max: 20)
-- `offset` (number, optional): Pagination offset
-- `country` (string, optional): Country code for localized results
-- `search_lang` (string, optional): Search language code
-
-**Use Cases:**
-- Finding educational videos and tutorials
-- Discovering entertainment content
-- Research and documentation
-- Visual learning resources
-
-**Example Prompts:**
-- "Find tutorial videos about Docker"
-- "Search for cooking videos"
-- "Find educational content on quantum physics"
-
----
-
-### 🖼️ brave_image_search
-Search for images across the web.
-
-**Parameters:**
-- `query` (string, required): Search query
-- `count` (number, optional): Number of results (default: 10, max: 20)
-- `offset` (number, optional): Pagination offset
-- `country` (string, optional): Country code for localized results
-- `search_lang` (string, optional): Search language code
-- `safesearch` (string, optional): Safe search level (`strict`, `moderate`, `off`)
-
-**Use Cases:**
-- Visual research and inspiration
-- Finding reference images
-- Design and creative work
-- Educational illustrations
-
-**Example Prompts:**
-- "Search for landscape photography"
-- "Find diagrams explaining neural networks"
-- "Search for logo design inspiration"
-
----
-
-### 📰 brave_news_search
-Search for news articles and current events.
-
-**Parameters:**
-- `query` (string, required): Search query
-- `count` (number, optional): Number of results (default: 10, max: 20)
-- `offset` (number, optional): Pagination offset
-- `country` (string, optional): Country code for localized results
-- `search_lang` (string, optional): Search language code
-- `freshness` (string, optional): Time filter
-
-**Use Cases:**
-- Tracking current events
-- News research and analysis
-- Staying informed on specific topics
-- Gathering multiple perspectives
-
-**Example Prompts:**
-- "Find recent news about space exploration"
-- "Search for articles about renewable energy"
-- "Get latest news on technology trends"
-
----
-
-### 📝 brave_summarizer
-Get AI-powered summaries of web content.
-
-**Parameters:**
-- `query` (string, required): Topic or URL to summarize
-- `entity_info` (boolean, optional): Include entity information
-- `summary_style` (string, optional): Summary style preference
-
-**Use Cases:**
-- Quick content digestion
-- Research synthesis
-- Article summarization
-- Information condensation
-
-**Example Prompts:**
-- "Summarize the latest developments in AI"
-- "Give me a summary of this article"
-- "Summarize current trends in climate science"
-
----
-
-## Advanced Usage
-
-### Production Configuration
+### Bridge Network (Default)
 
 ```yaml
 services:
   brave-search-mcp:
     image: mekayelanik/brave-search-mcp:stable
-    container_name: brave-search-mcp
-    restart: unless-stopped
     ports:
       - "8040:8040"
-    environment:
-      # Required
-      - BRAVE_API_KEY=${BRAVE_API_KEY}
-      
-      # Core settings
-      - PORT=8040
-      - PUID=1000
-      - PGID=1000
-      - TZ=UTC
-      - PROTOCOL=SHTTP
-      
-      # Security
-      - CORS=https://app.example.com,https://admin.example.com
-      
-      # Brave Search configuration
-      - BRAVE_MCP_TRANSPORT=stdio
-      - BRAVE_MCP_LOG_LEVEL=warning
-      - BRAVE_MCP_ENABLED_TOOLS=brave_web_search,brave_news_search,brave_summarizer
-    
-    # Resource limits
-    deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 512M
-        reservations:
-          cpus: '0.5'
-          memory: 256M
-    
-    # Health check
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "8040"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
 ```
 
-### Reverse Proxy Setup
+**Benefits:** Container isolation, easy setup, works everywhere
+**Access:** `http://localhost:8040/mcp`
 
-#### Nginx
+---
 
-```nginx
-server {
-    listen 80;
-    server_name brave-search.example.com;
-    
-    location / {
-        proxy_pass http://localhost:8040;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        
-        # Timeouts
-        proxy_connect_timeout 300;
-        proxy_send_timeout 300;
-        proxy_read_timeout 300;
-    }
-}
-```
-
-#### Traefik
+### Host Network (Linux Only)
 
 ```yaml
 services:
   brave-search-mcp:
     image: mekayelanik/brave-search-mcp:stable
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.brave-search.rule=Host(`brave-search.example.com`)"
-      - "traefik.http.routers.brave-search.entrypoints=websecure"
-      - "traefik.http.routers.brave-search.tls.certresolver=myresolver"
-      - "traefik.http.services.brave-search.loadbalancer.server.port=8040"
+    network_mode: host
 ```
 
-### Docker Network Setup
+**Benefits:** Maximum performance, no NAT overhead, no port mapping needed
+**Considerations:** Linux only, shares host network namespace
+**Access:** `http://localhost:8040/mcp`
+
+---
+
+### MACVLAN Network (Advanced)
 
 ```yaml
 services:
   brave-search-mcp:
     image: mekayelanik/brave-search-mcp:stable
-    container_name: brave-search-mcp
+    mac_address: "AB:BC:CD:DE:EF:01"
     networks:
-      - mcp-network
-    environment:
-      - BRAVE_API_KEY=${BRAVE_API_KEY}
-      - PORT=8040
-      - PROTOCOL=SHTTP
-    
-  other-service:
-    image: other-service:latest
-    networks:
-      - mcp-network
-    environment:
-      - BRAVE_SEARCH_URL=http://brave-search-mcp:8040/mcp
+      macvlan-net:
+        ipv4_address: 192.168.1.100
 
 networks:
-  mcp-network:
-    driver: bridge
+  macvlan-net:
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
 ```
 
-### Using Environment Files
+**Benefits:** Dedicated IP, direct LAN access
+**Considerations:** Linux only, requires additional setup
+**Access:** `http://192.168.1.100:8040/mcp`
 
-Create `.env` file:
+---
 
-```env
-BRAVE_API_KEY=your-api-key-here
-PORT=8040
-PUID=1000
-PGID=1000
-TZ=UTC
-PROTOCOL=SHTTP
-CORS=https://example.com
-BRAVE_MCP_LOG_LEVEL=info
+## Updating
+
+### Docker Compose
+
+```bash
+docker compose pull
+docker compose up -d
+docker image prune -f
 ```
 
-Reference in Docker Compose:
+### Docker CLI
 
-```yaml
-services:
-  brave-search-mcp:
-    image: mekayelanik/brave-search-mcp:stable
-    env_file:
-      - .env
+```bash
+docker pull mekayelanik/brave-search-mcp:stable
+docker stop brave-search-mcp && docker rm brave-search-mcp
+# Run your original docker run command
+docker image prune -f
+```
+
+### One-Time Update with Watchtower
+
+```bash
+docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --run-once \
+  brave-search-mcp
 ```
 
 ---
@@ -663,222 +434,142 @@ services:
 
 ### Pre-Flight Checklist
 
-- ✅ Docker 23.0+
-- ✅ Valid Brave Search API key
+- ✅ Docker Engine 23.0+
 - ✅ Port 8040 available
-- ✅ Network connectivity
+- ✅ Sufficient startup time (ARM devices)
 - ✅ Latest stable image
+- ✅ Correct configuration
 
 ### Common Issues
 
-**Container Won't Start - Missing API Key**
-```bash
-# Check logs for API key error
-docker logs brave-search-mcp
+#### Container Won't Start
 
-# Error: "BRAVE_API_KEY environment variable is REQUIRED"
-# Solution: Set BRAVE_API_KEY in your docker-compose.yml or docker run command
-docker run -e BRAVE_API_KEY=your-key-here ...
-```
-
-**Container Won't Start - Other Issues**
 ```bash
+# Check Docker version
+docker --version
+
+# Verify port availability
+sudo netstat -tulpn | grep 8040
+
 # Check logs
 docker logs brave-search-mcp
-
-# Pull latest image
-docker pull mekayelanik/brave-search-mcp:stable
-
-# Restart container
-docker restart brave-search-mcp
 ```
 
-**Connection Refused**
-```bash
-# Verify container is running
-docker ps | grep brave-search-mcp
-
-# Check port binding
-docker port brave-search-mcp
-
-# Test health endpoint
-curl http://localhost:8040/healthz
-```
-
-**API Key Issues**
-```bash
-# Verify API key is set correctly
-docker exec brave-search-mcp env | grep BRAVE_API_KEY
-
-# Test API key validity (check Brave API dashboard)
-# Ensure key has proper permissions and quota
-```
-
-**CORS Errors**
-```yaml
-# Development - allow all
-environment:
-  - CORS=*
-
-# Production - specific origins
-environment:
-  - CORS=https://yourdomain.com,https://app.yourdomain.com
-```
-
-**Tool Access Issues**
-```yaml
-# Enable specific tools only
-environment:
-  - BRAVE_MCP_ENABLED_TOOLS=brave_web_search,brave_news_search
-
-# Or disable specific tools
-environment:
-  - BRAVE_MCP_DISABLED_TOOLS=brave_image_search
-```
-
-**Debug Mode**
-```yaml
-# Enable verbose debugging
-environment:
-  - DEBUG_MODE=verbose
-  - BRAVE_MCP_LOG_LEVEL=debug
-
-# Then check logs
-docker logs -f brave-search-mcp
-```
-
-### Health Check Testing
+#### Permission Errors
 
 ```bash
-# Basic health check
-curl http://localhost:8040/healthz
+# Get your IDs
+id $USER
 
-# Test MCP endpoint
+# Update configuration with correct PUID/PGID
+# Fix volume permissions if needed
+sudo chown -R 1000:1000 /path/to/volume
+```
+
+#### Client Cannot Connect
+
+```bash
+# Test connectivity
 curl http://localhost:8040/mcp
+curl http://host-ip:8040/mcp
+curl -k https://localhost:8040/mcp
+curl -k https://host-ip:8040/mcp
 
-# Test with tool listing
-curl -X POST http://localhost:8040/mcp \
-  -H "Content-Type: application/json" \
-  -d '{"method":"tools/list"}'
+# Check firewall
+sudo ufw status
+
+# Verify container
+docker inspect brave-search-mcp | grep IPAddress
+```
+
+#### Slow ARM Performance
+
+- Wait 30-60 seconds after start
+- Monitor: `docker logs -f brave-search-mcp`
+- Check resources: `docker stats brave-search-mcp`
+- Use faster storage (SSD vs SD card)
+
+### Debug Information
+
+When reporting issues, include:
+
+```bash
+# System info
+docker --version && uname -a
+
+# Container logs
+docker logs brave-search-mcp --tail 200 > logs.txt
+
+# Container config
+docker inspect brave-search-mcp > inspect.json
 ```
 
 ---
 
-## Resources & Support
+## Additional Resources
 
 ### Documentation
+- 📚 [Brave Search Official Docs](https://github.com/nicholasgriffintn/brave-search-mcp-server)
 - 📦 [NPM Package](https://www.npmjs.com/package/@brave/brave-search-mcp-server)
-- 🔧 [GitHub Repository](https://github.com/mekayelanik/brave-search-mcp-docker)
-- 🐳 [Docker Hub](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
-- 🔑 [Brave Search API](https://brave.com/search/api/)
+- 🔧 [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 
-### MCP Resources
-- 📘 [MCP Protocol Specification](https://modelcontextprotocol.io)
-- 🎓 [MCP Documentation](https://modelcontextprotocol.io/docs)
-- 💬 [MCP Community](https://discord.gg/mcp)
+### Docker Resources
+- 🐳 [Docker Compose Best Practices](https://docs.docker.com/compose/production/)
+- 🌐 [Docker Networking](https://docs.docker.com/network/)
+- 🛡️ [Docker Security](https://docs.docker.com/engine/security/)
+
+### Monitoring
+- 📊 [Diun - Update Notifier](https://crazymax.dev/diun/)
+- ⚡ [Watchtower](https://containrrr.dev/watchtower/)
+
+---
+
+## 😎 Buy Me a Coffee ☕︎
+**Your support encourages me to keep creating/supporting my open-source projects.** If you found value in this project, you can buy me a coffee to keep me inspired.
+
+<p align="center">
+  <a href="https://07mekayel07.gumroad.com/coffee" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="217" height="60">
+  </a>
+</p>
+
+## Support & License
 
 ### Getting Help
 
 **Docker Image Issues:**
-- [GitHub Issues](https://github.com/mekayelanik/brave-search-mcp-docker/issues)
-- [Discussions](https://github.com/mekayelanik/brave-search-mcp-docker/discussions)
+- GitHub: [brave-search-mcp-docker/issues](https://github.com/MekayelAnik/brave-search-mcp/issues)
 
-**General Questions:**
-- Check logs: `docker logs brave-search-mcp`
-- Test health: `curl http://localhost:8040/healthz`
-- Review configuration in this README
+**Brave Search MCP Issues:**
+- GitHub: [nicholasgriffintn/brave-search-mcp-server/issues](https://github.com/nicholasgriffintn/brave-search-mcp-server/issues)
+- Website: [brave.com/search/api](https://brave.com/search/api/)
 
-### Updating
+### Contributing
 
-```bash
-# Docker Compose
-docker compose pull
-docker compose up -d
+We welcome contributions:
+1. Report bugs via GitHub Issues
+2. Suggest features
+3. Improve documentation
+4. Test beta releases
 
-# Docker CLI
-docker pull mekayelanik/brave-search-mcp:stable
-docker stop brave-search-mcp
-docker rm brave-search-mcp
-# Re-run your docker run command
-```
+### License
 
-### Version Pinning
+GPL License. See [LICENSE](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE) for details.
 
-```yaml
-# Use specific version
-services:
-  brave-search-mcp:
-    image: mekayelanik/brave-search-mcp:1.0.0
-
-# Or use stable tag (recommended)
-services:
-  brave-search-mcp:
-    image: mekayelanik/brave-search-mcp:stable
-```
+Brave Search MCP server has its own license - see [Main NPM repo](https://github.com/nicholasgriffintn/brave-search-mcp-server).
 
 ---
 
-## Performance Tips
+### Major Changes
 
-### Optimize for Speed
+<ul>
+  <li><strong>Initial Release:</strong> Full CI/CD pipeline with HAProxy, HTTPS/TLS, QUIC/HTTP3, API key auth</li>
+</ul>
 
-```yaml
-environment:
-  - BRAVE_MCP_LOG_LEVEL=error          # Minimal logging
-  - BRAVE_MCP_ENABLED_TOOLS=brave_web_search,brave_news_search  # Only needed tools
-```
-
-### Resource Limits
-
-```yaml
-deploy:
-  resources:
-    limits:
-      cpus: '1.0'
-      memory: 512M
-    reservations:
-      cpus: '0.5'
-      memory: 256M
-```
-
----
-
-## Security Best Practices
-
-1. **Never expose your API key** in public repositories or logs
-2. **Never use `CORS=*` in production**
-3. **Use environment files** for sensitive configuration
-4. **Enable only required tools** using `BRAVE_MCP_ENABLED_TOOLS`
-5. **Use reverse proxy** with rate limiting for public deployments
-6. **Monitor API usage** through Brave API dashboard
-7. **Keep Docker image updated**
-8. **Use specific version tags** for production
-9. **Run as non-root** (default PUID/PGID)
-10. **Implement proper logging** levels based on environment
-
----
-
-## API Rate Limits
-
-Brave Search API has different rate limits based on your plan:
-
-- **Free Plan:** Limited requests per month
-- **Pro Plan:** Higher limits with advanced features
-
-Monitor your usage in the [Brave API Dashboard](https://brave.com/search/api/)
-
----
-
-## License
-
-GPL License - See [LICENSE](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE) for details.
-
-**Disclaimer:** Unofficial Docker image for [@brave/brave-search-mcp-server](https://www.npmjs.com/package/@brave/brave-search-mcp-server). Users are responsible for compliance with the Brave Search API terms of service and applicable laws.
-
----
+<p></p>
 
 <div align="center">
 
-[Report Docker Image Bug](https://github.com/mekayelanik/brave-search-mcp-docker/issues) • [Request Feature](https://github.com/mekayelanik/brave-search-mcp-docker/issues) • [Contribute](https://github.com/mekayelanik/brave-search-mcp-docker/pulls)
+[⬆ Back to Top](#brave-search-mcp-server)
 
 </div>
