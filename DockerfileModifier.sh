@@ -1,16 +1,13 @@
 #!/bin/bash
-set -ex
+set -euxo pipefail
 # Set variables first
 REPO_NAME='brave-search-mcp'
 BASE_IMAGE=$(cat ./build_data/base-image 2>/dev/null || echo "node:current-alpine")
-BRAVE_SEARCH_MCP_VERSION=$(cat ./build_data/version 2>/dev/null || exit 1)
-SUPERGATEWAY_REPO=$(cat ./build_data/supergateway_repo 2>/dev/null || echo "supergateway")
-SUPERGATEWAY_VERSION=$(cat ./build_data/supergateway_version 2>/dev/null || echo "latest")
-BRAVE_SEARCH_MCP_REPO="@brave/brave-search-mcp-server"
-BRAVE_SEARCH_MCP_PKG="${BRAVE_SEARCH_MCP_REPO}@${BRAVE_SEARCH_MCP_VERSION}"
-SUPERGATEWAY_PKG="${SUPERGATEWAY_REPO}@${SUPERGATEWAY_VERSION}"
+HAPROXY_IMAGE=$(cat ./build_data/haproxy-image 2>/dev/null || echo "haproxy:lts-alpine")
+BRAVE_SEARCH_VERSION=$(cat ./build_data/version 2>/dev/null || exit 1)
+BRAVE_SEARCH_MCP_PKG="@brave/brave-search-mcp-server@${BRAVE_SEARCH_VERSION}"
+SUPERGATEWAY_PKG='supergateway@latest'
 DOCKERFILE_NAME="Dockerfile.$REPO_NAME"
-OTHER_NPM_DEPENDENCIES=$(cat ./build_data/npm_dependencies 2>/dev/null || echo "")
 
 # Create a temporary file safely
 TEMP_FILE=$(mktemp "${DOCKERFILE_NAME}.XXXXXX") || {
@@ -23,76 +20,73 @@ if [ -e ./build_data/publication ]; then
     # For publication builds, create a minimal Dockerfile that just tags the existing image
     {
         echo "ARG BASE_IMAGE=$BASE_IMAGE"
+        echo "ARG BRAVE_SEARCH_VERSION=$BRAVE_SEARCH_VERSION"
         echo "FROM $BASE_IMAGE"
     } > "$TEMP_FILE"
 else
     # Write the Dockerfile content to the temporary file first
     {
         echo "ARG BASE_IMAGE=$BASE_IMAGE"
+        echo "ARG BRAVE_SEARCH_VERSION=$BRAVE_SEARCH_VERSION"
         cat << EOF
+FROM $HAPROXY_IMAGE AS haproxy-src
 FROM $BASE_IMAGE AS build
 
 # Author info:
 LABEL org.opencontainers.image.authors="MOHAMMAD MEKAYEL ANIK <mekayel.anik@gmail.com>"
-LABEL org.opencontainers.image.description="Brave Search MCP Server - Comprehensive search capabilities via Brave Search API"
 LABEL org.opencontainers.image.source="https://github.com/mekayelanik/brave-search-mcp-docker"
 
 # Copy the entrypoint script into the container and make it executable
 COPY ./resources/ /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/banner.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/banner.sh \
+    && if [ -f /usr/local/bin/build-timestamp.txt ]; then chmod +r /usr/local/bin/build-timestamp.txt; fi \
+    && mkdir -p /etc/haproxy \
+    && mv -vf /usr/local/bin/haproxy.cfg.template /etc/haproxy/haproxy.cfg.template \
+    && ls -la /etc/haproxy/haproxy.cfg.template
 
 # Install required APK packages
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories && \
     echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk --update-cache --no-cache add bash shadow su-exec tzdata bc && \
+    apk --update-cache --no-cache add bash shadow su-exec tzdata haproxy netcat-openbsd openssl && \
     rm -rf /var/cache/apk/*
 
-# Create node user with specific UID/GID if they don't exist
-RUN if ! id -u node >/dev/null 2>&1; then \
-        addgroup -g 1000 node && \
-        adduser -u 1000 -G node -D node; \
-    fi
+# HAProxy with native QUIC/H3 support from official image
+COPY --from=haproxy-src /usr/local/sbin/haproxy /usr/sbin/haproxy
+RUN mkdir -p /usr/local/sbin && ln -sf /usr/sbin/haproxy /usr/local/sbin/haproxy
 
-# Install Brave Search MCP server
-RUN echo "Installing Brave Search MCP server: ${BRAVE_SEARCH_MCP_PKG}" && \
-    npm install -g ${BRAVE_SEARCH_MCP_PKG} --loglevel verbose && \
-    echo "Package installed successfully"
+# Check if package exists before installing
+RUN echo "Checking if package exists: ${BRAVE_SEARCH_MCP_PKG}" && \
+    if npm view ${BRAVE_SEARCH_MCP_PKG} >/dev/null 2>&1; then \
+        echo "Package found, installing..." && \
+        npm install -g ${BRAVE_SEARCH_MCP_PKG} --omit=dev --no-audit --no-fund --loglevel error && \
+        echo "Package installed successfully"; \
+    else \
+        echo "ERROR: Package ${BRAVE_SEARCH_MCP_PKG} not found in registry!" >&2; \
+        echo "Available versions:" && \
+        npm view @brave/brave-search-mcp-server versions --json | tr -d '\[\],' | tr '"' '\n' | grep -v '^$' | head -10; \
+        exit 1; \
+    fi
 
 # Install Supergateway
 RUN echo "Installing Supergateway..." && \
-    npm install -g ${SUPERGATEWAY_PKG} --loglevel verbose && \
-    npm cache clean --force
+    npm install -g ${SUPERGATEWAY_PKG} --omit=dev --no-audit --no-fund --loglevel error && \
+    npm cache clean --force && \
+    rm -rf /root/.npm /tmp/* /var/tmp/* && \
+    rm -rf /usr/local/lib/node_modules/npm/man /usr/local/lib/node_modules/npm/docs /usr/local/lib/node_modules/npm/html
 
-EOF
-
-        # Add Other NPM Dependencies if they exist
-        if [ -n "$OTHER_NPM_DEPENDENCIES" ]; then
-            cat << EOF
-# Install Other NPM Dependencies
-RUN echo "Installing other NPM Dependencies: ${OTHER_NPM_DEPENDENCIES}" && \
-    npm install -g ${OTHER_NPM_DEPENDENCIES} --loglevel verbose && \
-    echo "Packages installed successfully"
-
-EOF
-        fi
-
-        cat << EOF
 # Use an ARG for the default port
-ARG PORT=8040
+ARG PORT=8010
+
+# Add ARG for API key
+ARG API_KEY=""
 
 # Set an ENV variable from the ARG for runtime
 ENV PORT=\${PORT}
+ENV API_KEY=\${API_KEY}
 
-# Brave Search specific environment variables with defaults
-ENV BRAVE_MCP_TRANSPORT=stdio
-ENV BRAVE_MCP_LOG_LEVEL=info
-
-# Expose the port
-EXPOSE \${PORT}
-
-# Health check using nc (netcat) to check if the port is open
+# L7 health check: auto-detects HTTP/HTTPS via ENABLE_HTTPS env var
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \\
-    CMD nc -z localhost \${PORT:-8040} || exit 1
+    CMD sh -c 'wget -q --spider --no-check-certificate \$([ "\$ENABLE_HTTPS" = "true" ] && echo https || echo http)://127.0.0.1:\${PORT:-8040}/healthz'
 
 # Set the entrypoint
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

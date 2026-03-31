@@ -1,0 +1,73 @@
+#0 building with "ultra-optimized" instance using docker-container driver
+
+#1 [internal] load build definition from Dockerfile.brave-search-mcp
+#1 transferring dockerfile: 146B done
+#1 DONE 0.0s
+
+#2 [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.67
+#2 ...
+
+#3 [linux/arm64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.67
+#3 DONE 2.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#2 [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.67
+#2 DONE 2.7s
+
+#5 importing cache manifest from mekayelanik/brave-search-mcp:buildcache-2.0.67
+#5 ...
+
+#6 [linux/arm64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed
+#6 resolve docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed done
+#6 DONE 0.0s
+
+#7 [linux/amd64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed
+#7 resolve docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed done
+#7 DONE 0.0s
+
+#8 [auth] mekayelanik/brave-search-mcp:pull token for registry-1.docker.io
+#8 DONE 0.0s
+
+#5 importing cache manifest from mekayelanik/brave-search-mcp:buildcache-2.0.67
+#5 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+#5 DONE 9.3s
+
+#7 [linux/amd64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed
+#7 ...
+
+#6 [linux/arm64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed
+#6 DONE 0.6s
+
+#7 [linux/amd64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.67@sha256:40ac9cfcfb6c4cb6112dbcc5b9ac71adf941cbef03bb7fb4346775e37401faed
+#7 DONE 0.6s
+
+#9 exporting to image
+#9 exporting layers 0.1s done
+#9 preparing layers for inline cache
+#9 preparing layers for inline cache 0.1s done
+#9 exporting manifest sha256:2a9c75230d02a22403b37146b64ecde3eecc79499e876f895330fdc413ca423c 0.0s done
+#9 exporting config sha256:1e793729080bd7f6b75c786e950b80a57319e5c2d7f4348e4f43c71af8524666 0.0s done
+#9 exporting manifest sha256:3526c584ede6081d4b43c9c135f949e280ce1b918d1e07e24df3fc0c6880fcb6 0.0s done
+#9 exporting config sha256:dd5263242418b9cdd5d5e01dfc3e565a5e4e550b36b5638ca40156862d8ee956 done
+#9 exporting manifest list sha256:23dc60bf9f9b2ec52330cc58cb0445866968dfeb7c8923c583ad5da1205c5ae6 done
+#9 pushing layers
+#9 ...
+
+#10 [auth] mekayelanik/brave-search-mcp:pull,push token for registry-1.docker.io
+#10 DONE 0.0s
+
+#9 exporting to image
+#9 pushing layers 4.5s done
+#9 pushing manifest for docker.io/mekayelanik/brave-search-mcp:latest@sha256:23dc60bf9f9b2ec52330cc58cb0445866968dfeb7c8923c583ad5da1205c5ae6
+#9 pushing manifest for docker.io/mekayelanik/brave-search-mcp:latest@sha256:23dc60bf9f9b2ec52330cc58cb0445866968dfeb7c8923c583ad5da1205c5ae6 4.2s done
+#9 DONE 9.3s
+
+#11 exporting cache to registry
+#11 preparing build cache for export
+#11 preparing build cache for export done
+#11 skipping cache export for empty result done
+#11 DONE 0.0s
+WARNING: current commit information was not captured by the build: failed to read current commit information with git rev-parse --is-inside-work-tree

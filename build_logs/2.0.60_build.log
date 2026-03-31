@@ -1,0 +1,1576 @@
+#0 building with "ultra-optimized" instance using docker-container driver
+
+#1 [internal] load build definition from Dockerfile.brave-search-mcp
+#1 transferring dockerfile: 2.02kB done
+#1 DONE 0.0s
+
+#2 [linux/amd64 internal] load metadata for docker.io/library/node:alpine
+#2 DONE 0.3s
+
+#3 [linux/arm64 internal] load metadata for docker.io/library/node:alpine
+#3 ...
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#3 [linux/arm64 internal] load metadata for docker.io/library/node:alpine
+#3 DONE 0.5s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 resolve docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea done
+#6 DONE 0.0s
+
+#7 importing cache manifest from mekayelanik/brave-search-mcp:buildcache-2.0.60
+#7 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+#7 DONE 1.9s
+
+#5 [internal] load build context
+#5 transferring context: 24.69kB 0.1s done
+#5 DONE 0.1s
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 resolve docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea 0.0s done
+#8 DONE 0.4s
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 DONE 0.5s
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:bea030fe9ca2b229f61975f09d13ac2ff8c62e6d471451d8fcb8fa4f6ea8f954 445B / 445B 0.2s done
+#8 sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d 0B / 1.26MB 0.2s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 0B / 51.97MB 0.2s
+#8 sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 0B / 4.14MB 0.2s
+#8 sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d 1.05MB / 1.26MB 1.4s
+#8 sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d 1.26MB / 1.26MB 1.4s done
+#8 sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 1.05MB / 4.14MB 2.0s
+#8 sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 2.10MB / 4.14MB 4.1s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 2.10MB / 51.97MB 5.3s
+#8 sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 3.15MB / 4.14MB 8.1s
+#8 ...
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 sha256:a0f86d2dac629e40e5be1dbd5f1cfcbb29ea8b5acf4a39c1a4c407b1ba4a4bcb 446B / 446B 0.2s done
+#6 sha256:28442a143f7161225d91af5f68a9f6d101d0623d1cf924cd6d18264b1fd7f108 0B / 1.26MB 9.8s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 4.19MB / 52.14MB 8.7s
+#6 ...
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 4.19MB / 51.97MB 10.4s
+#8 sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 4.14MB / 4.14MB 11.1s done
+#8 extracting sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 0.1s done
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 6.29MB / 51.97MB 15.5s
+#8 ...
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 sha256:28442a143f7161225d91af5f68a9f6d101d0623d1cf924cd6d18264b1fd7f108 1.26MB / 1.26MB 16.0s done
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 10.49MB / 52.14MB 15.9s
+#6 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 1.05MB / 3.80MB 6.3s
+#6 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 2.10MB / 3.80MB 6.6s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 13.63MB / 52.14MB 18.3s
+#6 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 3.15MB / 3.80MB 9.6s
+#6 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 3.80MB / 3.80MB 10.2s done
+#6 extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 0.1s done
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 16.78MB / 52.14MB 22.5s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 19.92MB / 52.14MB 24.8s
+#6 ...
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 13.63MB / 51.97MB 27.6s
+#8 ...
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 23.07MB / 52.14MB 27.0s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 26.21MB / 52.14MB 29.3s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 29.36MB / 52.14MB 32.0s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 32.51MB / 52.14MB 34.7s
+#6 ...
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 19.92MB / 51.97MB 37.8s
+#8 ...
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 35.65MB / 52.14MB 37.1s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 38.80MB / 52.14MB 39.6s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 41.94MB / 52.14MB 42.3s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 45.09MB / 52.14MB 44.7s
+#6 ...
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 28.31MB / 51.97MB 48.0s
+#8 ...
+
+#6 [linux/amd64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 48.23MB / 52.14MB 47.6s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 51.38MB / 52.14MB 49.8s
+#6 sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 52.14MB / 52.14MB 50.4s done
+#6 extracting sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77
+#6 extracting sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 0.8s done
+#6 extracting sha256:28442a143f7161225d91af5f68a9f6d101d0623d1cf924cd6d18264b1fd7f108 0.0s done
+#6 extracting sha256:a0f86d2dac629e40e5be1dbd5f1cfcbb29ea8b5acf4a39c1a4c407b1ba4a4bcb done
+#6 DONE 53.1s
+
+#9 [linux/amd64 2/7] COPY ./resources/ /usr/local/bin/
+#9 DONE 2.5s
+
+#10 [linux/amd64 3/7] RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/banner.sh
+#10 DONE 1.2s
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 40.89MB / 51.97MB 56.3s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 44.04MB / 51.97MB 58.2s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 47.19MB / 51.97MB 59.9s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 50.33MB / 51.97MB 57.1s
+#8 sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 51.97MB / 51.97MB 58.0s done
+#8 extracting sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea
+#8 extracting sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 3.9s done
+#8 DONE 62.3s
+
+#11 [linux/amd64 4/7] RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories &&     echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&     apk --update-cache --no-cache add bash shadow su-exec tzdata bc &&     rm -rf /var/cache/apk/*
+#11 0.956 fetch https://dl-cdn.alpinelinux.org/alpine/edge/main/x86_64/APKINDEX.tar.gz
+#11 1.764 fetch https://dl-cdn.alpinelinux.org/alpine/edge/community/x86_64/APKINDEX.tar.gz
+#11 5.359 (1/13) Installing ncurses-terminfo-base (6.5_p20251123-r0)
+#11 5.404 (2/13) Installing libncursesw (6.5_p20251123-r0)
+#11 5.450 (3/13) Installing readline (8.3.1-r0)
+#11 ...
+
+#8 [linux/arm64 1/7] FROM docker.io/library/node:alpine@sha256:26ded7f450a0ad37241d2ae97ea521a59cb551a1785c8a950f74b0a291ad3aea
+#8 extracting sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d 0.0s done
+#8 extracting sha256:bea030fe9ca2b229f61975f09d13ac2ff8c62e6d471451d8fcb8fa4f6ea8f954 done
+#8 DONE 62.3s
+
+#11 [linux/amd64 4/7] RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories &&     echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&     apk --update-cache --no-cache add bash shadow su-exec tzdata bc &&     rm -rf /var/cache/apk/*
+#11 5.491 (4/13) Installing bash (5.3.3-r1)
+#11 ...
+
+#12 [linux/arm64 2/7] COPY ./resources/ /usr/local/bin/
+#12 DONE 2.9s
+
+#11 [linux/amd64 4/7] RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories &&     echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&     apk --update-cache --no-cache add bash shadow su-exec tzdata bc &&     rm -rf /var/cache/apk/*
+#11 8.132 Executing bash-5.3.3-r1.post-install
+#11 8.295 (5/13) Installing bc (1.08.2-r0)
+#11 8.371 (6/13) Installing libmd (1.1.0-r0)
+#11 8.411 (7/13) Installing libbsd (0.12.2-r0)
+#11 8.450 (8/13) Installing skalibs-libs (2.14.4.0-r0)
+#11 8.491 (9/13) Installing utmps-libs (0.1.3.1-r0)
+#11 8.529 (10/13) Installing linux-pam (1.7.1-r1)
+#11 8.614 (11/13) Installing shadow (4.18.0-r0)
+#11 8.664 (12/13) Installing su-exec (0.3-r0)
+#11 8.703 (13/13) Installing tzdata (2025b-r0)
+#11 8.820 Executing busybox-1.37.0-r19.trigger
+#11 8.830 OK: 15 MiB in 31 packages
+#11 DONE 9.1s
+
+#13 [linux/arm64 3/7] RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/banner.sh
+#13 ...
+
+#14 [linux/amd64 5/7] RUN if ! id -u node >/dev/null 2>&1; then         addgroup -g 1000 node &&         adduser -u 1000 -G node -D node;     fi
+#14 DONE 0.9s
+
+#13 [linux/arm64 3/7] RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/banner.sh
+#13 DONE 1.6s
+
+#15 [linux/amd64 6/7] RUN echo "Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60" &&     npm install -g @brave/brave-search-mcp-server@2.0.60 --loglevel verbose &&     echo "Package installed successfully"
+#15 0.146 Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60
+#15 0.321 npm verbose cli /usr/local/bin/node /usr/local/bin/npm
+#15 0.321 npm info using npm@11.6.2
+#15 0.321 npm info using node@v25.2.1
+#15 0.326 npm verbose title npm install @brave/brave-search-mcp-server@2.0.60
+#15 0.326 npm verbose argv "install" "--global" "@brave/brave-search-mcp-server@2.0.60" "--loglevel" "verbose"
+#15 0.327 npm verbose logfile logs-max:10 dir:/root/.npm/_logs/2025-11-26T03_23_18_827Z-
+#15 0.328 npm verbose logfile /root/.npm/_logs/2025-11-26T03_23_18_827Z-debug-0.log
+#15 0.758 npm http fetch GET 200 https://registry.npmjs.org/npm 158ms
+#15 2.832 npm http fetch GET 200 https://registry.npmjs.org/@brave%2fbrave-search-mcp-server 2189ms (cache miss)
+#15 2.875 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol%2fsdk 36ms (cache miss)
+#15 2.917 npm http fetch GET 200 https://registry.npmjs.org/dotenv 77ms (cache miss)
+#15 2.930 npm http fetch GET 200 https://registry.npmjs.org/zod 89ms (cache miss)
+#15 2.971 npm http fetch GET 200 https://registry.npmjs.org/express 131ms (cache miss)
+#15 3.078 npm http fetch GET 200 https://registry.npmjs.org/commander 239ms (cache miss)
+#15 3.529 npm http fetch GET 200 https://registry.npmjs.org/@cfworker%2fjson-schema 447ms (cache miss)
+#15 3.545 npm http cache https://registry.npmjs.org/express 9ms (cache hit)
+#15 3.553 npm http cache https://registry.npmjs.org/zod 18ms (cache hit)
+#15 3.585 npm http fetch GET 200 https://registry.npmjs.org/cors 49ms (cache miss)
+#15 3.590 npm http fetch GET 200 https://registry.npmjs.org/raw-body 54ms (cache miss)
+#15 3.598 npm http fetch GET 200 https://registry.npmjs.org/ajv-formats 62ms (cache miss)
+#15 3.605 npm http fetch GET 200 https://registry.npmjs.org/ajv 70ms (cache miss)
+#15 3.614 npm http fetch GET 200 https://registry.npmjs.org/pkce-challenge 28ms (cache miss)
+#15 3.618 npm http fetch GET 200 https://registry.npmjs.org/cross-spawn 82ms (cache miss)
+#15 3.626 npm http fetch GET 200 https://registry.npmjs.org/eventsource 76ms (cache miss)
+#15 3.630 npm http fetch GET 200 https://registry.npmjs.org/content-type 57ms (cache miss)
+#15 3.643 npm http fetch GET 200 https://registry.npmjs.org/etag 23ms (cache miss)
+#15 3.645 npm http fetch GET 200 https://registry.npmjs.org/qs 30ms (cache miss)
+#15 3.651 npm http fetch GET 200 https://registry.npmjs.org/zod-to-json-schema 40ms (cache miss)
+#15 3.657 npm http fetch GET 200 https://registry.npmjs.org/send 26ms (cache miss)
+#15 3.661 npm http fetch GET 200 https://registry.npmjs.org/once 32ms (cache miss)
+#15 3.667 npm http fetch GET 200 https://registry.npmjs.org/vary 22ms (cache miss)
+#15 3.684 npm http fetch GET 200 https://registry.npmjs.org/cookie 24ms (cache miss)
+#15 3.690 npm http fetch GET 200 https://registry.npmjs.org/router 28ms (cache miss)
+#15 3.692 npm http fetch GET 200 https://registry.npmjs.org/fresh 40ms (cache miss)
+#15 3.708 npm http fetch GET 200 https://registry.npmjs.org/eventsource-parser 116ms (cache miss)
+#15 3.712 npm http fetch GET 200 https://registry.npmjs.org/type-is 26ms (cache miss)
+#15 3.714 npm http fetch GET 200 https://registry.npmjs.org/parseurl 23ms (cache miss)
+#15 3.727 npm http fetch GET 200 https://registry.npmjs.org/express-rate-limit 127ms (cache miss)
+#15 3.736 npm http fetch GET 200 https://registry.npmjs.org/proxy-addr 21ms (cache miss)
+#15 3.741 npm http fetch GET 200 https://registry.npmjs.org/statuses 48ms (cache miss)
+#15 3.746 npm http fetch GET 200 https://registry.npmjs.org/mime-types 33ms (cache miss)
+#15 3.768 npm http fetch GET 200 https://registry.npmjs.org/debug 120ms (cache miss)
+#15 3.773 npm http fetch GET 200 https://registry.npmjs.org/on-finished 24ms (cache miss)
+#15 3.785 npm http fetch GET 200 https://registry.npmjs.org/accepts 118ms (cache miss)
+#15 3.790 npm http fetch GET 200 https://registry.npmjs.org/http-errors 47ms (cache miss)
+#15 3.796 npm http fetch GET 200 https://registry.npmjs.org/range-parser 22ms (cache miss)
+#15 3.818 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors 21ms (cache miss)
+#15 3.830 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature 39ms (cache miss)
+#15 3.841 npm http fetch GET 200 https://registry.npmjs.org/content-disposition 22ms (cache miss)
+#15 3.842 npm http fetch GET 200 https://registry.npmjs.org/body-parser 112ms (cache miss)
+#15 3.846 npm http fetch GET 200 https://registry.npmjs.org/escape-html 109ms (cache miss)
+#15 3.863 npm http fetch GET 200 https://registry.npmjs.org/encodeurl 154ms (cache miss)
+#15 3.874 npm http fetch GET 200 https://registry.npmjs.org/finalhandler 103ms (cache miss)
+#15 3.918 npm http fetch GET 200 https://registry.npmjs.org/serve-static 131ms (cache miss)
+#15 3.935 npm http cache https://registry.npmjs.org/vary 5ms (cache hit)
+#15 ...
+
+#16 [linux/arm64 4/7] RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories &&     echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories &&     apk --update-cache --no-cache add bash shadow su-exec tzdata bc &&     rm -rf /var/cache/apk/*
+#16 0.589 fetch https://dl-cdn.alpinelinux.org/alpine/edge/main/aarch64/APKINDEX.tar.gz
+#16 1.303 fetch https://dl-cdn.alpinelinux.org/alpine/edge/community/aarch64/APKINDEX.tar.gz
+#16 2.584 (1/13) Installing ncurses-terminfo-base (6.5_p20251123-r0)
+#16 2.635 (2/13) Installing libncursesw (6.5_p20251123-r0)
+#16 2.702 (3/13) Installing readline (8.3.1-r0)
+#16 2.764 (4/13) Installing bash (5.3.3-r1)
+#16 2.905 Executing bash-5.3.3-r1.post-install
+#16 2.937 (5/13) Installing bc (1.08.2-r0)
+#16 2.988 (6/13) Installing libmd (1.1.0-r0)
+#16 3.031 (7/13) Installing libbsd (0.12.2-r0)
+#16 3.072 (8/13) Installing skalibs-libs (2.14.4.0-r0)
+#16 3.118 (9/13) Installing utmps-libs (0.1.3.1-r0)
+#16 3.158 (10/13) Installing linux-pam (1.7.1-r1)
+#16 3.236 (11/13) Installing shadow (4.18.0-r0)
+#16 3.323 (12/13) Installing su-exec (0.3-r0)
+#16 3.370 (13/13) Installing tzdata (2025b-r0)
+#16 3.522 Executing busybox-1.37.0-r19.trigger
+#16 3.564 OK: 21 MiB in 31 packages
+#16 DONE 3.9s
+
+#15 [linux/amd64 6/7] RUN echo "Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60" &&     npm install -g @brave/brave-search-mcp-server@2.0.60 --loglevel verbose &&     echo "Package installed successfully"
+#15 3.954 npm http fetch GET 200 https://registry.npmjs.org/which 24ms (cache miss)
+#15 3.956 npm http fetch GET 200 https://registry.npmjs.org/json-schema-traverse 26ms (cache miss)
+#15 3.959 npm http cache https://registry.npmjs.org/eventsource-parser 2ms (cache hit)
+#15 3.961 npm http fetch GET 200 https://registry.npmjs.org/path-key 25ms (cache miss)
+#15 3.963 npm http fetch GET 200 https://registry.npmjs.org/fast-deep-equal 34ms (cache miss)
+#15 3.970 npm http fetch GET 200 https://registry.npmjs.org/require-from-string 40ms (cache miss)
+#15 3.972 npm http cache https://registry.npmjs.org/http-errors 1ms (cache hit)
+#15 3.977 npm http fetch GET 200 https://registry.npmjs.org/object-assign 47ms (cache miss)
+#15 3.982 npm http fetch GET 200 https://registry.npmjs.org/bytes 21ms (cache miss)
+#15 3.984 npm http fetch GET 200 https://registry.npmjs.org/unpipe 22ms (cache miss)
+#15 3.986 npm http fetch GET 200 https://registry.npmjs.org/shebang-command 31ms (cache miss)
+#15 3.992 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite 28ms (cache miss)
+#15 4.084 npm http fetch GET 200 https://registry.npmjs.org/fast-uri 155ms (cache miss)
+#15 ...
+
+#17 [linux/arm64 5/7] RUN if ! id -u node >/dev/null 2>&1; then         addgroup -g 1000 node &&         adduser -u 1000 -G node -D node;     fi
+#17 DONE 0.1s
+
+#15 [linux/amd64 6/7] RUN echo "Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60" &&     npm install -g @brave/brave-search-mcp-server@2.0.60 --loglevel verbose &&     echo "Package installed successfully"
+#15 4.145 npm http fetch GET 200 https://registry.npmjs.org/isexe 52ms (cache miss)
+#15 4.944 npm http fetch GET 200 https://registry.npmjs.org/shebang-regex 851ms (cache miss)
+#15 4.973 npm http cache https://registry.npmjs.org/bytes 8ms (cache hit)
+#15 4.976 npm http cache https://registry.npmjs.org/debug 10ms (cache hit)
+#15 4.978 npm http cache https://registry.npmjs.org/iconv-lite 13ms (cache hit)
+#15 4.986 npm http cache https://registry.npmjs.org/statuses 8ms (cache hit)
+#15 4.992 npm http fetch GET 200 https://registry.npmjs.org/inherits 25ms (cache miss)
+#15 4.994 npm http fetch GET 200 https://registry.npmjs.org/depd 27ms (cache miss)
+#15 4.998 npm http fetch GET 200 https://registry.npmjs.org/negotiator 34ms (cache miss)
+#15 5.000 npm http fetch GET 200 https://registry.npmjs.org/ms 34ms (cache miss)
+#15 5.017 npm http fetch GET 200 https://registry.npmjs.org/setprototypeof 41ms (cache miss)
+#15 5.022 npm http fetch GET 200 https://registry.npmjs.org/forwarded 23ms (cache miss)
+#15 5.024 npm http fetch GET 200 https://registry.npmjs.org/ipaddr.js 22ms (cache miss)
+#15 5.026 npm http cache https://registry.npmjs.org/depd 3ms (cache hit)
+#15 5.030 npm http fetch GET 200 https://registry.npmjs.org/mime-db 43ms (cache miss)
+#15 5.055 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp 28ms (cache miss)
+#15 5.065 npm http fetch GET 200 https://registry.npmjs.org/toidentifier 85ms (cache miss)
+#15 5.070 npm http fetch GET 200 https://registry.npmjs.org/ee-first 77ms (cache miss)
+#15 5.074 npm http fetch GET 200 https://registry.npmjs.org/wrappy 79ms (cache miss)
+#15 5.104 npm http fetch GET 200 https://registry.npmjs.org/side-channel 85ms (cache miss)
+#15 5.132 npm http fetch GET 200 https://registry.npmjs.org/is-promise 107ms (cache miss)
+#15 5.143 npm http fetch GET 200 https://registry.npmjs.org/media-typer 111ms (cache miss)
+#15 5.171 npm http fetch GET 200 https://registry.npmjs.org/safer-buffer 25ms (cache miss)
+#15 5.206 npm http fetch GET 200 https://registry.npmjs.org/object-inspect 23ms (cache miss)
+#15 5.210 npm http fetch GET 200 https://registry.npmjs.org/side-channel-list 27ms (cache miss)
+#15 5.212 npm http fetch GET 200 https://registry.npmjs.org/side-channel-weakmap 28ms (cache miss)
+#15 5.218 npm http fetch GET 200 https://registry.npmjs.org/side-channel-map 35ms (cache miss)
+#15 5.286 npm http fetch GET 200 https://registry.npmjs.org/es-errors 103ms (cache miss)
+#15 5.317 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic 24ms (cache miss)
+#15 5.319 npm http fetch GET 200 https://registry.npmjs.org/call-bound 25ms (cache miss)
+#15 5.322 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic 28ms (cache miss)
+#15 5.417 npm http fetch GET 200 https://registry.npmjs.org/call-bound 124ms (cache miss)
+#15 5.427 npm http cache https://registry.npmjs.org/get-intrinsic 6ms (cache hit)
+#15 5.447 npm http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers 26ms (cache miss)
+#15 5.449 npm http fetch GET 200 https://registry.npmjs.org/get-proto 27ms (cache miss)
+#15 5.450 npm http fetch GET 200 https://registry.npmjs.org/function-bind 28ms (cache miss)
+#15 5.451 npm http fetch GET 200 https://registry.npmjs.org/has-symbols 29ms (cache miss)
+#15 5.474 npm http fetch GET 200 https://registry.npmjs.org/es-define-property 23ms (cache miss)
+#15 5.474 npm http fetch GET 200 https://registry.npmjs.org/math-intrinsics 26ms (cache miss)
+#15 5.556 npm http fetch GET 200 https://registry.npmjs.org/es-object-atoms 128ms (cache miss)
+#15 5.566 npm http fetch GET 200 https://registry.npmjs.org/hasown 145ms (cache miss)
+#15 5.578 npm http fetch GET 200 https://registry.npmjs.org/gopd 157ms (cache miss)
+#15 5.611 npm http fetch GET 200 https://registry.npmjs.org/dunder-proto 25ms (cache miss)
+#15 5.658 npm http cache @brave/brave-search-mcp-server@https://registry.npmjs.org/@brave/brave-search-mcp-server/-/brave-search-mcp-server-2.0.60.tgz 0ms (cache hit)
+#15 5.659 npm http cache isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 0ms (cache hit)
+#15 5.659 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 0ms (cache hit)
+#15 5.660 npm http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+#15 5.660 npm http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+#15 5.660 npm http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+#15 5.661 npm http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+#15 5.661 npm http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+#15 5.661 npm http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+#15 5.662 npm http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+#15 5.662 npm http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+#15 5.662 npm http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+#15 5.663 npm http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+#15 5.663 npm http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+#15 5.663 npm http cache call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 0ms (cache hit)
+#15 5.663 npm http cache side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 0ms (cache hit)
+#15 5.664 npm http cache side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 0ms (cache hit)
+#15 5.664 npm http cache object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 0ms (cache hit)
+#15 5.664 npm http cache side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 0ms (cache hit)
+#15 5.665 npm http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+#15 5.665 npm http cache is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 0ms (cache hit)
+#15 5.665 npm http cache shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 0ms (cache hit)
+#15 5.665 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 0ms (cache hit)
+#15 5.665 npm http cache unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 0ms (cache hit)
+#15 5.666 npm http cache side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 0ms (cache hit)
+#15 5.666 npm http cache ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 0ms (cache hit)
+#15 5.666 npm http cache forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 0ms (cache hit)
+#15 5.666 npm http cache wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 0ms (cache hit)
+#15 5.667 npm http cache ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 0ms (cache hit)
+#15 5.667 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 0ms (cache hit)
+#15 5.667 npm http cache safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 0ms (cache hit)
+#15 5.667 npm http cache toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 1ms (cache hit)
+#15 5.668 npm http cache setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 0ms (cache hit)
+#15 5.668 npm http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+#15 5.668 npm http cache depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 0ms (cache hit)
+#15 5.668 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#15 5.669 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#15 5.669 npm http cache bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 0ms (cache hit)
+#15 5.669 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 0ms (cache hit)
+#15 5.669 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 0ms (cache hit)
+#15 5.670 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 0ms (cache hit)
+#15 5.670 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 0ms (cache hit)
+#15 5.670 npm http cache send@https://registry.npmjs.org/send/-/send-1.2.0.tgz 0ms (cache hit)
+#15 5.670 npm http cache range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 0ms (cache hit)
+#15 5.671 npm http cache router@https://registry.npmjs.org/router/-/router-2.2.0.tgz 0ms (cache hit)
+#15 5.671 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 0ms (cache hit)
+#15 5.671 npm http cache proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 0ms (cache hit)
+#15 5.672 npm http cache parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 0ms (cache hit)
+#15 5.672 npm http cache once@https://registry.npmjs.org/once/-/once-1.4.0.tgz 0ms (cache hit)
+#15 5.672 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 0ms (cache hit)
+#15 5.672 npm http cache on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 0ms (cache hit)
+#15 5.673 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 0ms (cache hit)
+#15 5.673 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 0ms (cache hit)
+#15 5.673 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 0ms (cache hit)
+#15 5.674 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 0ms (cache hit)
+#15 5.674 npm http cache etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 0ms (cache hit)
+#15 5.674 npm http cache escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 0ms (cache hit)
+#15 5.675 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 0ms (cache hit)
+#15 5.675 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#15 5.675 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 0ms (cache hit)
+#15 5.676 npm http cache cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz 0ms (cache hit)
+#15 5.676 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 0ms (cache hit)
+#15 5.676 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 0ms (cache hit)
+#15 5.676 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 0ms (cache hit)
+#15 5.677 npm http cache which@https://registry.npmjs.org/which/-/which-2.0.2.tgz 0ms (cache hit)
+#15 5.677 npm http cache path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 0ms (cache hit)
+#15 5.677 npm http cache vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 0ms (cache hit)
+#15 5.678 npm http cache shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 0ms (cache hit)
+#15 5.678 npm http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+#15 5.678 npm http cache fast-uri@https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 0ms (cache hit)
+#15 5.679 npm http cache require-from-string@https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 0ms (cache hit)
+#15 5.679 npm http cache json-schema-traverse@https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 0ms (cache hit)
+#15 5.679 npm http cache fast-deep-equal@https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 0ms (cache hit)
+#15 5.679 npm http cache zod-to-json-schema@https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 0ms (cache hit)
+#15 5.680 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 0ms (cache hit)
+#15 5.680 npm http cache pkce-challenge@https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 0ms (cache hit)
+#15 5.680 npm http cache eventsource@https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 0ms (cache hit)
+#15 5.681 npm http cache eventsource-parser@https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 0ms (cache hit)
+#15 5.681 npm http cache express-rate-limit@https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 0ms (cache hit)
+#15 5.681 npm http cache cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 0ms (cache hit)
+#15 5.682 npm http cache cors@https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 0ms (cache hit)
+#15 5.682 npm http cache content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 0ms (cache hit)
+#15 5.682 npm http cache ajv@https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 0ms (cache hit)
+#15 5.682 npm http cache ajv-formats@https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 0ms (cache hit)
+#15 5.683 npm http cache zod@https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 0ms (cache hit)
+#15 5.683 npm http cache express@https://registry.npmjs.org/express/-/express-5.1.0.tgz 0ms (cache hit)
+#15 5.683 npm http cache dotenv@https://registry.npmjs.org/dotenv/-/dotenv-17.2.3.tgz 0ms (cache hit)
+#15 5.684 npm http cache commander@https://registry.npmjs.org/commander/-/commander-14.0.2.tgz 0ms (cache hit)
+#15 5.684 npm http cache @modelcontextprotocol/sdk@https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.22.0.tgz 0ms (cache hit)
+#15 5.817 npm http fetch GET 200 https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 129ms (cache miss)
+#15 5.818 npm http fetch GET 200 https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 132ms (cache miss)
+#15 5.821 npm http fetch GET 200 https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 129ms (cache miss)
+#15 5.822 npm http fetch GET 200 https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 133ms (cache miss)
+#15 5.823 npm http fetch GET 200 https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 136ms (cache miss)
+#15 5.825 npm http fetch GET 200 https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 138ms (cache miss)
+#15 5.836 npm http fetch GET 200 https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 144ms (cache miss)
+#15 5.836 npm http fetch GET 200 https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 143ms (cache miss)
+#15 5.865 npm http fetch GET 200 https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 171ms (cache miss)
+#15 5.872 npm http fetch GET 200 https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 184ms (cache miss)
+#15 5.893 npm http fetch GET 200 https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 200ms (cache miss)
+#15 5.893 npm http fetch GET 200 https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 198ms (cache miss)
+#15 5.900 npm http fetch GET 200 https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 206ms (cache miss)
+#15 5.904 npm http fetch GET 200 https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 214ms (cache miss)
+#15 5.904 npm http fetch GET 200 https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 215ms (cache miss)
+#15 5.905 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 211ms (cache miss)
+#15 5.911 npm http fetch GET 200 https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 221ms (cache miss)
+#15 5.918 npm http fetch GET 200 https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 223ms (cache miss)
+#15 5.926 npm http fetch GET 200 https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 228ms (cache miss)
+#15 5.927 npm http fetch GET 200 https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 232ms (cache miss)
+#15 5.928 npm http fetch GET 200 https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 236ms (cache miss)
+#15 5.935 npm http fetch GET 200 https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 237ms (cache miss)
+#15 5.942 npm http fetch GET 200 https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 245ms (cache miss)
+#15 5.942 npm http fetch GET 200 https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 246ms (cache miss)
+#15 5.947 npm http fetch GET 200 https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 250ms (cache miss)
+#15 5.947 npm http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 249ms (cache miss)
+#15 5.954 npm http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 255ms (cache miss)
+#15 5.954 npm http fetch GET 200 https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 250ms (cache miss)
+#15 5.958 npm http fetch GET 200 https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 262ms (cache miss)
+#15 5.962 npm http fetch GET 200 https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 261ms (cache miss)
+#15 5.963 npm http fetch GET 200 https://registry.npmjs.org/router/-/router-2.2.0.tgz 258ms (cache miss)
+#15 5.970 npm http fetch GET 200 https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 278ms (cache miss)
+#15 5.972 npm http fetch GET 200 https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 282ms (cache miss)
+#15 5.973 npm http fetch GET 200 https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 274ms (cache miss)
+#15 5.974 npm http fetch GET 200 https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 269ms (cache miss)
+#15 5.975 npm http fetch GET 200 https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 267ms (cache miss)
+#15 5.975 npm http fetch GET 200 https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 267ms (cache miss)
+#15 5.976 npm http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 285ms (cache miss)
+#15 5.977 npm http fetch GET 200 https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 275ms (cache miss)
+#15 5.977 npm http fetch GET 200 https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 271ms (cache miss)
+#15 5.979 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 271ms (cache miss)
+#15 5.979 npm http fetch GET 200 https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 269ms (cache miss)
+#15 5.980 npm http fetch GET 200 https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 269ms (cache miss)
+#15 5.981 npm http fetch GET 200 https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz 269ms (cache miss)
+#15 5.981 npm http fetch GET 200 https://registry.npmjs.org/once/-/once-1.4.0.tgz 275ms (cache miss)
+#15 5.983 npm http fetch GET 200 https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 283ms (cache miss)
+#15 5.983 npm http fetch GET 200 https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 281ms (cache miss)
+#15 5.984 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 293ms (cache miss)
+#15 5.985 npm http fetch GET 200 https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 272ms (cache miss)
+#15 5.987 npm http fetch GET 200 https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 276ms (cache miss)
+#15 5.987 npm http fetch GET 200 https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 284ms (cache miss)
+#15 5.988 npm http fetch GET 200 https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 276ms (cache miss)
+#15 5.989 npm http fetch GET 200 https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 280ms (cache miss)
+#15 5.990 npm http fetch GET 200 https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 275ms (cache miss)
+#15 5.990 npm http fetch GET 200 https://registry.npmjs.org/which/-/which-2.0.2.tgz 276ms (cache miss)
+#15 5.991 npm http fetch GET 200 https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 281ms (cache miss)
+#15 5.991 npm http fetch GET 200 https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 279ms (cache miss)
+#15 5.993 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 280ms (cache miss)
+#15 5.994 npm http fetch GET 200 https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 279ms (cache miss)
+#15 5.994 npm http fetch GET 200 https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 278ms (cache miss)
+#15 5.995 npm http fetch GET 200 https://registry.npmjs.org/send/-/send-1.2.0.tgz 292ms (cache miss)
+#15 5.997 npm http fetch GET 200 https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 299ms (cache miss)
+#15 5.997 npm http fetch GET 200 https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 280ms (cache miss)
+#15 6.003 npm http fetch GET 200 https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 286ms (cache miss)
+#15 6.004 npm http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 293ms (cache miss)
+#15 6.008 npm http fetch GET 200 https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 314ms (cache miss)
+#15 6.013 npm http fetch GET 200 https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 307ms (cache miss)
+#15 6.015 npm http fetch GET 200 https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 301ms (cache miss)
+#15 6.019 npm http fetch GET 200 https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 304ms (cache miss)
+#15 6.025 npm http fetch GET 200 https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 307ms (cache miss)
+#15 6.027 npm http fetch GET 200 https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 309ms (cache miss)
+#15 6.029 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 329ms (cache miss)
+#15 6.038 npm http fetch GET 200 https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 323ms (cache miss)
+#15 6.049 npm http fetch GET 200 https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 331ms (cache miss)
+#15 6.051 npm http fetch GET 200 https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 336ms (cache miss)
+#15 6.061 npm http fetch GET 200 https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 342ms (cache miss)
+#15 6.087 npm http fetch GET 200 https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 368ms (cache miss)
+#15 6.088 npm http fetch GET 200 https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 368ms (cache miss)
+#15 6.145 npm http fetch GET 200 https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 425ms (cache miss)
+#15 6.163 npm http fetch GET 200 https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 442ms (cache miss)
+#15 6.171 npm http fetch GET 200 https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 451ms (cache miss)
+#15 6.351 npm http fetch GET 200 https://registry.npmjs.org/express/-/express-5.1.0.tgz 629ms (cache miss)
+#15 6.363 npm http fetch GET 200 https://registry.npmjs.org/dotenv/-/dotenv-17.2.3.tgz 640ms (cache miss)
+#15 6.424 npm http fetch GET 200 https://registry.npmjs.org/commander/-/commander-14.0.2.tgz 701ms (cache miss)
+#15 6.530 npm http fetch GET 200 https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 809ms (cache miss)
+#15 6.902 npm http fetch GET 200 https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 1180ms (cache miss)
+#15 7.037 npm http fetch GET 200 https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 1320ms (cache miss)
+#15 7.091 npm http fetch GET 200 https://registry.npmjs.org/@brave/brave-search-mcp-server/-/brave-search-mcp-server-2.0.60.tgz 1406ms (cache miss)
+#15 7.097 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.22.0.tgz 1373ms (cache miss)
+#15 7.136 
+#15 7.136 added 89 packages in 7s
+#15 7.136 
+#15 7.136 24 packages are looking for funding
+#15 7.136   run `npm fund` for details
+#15 7.137 npm verbose cwd /
+#15 7.137 npm verbose os Linux 6.17.2-1-pve
+#15 7.137 npm verbose node v25.2.1
+#15 7.137 npm verbose npm  v11.6.2
+#15 7.139 npm notice
+#15 7.139 npm notice New patch version of npm available! 11.6.2 -> 11.6.4
+#15 7.139 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+#15 7.139 npm notice To update run: npm install -g npm@11.6.4
+#15 7.139 npm notice
+#15 7.139 npm verbose exit 0
+#15 7.139 npm info ok
+#15 7.219 Package installed successfully
+#15 DONE 8.2s
+
+#18 [linux/amd64 7/7] RUN echo "Installing Supergateway..." &&     npm install -g supergateway@latest --loglevel verbose &&     npm cache clean --force
+#18 0.147 Installing Supergateway...
+#18 0.245 npm verbose cli /usr/local/bin/node /usr/local/bin/npm
+#18 0.245 npm info using npm@11.6.2
+#18 0.245 npm info using node@v25.2.1
+#18 0.247 npm verbose title npm install supergateway@latest
+#18 0.247 npm verbose argv "install" "--global" "supergateway@latest" "--loglevel" "verbose"
+#18 0.247 npm verbose logfile logs-max:10 dir:/root/.npm/_logs/2025-11-26T03_23_26_965Z-
+#18 0.249 npm verbose logfile /root/.npm/_logs/2025-11-26T03_23_26_965Z-debug-0.log
+#18 0.524 npm http fetch GET 200 https://registry.npmjs.org/supergateway 85ms (cache miss)
+#18 0.558 npm http fetch GET 200 https://registry.npmjs.org/supergateway 30ms (cache miss)
+#18 0.583 npm http cache https://registry.npmjs.org/body-parser 20ms (cache hit)
+#18 0.588 npm http cache https://registry.npmjs.org/@modelcontextprotocol%2fsdk 26ms (cache hit)
+#18 0.591 npm http cache https://registry.npmjs.org/cors 28ms (cache hit)
+#18 0.593 npm http cache https://registry.npmjs.org/express 30ms (cache hit)
+#18 0.609 npm http cache https://registry.npmjs.org/zod 23ms (cache hit)
+#18 0.680 npm http fetch GET 200 https://registry.npmjs.org/yargs 115ms (cache miss)
+#18 0.686 npm http fetch GET 200 https://registry.npmjs.org/uuid 122ms (cache miss)
+#18 0.943 npm http fetch GET 200 https://registry.npmjs.org/ws 379ms (cache miss)
+#18 0.951 npm http cache https://registry.npmjs.org/@cfworker%2fjson-schema 2ms (cache hit)
+#18 0.999 npm http fetch GET 200 https://registry.npmjs.org/bufferutil 44ms (cache miss)
+#18 1.103 npm http fetch GET 200 https://registry.npmjs.org/utf-8-validate 103ms (cache miss)
+#18 1.119 npm http cache https://registry.npmjs.org/ajv-formats 9ms (cache hit)
+#18 1.121 npm http cache https://registry.npmjs.org/content-type 11ms (cache hit)
+#18 1.123 npm http cache https://registry.npmjs.org/ajv 13ms (cache hit)
+#18 1.130 npm http cache https://registry.npmjs.org/cross-spawn 19ms (cache hit)
+#18 1.132 npm http cache https://registry.npmjs.org/eventsource 21ms (cache hit)
+#18 1.135 npm http cache https://registry.npmjs.org/eventsource-parser 24ms (cache hit)
+#18 1.138 npm http cache https://registry.npmjs.org/express-rate-limit 26ms (cache hit)
+#18 1.149 npm http cache https://registry.npmjs.org/pkce-challenge 29ms (cache hit)
+#18 1.151 npm http cache https://registry.npmjs.org/raw-body 29ms (cache hit)
+#18 1.154 npm http cache https://registry.npmjs.org/zod-to-json-schema 22ms (cache hit)
+#18 1.157 npm http cache https://registry.npmjs.org/qs 22ms (cache hit)
+#18 1.164 npm http cache https://registry.npmjs.org/zod 35ms (cache hit)
+#18 1.183 npm http cache https://registry.npmjs.org/depd 45ms (cache hit)
+#18 1.199 npm http cache https://registry.npmjs.org/bytes 57ms (cache hit)
+#18 1.222 npm http cache https://registry.npmjs.org/debug 72ms (cache hit)
+#18 1.225 npm http cache https://registry.npmjs.org/iconv-lite 45ms (cache hit)
+#18 1.228 npm http cache https://registry.npmjs.org/unpipe 74ms (cache hit)
+#18 1.229 npm http cache https://registry.npmjs.org/type-is 69ms (cache hit)
+#18 1.230 npm http cache https://registry.npmjs.org/http-errors 46ms (cache hit)
+#18 1.277 npm http cache https://registry.npmjs.org/vary 53ms (cache hit)
+#18 1.279 npm http cache https://registry.npmjs.org/on-finished 78ms (cache hit)
+#18 1.280 npm http cache https://registry.npmjs.org/object-assign 53ms (cache hit)
+#18 1.282 npm http cache https://registry.npmjs.org/etag 54ms (cache hit)
+#18 1.283 npm http cache https://registry.npmjs.org/vary 52ms (cache hit)
+#18 1.284 npm http cache https://registry.npmjs.org/send 54ms (cache hit)
+#18 1.287 npm http fetch GET 200 https://registry.npmjs.org/destroy 131ms (cache miss)
+#18 1.334 npm http cache https://registry.npmjs.org/fresh 56ms (cache hit)
+#18 1.336 npm http cache https://registry.npmjs.org/accepts 55ms (cache hit)
+#18 1.337 npm http cache https://registry.npmjs.org/cookie 58ms (cache hit)
+#18 1.338 npm http cache https://registry.npmjs.org/parseurl 54ms (cache hit)
+#18 1.340 npm http cache https://registry.npmjs.org/statuses 54ms (cache hit)
+#18 1.344 npm http cache https://registry.npmjs.org/encodeurl 56ms (cache hit)
+#18 1.345 npm http fetch GET 200 https://registry.npmjs.org/methods 62ms (cache miss)
+#18 1.347 npm http cache https://registry.npmjs.org/proxy-addr 11ms (cache hit)
+#18 1.349 npm http cache https://registry.npmjs.org/finalhandler 7ms (cache hit)
+#18 1.350 npm http cache https://registry.npmjs.org/escape-html 14ms (cache hit)
+#18 1.353 npm http cache https://registry.npmjs.org/serve-static 7ms (cache hit)
+#18 1.354 npm http cache https://registry.npmjs.org/range-parser 9ms (cache hit)
+#18 1.357 npm http cache https://registry.npmjs.org/path-to-regexp 7ms (cache hit)
+#18 1.359 npm http cache https://registry.npmjs.org/setprototypeof 9ms (cache hit)
+#18 1.362 npm http cache https://registry.npmjs.org/merge-descriptors 7ms (cache hit)
+#18 1.363 npm http cache https://registry.npmjs.org/cookie-signature 9ms (cache hit)
+#18 1.367 npm http cache https://registry.npmjs.org/content-disposition 8ms (cache hit)
+#18 1.389 npm http fetch GET 200 https://registry.npmjs.org/utils-merge 50ms (cache miss)
+#18 1.415 npm http fetch GET 200 https://registry.npmjs.org/cliui 51ms (cache miss)
+#18 1.416 npm http fetch GET 200 https://registry.npmjs.org/escalade 52ms (cache miss)
+#18 1.419 npm http fetch GET 200 https://registry.npmjs.org/y18n 59ms (cache miss)
+#18 1.420 npm http fetch GET 200 https://registry.npmjs.org/array-flatten 73ms (cache miss)
+#18 1.451 npm http fetch GET 200 https://registry.npmjs.org/get-caller-file 35ms (cache miss)
+#18 1.452 npm http fetch GET 200 https://registry.npmjs.org/safe-buffer 114ms (cache miss)
+#18 1.504 npm http fetch GET 200 https://registry.npmjs.org/string-width 136ms (cache miss)
+#18 1.536 npm http fetch GET 200 https://registry.npmjs.org/yargs-parser 145ms (cache miss)
+#18 2.295 npm http fetch GET 200 https://registry.npmjs.org/require-directory 877ms (cache miss)
+#18 2.319 npm http cache https://registry.npmjs.org/fast-uri 9ms (cache hit)
+#18 2.322 npm http cache https://registry.npmjs.org/path-key 11ms (cache hit)
+#18 2.326 npm http cache https://registry.npmjs.org/fast-deep-equal 16ms (cache hit)
+#18 2.331 npm http cache https://registry.npmjs.org/which 20ms (cache hit)
+#18 2.337 npm http cache https://registry.npmjs.org/require-from-string 27ms (cache hit)
+#18 2.338 npm http cache https://registry.npmjs.org/json-schema-traverse 27ms (cache hit)
+#18 2.339 npm http cache https://registry.npmjs.org/shebang-command 26ms (cache hit)
+#18 2.342 npm http cache https://registry.npmjs.org/once 20ms (cache hit)
+#18 2.343 npm http cache https://registry.npmjs.org/mime-types 14ms (cache hit)
+#18 2.344 npm http cache https://registry.npmjs.org/router 19ms (cache hit)
+#18 2.365 npm http cache https://registry.npmjs.org/ms 7ms (cache hit)
+#18 2.367 npm http cache https://registry.npmjs.org/inherits 9ms (cache hit)
+#18 2.369 npm http cache https://registry.npmjs.org/side-channel 9ms (cache hit)
+#18 2.370 npm http cache https://registry.npmjs.org/ee-first 11ms (cache hit)
+#18 2.371 npm http cache https://registry.npmjs.org/media-typer 11ms (cache hit)
+#18 2.371 npm http cache https://registry.npmjs.org/safer-buffer 12ms (cache hit)
+#18 2.372 npm http cache https://registry.npmjs.org/toidentifier 14ms (cache hit)
+#18 2.380 npm http cache https://registry.npmjs.org/shebang-regex 3ms (cache hit)
+#18 2.381 npm http cache https://registry.npmjs.org/isexe 4ms (cache hit)
+#18 2.409 npm http cache https://registry.npmjs.org/negotiator 7ms (cache hit)
+#18 2.410 npm http cache https://registry.npmjs.org/ipaddr.js 8ms (cache hit)
+#18 2.412 npm http cache https://registry.npmjs.org/forwarded 10ms (cache hit)
+#18 2.517 npm http fetch GET 200 https://registry.npmjs.org/mime 114ms (cache miss)
+#18 2.524 npm http cache https://registry.npmjs.org/mime-db 2ms (cache hit)
+#18 2.542 npm http cache https://registry.npmjs.org/es-errors 7ms (cache hit)
+#18 2.543 npm http cache https://registry.npmjs.org/side-channel-list 7ms (cache hit)
+#18 2.544 npm http cache https://registry.npmjs.org/side-channel-map 8ms (cache hit)
+#18 2.546 npm http cache https://registry.npmjs.org/object-inspect 11ms (cache hit)
+#18 2.548 npm http cache https://registry.npmjs.org/side-channel-weakmap 12ms (cache hit)
+#18 2.573 npm http cache https://registry.npmjs.org/call-bound 10ms (cache hit)
+#18 2.575 npm http cache https://registry.npmjs.org/get-intrinsic 10ms (cache hit)
+#18 2.576 npm http cache https://registry.npmjs.org/call-bound 11ms (cache hit)
+#18 2.577 npm http cache https://registry.npmjs.org/get-intrinsic 13ms (cache hit)
+#18 2.589 npm http cache https://registry.npmjs.org/call-bind-apply-helpers 8ms (cache hit)
+#18 2.591 npm http cache https://registry.npmjs.org/hasown 8ms (cache hit)
+#18 2.592 npm http cache https://registry.npmjs.org/gopd 10ms (cache hit)
+#18 2.594 npm http cache https://registry.npmjs.org/get-proto 11ms (cache hit)
+#18 2.595 npm http cache https://registry.npmjs.org/has-symbols 12ms (cache hit)
+#18 2.596 npm http cache https://registry.npmjs.org/function-bind 13ms (cache hit)
+#18 2.597 npm http cache https://registry.npmjs.org/es-object-atoms 13ms (cache hit)
+#18 2.600 npm http cache https://registry.npmjs.org/math-intrinsics 10ms (cache hit)
+#18 2.601 npm http cache https://registry.npmjs.org/es-define-property 9ms (cache hit)
+#18 2.629 npm http cache https://registry.npmjs.org/dunder-proto 11ms (cache hit)
+#18 2.649 npm http cache https://registry.npmjs.org/string-width 5ms (cache hit)
+#18 2.668 npm http fetch GET 200 https://registry.npmjs.org/emoji-regex 23ms (cache miss)
+#18 2.749 npm http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point 103ms (cache miss)
+#18 2.829 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi 185ms (cache miss)
+#18 2.830 npm http fetch GET 200 https://registry.npmjs.org/wrap-ansi 187ms (cache miss)
+#18 2.831 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi 187ms (cache miss)
+#18 2.877 npm http fetch GET 200 https://registry.npmjs.org/ansi-styles 42ms (cache miss)
+#18 2.945 npm http fetch GET 200 https://registry.npmjs.org/ansi-regex 111ms (cache miss)
+#18 2.988 npm http fetch GET 200 https://registry.npmjs.org/color-convert 40ms (cache miss)
+#18 3.064 npm http fetch GET 200 https://registry.npmjs.org/color-name 74ms (cache miss)
+#18 3.180 npm http cache https://registry.npmjs.org/wrappy 95ms (cache hit)
+#18 3.180 npm http cache https://registry.npmjs.org/is-promise 96ms (cache hit)
+#18 3.295 npm http cache supergateway@https://registry.npmjs.org/supergateway/-/supergateway-3.4.3.tgz 0ms (cache hit)
+#18 3.296 npm http cache is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 0ms (cache hit)
+#18 3.296 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#18 3.296 npm http cache wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 0ms (cache hit)
+#18 3.297 npm http cache router@https://registry.npmjs.org/router/-/router-2.2.0.tgz 0ms (cache hit)
+#18 3.297 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 0ms (cache hit)
+#18 3.297 npm http cache once@https://registry.npmjs.org/once/-/once-1.4.0.tgz 0ms (cache hit)
+#18 3.298 npm http cache color-name@https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 0ms (cache hit)
+#18 3.298 npm http cache color-convert@https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 0ms (cache hit)
+#18 3.298 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#18 3.299 npm http cache ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 0ms (cache hit)
+#18 3.299 npm http cache ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 0ms (cache hit)
+#18 3.299 npm http cache is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz 0ms (cache hit)
+#18 3.299 npm http cache emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 0ms (cache hit)
+#18 3.300 npm http cache wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz 0ms (cache hit)
+#18 3.300 npm http cache strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 0ms (cache hit)
+#18 3.300 npm http cache y18n@https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz 0ms (cache hit)
+#18 3.300 npm http cache yargs-parser@https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz 0ms (cache hit)
+#18 3.301 npm http cache string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 0ms (cache hit)
+#18 3.301 npm http cache require-directory@https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz 0ms (cache hit)
+#18 3.301 npm http cache get-caller-file@https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz 0ms (cache hit)
+#18 3.301 npm http cache escalade@https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz 0ms (cache hit)
+#18 3.302 npm http cache cliui@https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz 0ms (cache hit)
+#18 3.302 npm http cache isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 0ms (cache hit)
+#18 3.302 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz 0ms (cache hit)
+#18 3.302 npm http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+#18 3.303 npm http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+#18 3.303 npm http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+#18 3.303 npm http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+#18 3.303 npm http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+#18 3.304 npm http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+#18 3.304 npm http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+#18 3.304 npm http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+#18 3.305 npm http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+#18 3.305 npm http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+#18 3.305 npm http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+#18 3.305 npm http cache call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 0ms (cache hit)
+#18 3.306 npm http cache side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 0ms (cache hit)
+#18 3.306 npm http cache side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 0ms (cache hit)
+#18 3.306 npm http cache side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 0ms (cache hit)
+#18 3.306 npm http cache object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 0ms (cache hit)
+#18 3.307 npm http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+#18 3.307 npm http cache shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 0ms (cache hit)
+#18 3.307 npm http cache mime@https://registry.npmjs.org/mime/-/mime-1.6.0.tgz 0ms (cache hit)
+#18 3.307 npm http cache side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 0ms (cache hit)
+#18 3.308 npm http cache ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 0ms (cache hit)
+#18 3.308 npm http cache forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 0ms (cache hit)
+#18 3.308 npm http cache ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 0ms (cache hit)
+#18 3.308 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 0ms (cache hit)
+#18 3.309 npm http cache safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 0ms (cache hit)
+#18 3.309 npm http cache toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 0ms (cache hit)
+#18 3.309 npm http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+#18 3.309 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz 0ms (cache hit)
+#18 3.310 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 0ms (cache hit)
+#18 3.310 npm http cache utils-merge@https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz 0ms (cache hit)
+#18 3.310 npm http cache setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 0ms (cache hit)
+#18 3.310 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-1.16.2.tgz 0ms (cache hit)
+#18 3.311 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz 1ms (cache hit)
+#18 3.311 npm http cache send@https://registry.npmjs.org/send/-/send-0.19.0.tgz 0ms (cache hit)
+#18 3.311 npm http cache safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz 0ms (cache hit)
+#18 3.311 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz 0ms (cache hit)
+#18 3.312 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#18 3.312 npm http cache range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 0ms (cache hit)
+#18 3.312 npm http cache parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 0ms (cache hit)
+#18 3.312 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.12.tgz 0ms (cache hit)
+#18 3.313 npm http cache proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 0ms (cache hit)
+#18 3.313 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-1.3.1.tgz 0ms (cache hit)
+#18 3.313 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.3.tgz 0ms (cache hit)
+#18 3.313 npm http cache methods@https://registry.npmjs.org/methods/-/methods-1.1.2.tgz 0ms (cache hit)
+#18 3.314 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz 0ms (cache hit)
+#18 3.314 npm http cache etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 0ms (cache hit)
+#18 3.314 npm http cache escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 0ms (cache hit)
+#18 3.314 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 0ms (cache hit)
+#18 3.315 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz 0ms (cache hit)
+#18 3.315 npm http cache cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.1.tgz 0ms (cache hit)
+#18 3.315 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-0.5.4.tgz 0ms (cache hit)
+#18 3.315 npm http cache array-flatten@https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz 0ms (cache hit)
+#18 3.316 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz 0ms (cache hit)
+#18 3.316 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 0ms (cache hit)
+#18 3.316 npm http cache which@https://registry.npmjs.org/which/-/which-2.0.2.tgz 0ms (cache hit)
+#18 3.316 npm http cache shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 0ms (cache hit)
+#18 3.317 npm http cache path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 0ms (cache hit)
+#18 3.317 npm http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+#18 3.317 npm http cache vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 0ms (cache hit)
+#18 3.317 npm http cache unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 0ms (cache hit)
+#18 3.318 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz 0ms (cache hit)
+#18 3.318 npm http cache on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 0ms (cache hit)
+#18 3.318 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.13.0.tgz 0ms (cache hit)
+#18 3.319 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.0.tgz 0ms (cache hit)
+#18 3.319 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz 0ms (cache hit)
+#18 3.319 npm http cache destroy@https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz 0ms (cache hit)
+#18 3.320 npm http cache depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 0ms (cache hit)
+#18 3.320 npm http cache debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 0ms (cache hit)
+#18 3.320 npm http cache bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 0ms (cache hit)
+#18 3.320 npm http cache require-from-string@https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 0ms (cache hit)
+#18 3.321 npm http cache json-schema-traverse@https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 0ms (cache hit)
+#18 3.321 npm http cache fast-uri@https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 0ms (cache hit)
+#18 3.321 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 0ms (cache hit)
+#18 3.321 npm http cache zod-to-json-schema@https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 0ms (cache hit)
+#18 3.322 npm http cache fast-deep-equal@https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 0ms (cache hit)
+#18 3.322 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 0ms (cache hit)
+#18 3.322 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#18 3.322 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 0ms (cache hit)
+#18 3.323 npm http cache pkce-challenge@https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 0ms (cache hit)
+#18 3.323 npm http cache express-rate-limit@https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 0ms (cache hit)
+#18 3.323 npm http cache eventsource-parser@https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 0ms (cache hit)
+#18 3.323 npm http cache eventsource@https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 0ms (cache hit)
+#18 3.324 npm http cache content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 0ms (cache hit)
+#18 3.324 npm http cache cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 0ms (cache hit)
+#18 3.324 npm http cache ajv@https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 0ms (cache hit)
+#18 3.324 npm http cache ajv-formats@https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 0ms (cache hit)
+#18 3.324 npm http cache zod@https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 0ms (cache hit)
+#18 3.325 npm http cache yargs@https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz 0ms (cache hit)
+#18 3.325 npm http cache uuid@https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz 0ms (cache hit)
+#18 3.325 npm http cache express@https://registry.npmjs.org/express/-/express-4.21.2.tgz 0ms (cache hit)
+#18 3.325 npm http cache ws@https://registry.npmjs.org/ws/-/ws-8.18.3.tgz 0ms (cache hit)
+#18 3.326 npm http cache cors@https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 0ms (cache hit)
+#18 3.326 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-1.20.3.tgz 0ms (cache hit)
+#18 3.326 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-2.5.2.tgz 0ms (cache hit)
+#18 3.326 npm http cache @modelcontextprotocol/sdk@https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.23.0.tgz 0ms (cache hit)
+#18 3.327 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 0ms (cache hit)
+#18 3.327 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 0ms (cache hit)
+#18 3.327 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#18 3.327 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#18 3.328 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 0ms (cache hit)
+#18 3.328 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 0ms (cache hit)
+#18 3.328 npm http cache send@https://registry.npmjs.org/send/-/send-1.2.0.tgz 0ms (cache hit)
+#18 3.328 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 0ms (cache hit)
+#18 3.329 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 0ms (cache hit)
+#18 3.329 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 0ms (cache hit)
+#18 3.329 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 0ms (cache hit)
+#18 3.329 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 0ms (cache hit)
+#18 3.330 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 0ms (cache hit)
+#18 3.330 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#18 3.330 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 0ms (cache hit)
+#18 3.330 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 0ms (cache hit)
+#18 3.331 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 0ms (cache hit)
+#18 3.331 npm http cache express@https://registry.npmjs.org/express/-/express-5.1.0.tgz 0ms (cache hit)
+#18 3.331 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 0ms (cache hit)
+#18 3.775 npm http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz 440ms (cache miss)
+#18 3.841 npm http fetch GET 200 https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 507ms (cache miss)
+#18 3.843 npm http fetch GET 200 https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 508ms (cache miss)
+#18 3.861 npm http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 526ms (cache miss)
+#18 3.890 npm http fetch GET 200 https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 557ms (cache miss)
+#18 3.892 npm http fetch GET 200 https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz 552ms (cache miss)
+#18 3.892 npm http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 558ms (cache miss)
+#18 3.894 npm http fetch GET 200 https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 553ms (cache miss)
+#18 3.896 npm http fetch GET 200 https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz 556ms (cache miss)
+#18 3.911 npm http fetch GET 200 https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz 570ms (cache miss)
+#18 3.912 npm http fetch GET 200 https://registry.npmjs.org/mime/-/mime-1.6.0.tgz 572ms (cache miss)
+#18 4.009 npm http fetch GET 200 https://registry.npmjs.org/serve-static/-/serve-static-1.16.2.tgz 667ms (cache miss)
+#18 4.010 npm http fetch GET 200 https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz 667ms (cache miss)
+#18 4.010 npm http fetch GET 200 https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz 666ms (cache miss)
+#18 4.011 npm http fetch GET 200 https://registry.npmjs.org/finalhandler/-/finalhandler-1.3.1.tgz 668ms (cache miss)
+#18 4.012 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 675ms (cache miss)
+#18 4.012 npm http fetch GET 200 https://registry.npmjs.org/content-disposition/-/content-disposition-0.5.4.tgz 667ms (cache miss)
+#18 4.013 npm http fetch GET 200 https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz 674ms (cache miss)
+#18 4.041 npm http fetch GET 200 https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz 695ms (cache miss)
+#18 4.041 npm http fetch GET 200 https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz 706ms (cache miss)
+#18 4.042 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.12.tgz 699ms (cache miss)
+#18 4.042 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz 698ms (cache miss)
+#18 4.043 npm http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 697ms (cache miss)
+#18 4.085 npm http fetch GET 200 https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz 737ms (cache miss)
+#18 4.086 npm http fetch GET 200 https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz 744ms (cache miss)
+#18 4.087 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.3.tgz 744ms (cache miss)
+#18 4.088 npm http fetch GET 200 https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz 749ms (cache miss)
+#18 4.089 npm http fetch GET 200 https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz 741ms (cache miss)
+#18 4.089 npm http fetch GET 200 https://registry.npmjs.org/body-parser/-/body-parser-1.20.3.tgz 738ms (cache miss)
+#18 4.090 npm http fetch GET 200 https://registry.npmjs.org/methods/-/methods-1.1.2.tgz 745ms (cache miss)
+#18 4.091 npm http fetch GET 200 https://registry.npmjs.org/http-errors/-/http-errors-2.0.0.tgz 743ms (cache miss)
+#18 4.092 npm http fetch GET 200 https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz 745ms (cache miss)
+#18 4.094 npm http fetch GET 200 https://registry.npmjs.org/send/-/send-0.19.0.tgz 752ms (cache miss)
+#18 4.095 npm http fetch GET 200 https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz 757ms (cache miss)
+#18 4.095 npm http fetch GET 200 https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz 753ms (cache miss)
+#18 4.096 npm http fetch GET 200 https://registry.npmjs.org/raw-body/-/raw-body-2.5.2.tgz 743ms (cache miss)
+#18 4.099 npm http fetch GET 200 https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz 760ms (cache miss)
+#18 4.100 npm http fetch GET 200 https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz 764ms (cache miss)
+#18 4.212 npm http fetch GET 200 https://registry.npmjs.org/cookie/-/cookie-0.7.1.tgz 866ms (cache miss)
+#18 4.213 npm http fetch GET 200 https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 876ms (cache miss)
+#18 4.214 npm http fetch GET 200 https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 873ms (cache miss)
+#18 4.220 npm http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 871ms (cache miss)
+#18 4.236 npm http fetch GET 200 https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz 898ms (cache miss)
+#18 4.245 npm http fetch GET 200 https://registry.npmjs.org/qs/-/qs-6.13.0.tgz 898ms (cache miss)
+#18 4.247 npm http fetch GET 200 https://registry.npmjs.org/ws/-/ws-8.18.3.tgz 895ms (cache miss)
+#18 4.248 npm http fetch GET 200 https://registry.npmjs.org/express/-/express-4.21.2.tgz 897ms (cache miss)
+#18 4.257 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz 909ms (cache miss)
+#18 4.274 npm http fetch GET 200 https://registry.npmjs.org/supergateway/-/supergateway-3.4.3.tgz 941ms (cache miss)
+#18 4.277 npm http fetch GET 200 https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz 927ms (cache miss)
+#18 4.341 npm http fetch GET 200 https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz 990ms (cache miss)
+#18 4.547 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.23.0.tgz 1195ms (cache miss)
+#18 5.193 
+#18 5.193 added 139 packages in 5s
+#18 5.193 
+#18 5.194 30 packages are looking for funding
+#18 5.194   run `npm fund` for details
+#18 5.194 npm verbose cwd /
+#18 5.195 npm verbose os Linux 6.17.2-1-pve
+#18 5.195 npm verbose node v25.2.1
+#18 5.195 npm verbose npm  v11.6.2
+#18 5.195 npm verbose exit 0
+#18 5.195 npm info ok
+#18 5.307 npm warn using --force Recommended protections disabled.
+#18 ...
+
+#19 [linux/arm64 6/7] RUN echo "Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60" &&     npm install -g @brave/brave-search-mcp-server@2.0.60 --loglevel verbose &&     echo "Package installed successfully"
+#19 0.073 Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60
+#19 1.589 npm verbose cli /usr/local/bin/node /usr/local/bin/npm
+#19 1.594 npm info using npm@11.6.2
+#19 1.597 npm info using node@v25.2.1
+#19 1.634 npm verbose title npm install @brave/brave-search-mcp-server@2.0.60
+#19 1.639 npm verbose argv "install" "--global" "@brave/brave-search-mcp-server@2.0.60" "--loglevel" "verbose"
+#19 1.646 npm verbose logfile logs-max:10 dir:/root/.npm/_logs/2025-11-26T03_23_23_864Z-
+#19 1.682 npm verbose logfile /root/.npm/_logs/2025-11-26T03_23_23_864Z-debug-0.log
+#19 3.990 npm http fetch GET 200 https://registry.npmjs.org/npm 616ms
+#19 4.183 npm http fetch GET 200 https://registry.npmjs.org/@brave%2fbrave-search-mcp-server 489ms (cache miss)
+#19 4.592 npm http fetch GET 200 https://registry.npmjs.org/commander 356ms (cache miss)
+#19 4.664 npm http fetch GET 200 https://registry.npmjs.org/dotenv 425ms (cache miss)
+#19 4.709 npm http fetch GET 200 https://registry.npmjs.org/express 468ms (cache miss)
+#19 4.833 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol%2fsdk 603ms (cache miss)
+#19 4.885 npm http fetch GET 200 https://registry.npmjs.org/zod 642ms (cache miss)
+#19 5.068 npm http fetch GET 200 https://registry.npmjs.org/@cfworker%2fjson-schema 62ms (cache miss)
+#19 5.366 npm http cache https://registry.npmjs.org/express 214ms (cache hit)
+#19 5.447 npm http cache https://registry.npmjs.org/zod 301ms (cache hit)
+#19 5.705 npm http fetch GET 200 https://registry.npmjs.org/cors 556ms (cache miss)
+#19 5.736 npm http fetch GET 200 https://registry.npmjs.org/cross-spawn 577ms (cache miss)
+#19 5.753 npm http fetch GET 200 https://registry.npmjs.org/raw-body 599ms (cache miss)
+#19 5.780 npm http fetch GET 200 https://registry.npmjs.org/ajv-formats 623ms (cache miss)
+#19 5.803 npm http fetch GET 200 https://registry.npmjs.org/content-type 191ms (cache miss)
+#19 5.872 npm http fetch GET 200 https://registry.npmjs.org/eventsource 472ms (cache miss)
+#19 5.897 npm http fetch GET 200 https://registry.npmjs.org/pkce-challenge 177ms (cache miss)
+#19 5.948 npm http fetch GET 200 https://registry.npmjs.org/eventsource-parser 201ms (cache miss)
+#19 5.975 npm http fetch GET 200 https://registry.npmjs.org/etag 89ms (cache miss)
+#19 6.002 npm http fetch GET 200 https://registry.npmjs.org/qs 191ms (cache miss)
+#19 6.038 npm http fetch GET 200 https://registry.npmjs.org/zod-to-json-schema 248ms (cache miss)
+#19 6.070 npm http fetch GET 200 https://registry.npmjs.org/express-rate-limit 306ms (cache miss)
+#19 6.121 npm http fetch GET 200 https://registry.npmjs.org/once 217ms (cache miss)
+#19 6.142 npm http fetch GET 200 https://registry.npmjs.org/vary 160ms (cache miss)
+#19 6.165 npm http fetch GET 200 https://registry.npmjs.org/ajv 1022ms (cache miss)
+#19 6.205 npm http fetch GET 200 https://registry.npmjs.org/fresh 151ms (cache miss)
+#19 6.219 npm http fetch GET 200 https://registry.npmjs.org/send 262ms (cache miss)
+#19 6.258 npm http fetch GET 200 https://registry.npmjs.org/debug 239ms (cache miss)
+#19 6.294 npm http fetch GET 200 https://registry.npmjs.org/cookie 203ms (cache miss)
+#19 6.320 npm http fetch GET 200 https://registry.npmjs.org/router 193ms (cache miss)
+#19 6.333 npm http fetch GET 200 https://registry.npmjs.org/parseurl 120ms (cache miss)
+#19 6.348 npm http fetch GET 200 https://registry.npmjs.org/accepts 201ms (cache miss)
+#19 6.360 npm http fetch GET 200 https://registry.npmjs.org/type-is 163ms (cache miss)
+#19 6.404 npm http fetch GET 200 https://registry.npmjs.org/statuses 175ms (cache miss)
+#19 6.455 npm http fetch GET 200 https://registry.npmjs.org/encodeurl 182ms (cache miss)
+#19 6.481 npm http fetch GET 200 https://registry.npmjs.org/proxy-addr 152ms (cache miss)
+#19 6.492 npm http fetch GET 200 https://registry.npmjs.org/escape-html 133ms (cache miss)
+#19 6.523 npm http fetch GET 200 https://registry.npmjs.org/http-errors 155ms (cache miss)
+#19 6.535 npm http fetch GET 200 https://registry.npmjs.org/mime-types 230ms (cache miss)
+#19 6.582 npm http fetch GET 200 https://registry.npmjs.org/body-parser 242ms (cache miss)
+#19 6.631 npm http fetch GET 200 https://registry.npmjs.org/on-finished 218ms (cache miss)
+#19 6.641 npm http fetch GET 200 https://registry.npmjs.org/finalhandler 178ms (cache miss)
+#19 6.648 npm http fetch GET 200 https://registry.npmjs.org/range-parser 159ms (cache miss)
+#19 6.671 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature 140ms (cache miss)
+#19 6.679 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors 134ms (cache miss)
+#19 6.685 npm http fetch GET 200 https://registry.npmjs.org/serve-static 186ms (cache miss)
+#19 6.713 npm http fetch GET 200 https://registry.npmjs.org/content-disposition 113ms (cache miss)
+#19 6.937 npm http cache https://registry.npmjs.org/vary 93ms (cache hit)
+#19 6.990 npm http fetch GET 200 https://registry.npmjs.org/object-assign 144ms (cache miss)
+#19 6.999 npm http fetch GET 200 https://registry.npmjs.org/require-from-string 159ms (cache miss)
+#19 7.009 npm http fetch GET 200 https://registry.npmjs.org/fast-deep-equal 172ms (cache miss)
+#19 7.019 npm http fetch GET 200 https://registry.npmjs.org/json-schema-traverse 177ms (cache miss)
+#19 7.047 npm http fetch GET 200 https://registry.npmjs.org/path-key 103ms (cache miss)
+#19 7.066 npm http fetch GET 200 https://registry.npmjs.org/fast-uri 232ms (cache miss)
+#19 7.096 npm http cache https://registry.npmjs.org/eventsource-parser 92ms (cache hit)
+#19 7.103 npm http fetch GET 200 https://registry.npmjs.org/which 256ms (cache miss)
+#19 7.115 npm http fetch GET 200 https://registry.npmjs.org/shebang-command 118ms (cache miss)
+#19 7.131 npm http cache https://registry.npmjs.org/http-errors 57ms (cache hit)
+#19 7.137 npm http fetch GET 200 https://registry.npmjs.org/bytes 120ms (cache miss)
+#19 7.159 npm http fetch GET 200 https://registry.npmjs.org/unpipe 134ms (cache miss)
+#19 7.164 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite 109ms (cache miss)
+#19 7.718 npm http fetch GET 200 https://registry.npmjs.org/shebang-regex 222ms (cache miss)
+#19 7.803 npm http fetch GET 200 https://registry.npmjs.org/isexe 303ms (cache miss)
+#19 8.339 npm http cache https://registry.npmjs.org/debug 201ms (cache hit)
+#19 8.365 npm http cache https://registry.npmjs.org/bytes 230ms (cache hit)
+#19 8.379 npm http cache https://registry.npmjs.org/iconv-lite 240ms (cache hit)
+#19 8.416 npm http fetch GET 200 https://registry.npmjs.org/negotiator 281ms (cache miss)
+#19 8.442 npm http fetch GET 200 https://registry.npmjs.org/inherits 289ms (cache miss)
+#19 8.461 npm http fetch GET 200 https://registry.npmjs.org/depd 310ms (cache miss)
+#19 8.489 npm http fetch GET 200 https://registry.npmjs.org/ms 344ms (cache miss)
+#19 8.523 npm http cache https://registry.npmjs.org/statuses 151ms (cache hit)
+#19 8.541 npm http fetch GET 200 https://registry.npmjs.org/setprototypeof 179ms (cache miss)
+#19 8.559 npm http fetch GET 200 https://registry.npmjs.org/toidentifier 168ms (cache miss)
+#19 8.597 npm http fetch GET 200 https://registry.npmjs.org/ee-first 146ms (cache miss)
+#19 8.613 npm http fetch GET 200 https://registry.npmjs.org/wrappy 141ms (cache miss)
+#19 8.654 npm http cache https://registry.npmjs.org/depd 89ms (cache hit)
+#19 8.668 npm http fetch GET 200 https://registry.npmjs.org/mime-db 241ms (cache miss)
+#19 8.678 npm http fetch GET 200 https://registry.npmjs.org/side-channel 131ms (cache miss)
+#19 8.698 npm http fetch GET 200 https://registry.npmjs.org/forwarded 197ms (cache miss)
+#19 8.704 npm http fetch GET 200 https://registry.npmjs.org/ipaddr.js 174ms (cache miss)
+#19 8.718 npm http fetch GET 200 https://registry.npmjs.org/is-promise 114ms (cache miss)
+#19 8.728 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp 109ms (cache miss)
+#19 8.781 npm http fetch GET 200 https://registry.npmjs.org/media-typer 119ms (cache miss)
+#19 8.851 npm http fetch GET 200 https://registry.npmjs.org/safer-buffer 40ms (cache miss)
+#19 9.042 npm http fetch GET 200 https://registry.npmjs.org/side-channel-map 88ms (cache miss)
+#19 9.050 npm http fetch GET 200 https://registry.npmjs.org/side-channel-weakmap 94ms (cache miss)
+#19 9.055 npm http fetch GET 200 https://registry.npmjs.org/side-channel-list 104ms (cache miss)
+#19 9.061 npm http fetch GET 200 https://registry.npmjs.org/es-errors 112ms (cache miss)
+#19 9.071 npm http fetch GET 200 https://registry.npmjs.org/object-inspect 119ms (cache miss)
+#19 9.239 npm http fetch GET 200 https://registry.npmjs.org/call-bound 90ms (cache miss)
+#19 9.246 npm http fetch GET 200 https://registry.npmjs.org/call-bound 94ms (cache miss)
+#19 9.250 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic 101ms (cache miss)
+#19 9.258 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic 105ms (cache miss)
+#19 9.343 npm http cache https://registry.npmjs.org/get-intrinsic 61ms (cache hit)
+#19 9.398 npm http fetch GET 200 https://registry.npmjs.org/get-proto 111ms (cache miss)
+#19 9.405 npm http fetch GET 200 https://registry.npmjs.org/function-bind 116ms (cache miss)
+#19 9.416 npm http fetch GET 200 https://registry.npmjs.org/hasown 130ms (cache miss)
+#19 9.428 npm http fetch GET 200 https://registry.npmjs.org/has-symbols 137ms (cache miss)
+#19 9.434 npm http fetch GET 200 https://registry.npmjs.org/gopd 149ms (cache miss)
+#19 9.453 npm http fetch GET 200 https://registry.npmjs.org/es-object-atoms 103ms (cache miss)
+#19 9.458 npm http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers 177ms (cache miss)
+#19 9.479 npm http fetch GET 200 https://registry.npmjs.org/es-define-property 66ms (cache miss)
+#19 9.485 npm http fetch GET 200 https://registry.npmjs.org/math-intrinsics 80ms (cache miss)
+#19 9.492 npm http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers 68ms (cache miss)
+#19 9.648 npm http fetch GET 200 https://registry.npmjs.org/dunder-proto 72ms (cache miss)
+#19 10.04 npm http cache @brave/brave-search-mcp-server@https://registry.npmjs.org/@brave/brave-search-mcp-server/-/brave-search-mcp-server-2.0.60.tgz 0ms (cache hit)
+#19 10.05 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 0ms (cache hit)
+#19 10.05 npm http cache isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 0ms (cache hit)
+#19 10.05 npm http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+#19 10.05 npm http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+#19 10.06 npm http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+#19 10.06 npm http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+#19 10.06 npm http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+#19 10.06 npm http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+#19 10.07 npm http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+#19 10.07 npm http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+#19 10.07 npm http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+#19 10.08 npm http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+#19 10.08 npm http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+#19 10.08 npm http cache call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 0ms (cache hit)
+#19 10.09 npm http cache side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 0ms (cache hit)
+#19 10.09 npm http cache side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 0ms (cache hit)
+#19 10.09 npm http cache side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 0ms (cache hit)
+#19 10.09 npm http cache object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 0ms (cache hit)
+#19 10.10 npm http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+#19 10.10 npm http cache shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 0ms (cache hit)
+#19 10.10 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 0ms (cache hit)
+#19 10.10 npm http cache is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 0ms (cache hit)
+#19 10.11 npm http cache unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 0ms (cache hit)
+#19 10.11 npm http cache side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 0ms (cache hit)
+#19 10.11 npm http cache ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 0ms (cache hit)
+#19 10.11 npm http cache forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 0ms (cache hit)
+#19 10.11 npm http cache wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 0ms (cache hit)
+#19 10.12 npm http cache ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 0ms (cache hit)
+#19 10.12 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 0ms (cache hit)
+#19 10.12 npm http cache safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 0ms (cache hit)
+#19 10.12 npm http cache toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 0ms (cache hit)
+#19 10.13 npm http cache setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 0ms (cache hit)
+#19 10.13 npm http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+#19 10.13 npm http cache depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 0ms (cache hit)
+#19 10.13 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 1ms (cache hit)
+#19 10.14 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#19 10.14 npm http cache bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 0ms (cache hit)
+#19 10.14 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 1ms (cache hit)
+#19 10.14 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 0ms (cache hit)
+#19 10.14 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 0ms (cache hit)
+#19 10.15 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 0ms (cache hit)
+#19 10.15 npm http cache send@https://registry.npmjs.org/send/-/send-1.2.0.tgz 0ms (cache hit)
+#19 10.15 npm http cache router@https://registry.npmjs.org/router/-/router-2.2.0.tgz 0ms (cache hit)
+#19 10.15 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 0ms (cache hit)
+#19 10.16 npm http cache range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 0ms (cache hit)
+#19 10.17 npm http cache proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 0ms (cache hit)
+#19 10.17 npm http cache parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 1ms (cache hit)
+#19 10.17 npm http cache once@https://registry.npmjs.org/once/-/once-1.4.0.tgz 0ms (cache hit)
+#19 10.17 npm http cache on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 0ms (cache hit)
+#19 10.18 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 0ms (cache hit)
+#19 10.18 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 0ms (cache hit)
+#19 10.18 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 0ms (cache hit)
+#19 10.18 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 0ms (cache hit)
+#19 10.18 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 0ms (cache hit)
+#19 10.19 npm http cache etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 0ms (cache hit)
+#19 10.19 npm http cache escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 0ms (cache hit)
+#19 10.19 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 0ms (cache hit)
+#19 10.19 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#19 10.20 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 0ms (cache hit)
+#19 10.20 npm http cache cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz 0ms (cache hit)
+#19 10.20 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 0ms (cache hit)
+#19 10.20 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 0ms (cache hit)
+#19 10.21 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 0ms (cache hit)
+#19 10.21 npm http cache which@https://registry.npmjs.org/which/-/which-2.0.2.tgz 0ms (cache hit)
+#19 10.21 npm http cache shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 0ms (cache hit)
+#19 10.21 npm http cache path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 0ms (cache hit)
+#19 10.22 npm http cache vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 0ms (cache hit)
+#19 10.22 npm http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+#19 10.22 npm http cache require-from-string@https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 0ms (cache hit)
+#19 10.22 npm http cache json-schema-traverse@https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 0ms (cache hit)
+#19 10.22 npm http cache fast-uri@https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 0ms (cache hit)
+#19 10.23 npm http cache fast-deep-equal@https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 0ms (cache hit)
+#19 10.23 npm http cache zod-to-json-schema@https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 0ms (cache hit)
+#19 10.23 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 0ms (cache hit)
+#19 10.23 npm http cache express-rate-limit@https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 0ms (cache hit)
+#19 10.23 npm http cache pkce-challenge@https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 0ms (cache hit)
+#19 10.24 npm http cache eventsource-parser@https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 0ms (cache hit)
+#19 10.24 npm http cache eventsource@https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 0ms (cache hit)
+#19 10.24 npm http cache cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 1ms (cache hit)
+#19 10.24 npm http cache cors@https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 0ms (cache hit)
+#19 10.25 npm http cache content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 0ms (cache hit)
+#19 10.25 npm http cache ajv-formats@https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 0ms (cache hit)
+#19 10.25 npm http cache ajv@https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 0ms (cache hit)
+#19 10.25 npm http cache zod@https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 0ms (cache hit)
+#19 10.25 npm http cache express@https://registry.npmjs.org/express/-/express-5.1.0.tgz 0ms (cache hit)
+#19 10.26 npm http cache dotenv@https://registry.npmjs.org/dotenv/-/dotenv-17.2.3.tgz 0ms (cache hit)
+#19 10.26 npm http cache commander@https://registry.npmjs.org/commander/-/commander-14.0.2.tgz 0ms (cache hit)
+#19 10.26 npm http cache @modelcontextprotocol/sdk@https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.22.0.tgz 0ms (cache hit)
+#19 ...
+
+#18 [linux/amd64 7/7] RUN echo "Installing Supergateway..." &&     npm install -g supergateway@latest --loglevel verbose &&     npm cache clean --force
+#18 DONE 6.8s
+
+#19 [linux/arm64 6/7] RUN echo "Installing Brave Search MCP server: @brave/brave-search-mcp-server@2.0.60" &&     npm install -g @brave/brave-search-mcp-server@2.0.60 --loglevel verbose &&     echo "Package installed successfully"
+#19 12.39 npm http fetch GET 200 https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 2062ms (cache miss)
+#19 12.43 npm http fetch GET 200 https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 2148ms (cache miss)
+#19 12.44 npm http fetch GET 200 https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 2145ms (cache miss)
+#19 12.48 npm http fetch GET 200 https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 2145ms (cache miss)
+#19 12.52 npm http fetch GET 200 https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 2242ms (cache miss)
+#19 12.52 npm http fetch GET 200 https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 2235ms (cache miss)
+#19 12.53 npm http fetch GET 200 https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 2184ms (cache miss)
+#19 12.53 npm http fetch GET 200 https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 2184ms (cache miss)
+#19 12.53 npm http fetch GET 200 https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 2181ms (cache miss)
+#19 12.54 npm http fetch GET 200 https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 2200ms (cache miss)
+#19 12.57 npm http fetch GET 200 https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 2237ms (cache miss)
+#19 12.57 npm http fetch GET 200 https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 2225ms (cache miss)
+#19 12.58 npm http fetch GET 200 https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 2223ms (cache miss)
+#19 12.58 npm http fetch GET 200 https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 2220ms (cache miss)
+#19 12.62 npm http fetch GET 200 https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 2291ms (cache miss)
+#19 12.62 npm http fetch GET 200 https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 2252ms (cache miss)
+#19 12.63 npm http fetch GET 200 https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 2262ms (cache miss)
+#19 12.64 npm http fetch GET 200 https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 2218ms (cache miss)
+#19 12.65 npm http fetch GET 200 https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 2368ms (cache miss)
+#19 12.66 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 2316ms (cache miss)
+#19 12.66 npm http fetch GET 200 https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 2301ms (cache miss)
+#19 12.66 npm http fetch GET 200 https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 2295ms (cache miss)
+#19 12.67 npm http fetch GET 200 https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 2259ms (cache miss)
+#19 12.68 npm http fetch GET 200 https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 2217ms (cache miss)
+#19 12.70 npm http fetch GET 200 https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 2395ms (cache miss)
+#19 12.70 npm http fetch GET 200 https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 2325ms (cache miss)
+#19 12.70 npm http fetch GET 200 https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 2323ms (cache miss)
+#19 12.70 npm http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 2321ms (cache miss)
+#19 12.71 npm http fetch GET 200 https://registry.npmjs.org/send/-/send-1.2.0.tgz 2306ms (cache miss)
+#19 12.71 npm http fetch GET 200 https://registry.npmjs.org/router/-/router-2.2.0.tgz 2305ms (cache miss)
+#19 12.72 npm http fetch GET 200 https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 2293ms (cache miss)
+#19 12.72 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 2293ms (cache miss)
+#19 12.72 npm http fetch GET 200 https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 2289ms (cache miss)
+#19 12.74 npm http fetch GET 200 https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 2443ms (cache miss)
+#19 12.75 npm http fetch GET 200 https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 2358ms (cache miss)
+#19 12.75 npm http fetch GET 200 https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 2352ms (cache miss)
+#19 12.75 npm http fetch GET 200 https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 2351ms (cache miss)
+#19 12.76 npm http fetch GET 200 https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 2325ms (cache miss)
+#19 12.76 npm http fetch GET 200 https://registry.npmjs.org/once/-/once-1.4.0.tgz 2339ms (cache miss)
+#19 12.76 npm http fetch GET 200 https://registry.npmjs.org/cookie/-/cookie-0.7.2.tgz 2307ms (cache miss)
+#19 12.79 npm http fetch GET 200 https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 2347ms (cache miss)
+#19 12.79 npm http fetch GET 200 https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 2303ms (cache miss)
+#19 12.80 npm http fetch GET 200 https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 2410ms (cache miss)
+#19 12.81 npm http fetch GET 200 https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 2497ms (cache miss)
+#19 12.81 npm http fetch GET 200 https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 2353ms (cache miss)
+#19 12.82 npm http fetch GET 200 https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 2358ms (cache miss)
+#19 12.82 npm http fetch GET 200 https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 2347ms (cache miss)
+#19 12.82 npm http fetch GET 200 https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 2374ms (cache miss)
+#19 12.82 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 2372ms (cache miss)
+#19 12.85 npm http fetch GET 200 https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 2435ms (cache miss)
+#19 12.85 npm http fetch GET 200 https://registry.npmjs.org/which/-/which-2.0.2.tgz 2386ms (cache miss)
+#19 12.85 npm http fetch GET 200 https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 2386ms (cache miss)
+#19 12.86 npm http fetch GET 200 https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 2414ms (cache miss)
+#19 12.86 npm http fetch GET 200 https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 2367ms (cache miss)
+#19 12.87 npm http fetch GET 200 https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 2385ms (cache miss)
+#19 12.87 npm http fetch GET 200 https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 2357ms (cache miss)
+#19 12.91 npm http fetch GET 200 https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 2599ms (cache miss)
+#19 12.91 npm http fetch GET 200 https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 2493ms (cache miss)
+#19 12.91 npm http fetch GET 200 https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 2436ms (cache miss)
+#19 12.93 npm http fetch GET 200 https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 2493ms (cache miss)
+#19 13.00 npm http fetch GET 200 https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 2524ms (cache miss)
+#19 13.01 npm http fetch GET 200 https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 2498ms (cache miss)
+#19 13.03 npm http fetch GET 200 https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 2668ms (cache miss)
+#19 13.05 npm http fetch GET 200 https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 2549ms (cache miss)
+#19 13.06 npm http fetch GET 200 https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 2744ms (cache miss)
+#19 13.07 npm http fetch GET 200 https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 2758ms (cache miss)
+#19 13.07 npm http fetch GET 200 https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 2752ms (cache miss)
+#19 13.09 npm http fetch GET 200 https://registry.npmjs.org/dotenv/-/dotenv-17.2.3.tgz 2560ms (cache miss)
+#19 13.10 npm http fetch GET 200 https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 2710ms (cache miss)
+#19 13.11 npm http fetch GET 200 https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 2624ms (cache miss)
+#19 13.12 npm http fetch GET 200 https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 2806ms (cache miss)
+#19 13.14 npm http fetch GET 200 https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 2841ms (cache miss)
+#19 13.14 npm http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 2688ms (cache miss)
+#19 13.16 npm http fetch GET 200 https://registry.npmjs.org/express/-/express-5.1.0.tgz 2639ms (cache miss)
+#19 13.17 npm http fetch GET 200 https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 2662ms (cache miss)
+#19 13.19 npm http fetch GET 200 https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 2696ms (cache miss)
+#19 13.25 npm http fetch GET 200 https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 2730ms (cache miss)
+#19 13.27 npm http fetch GET 200 https://registry.npmjs.org/commander/-/commander-14.0.2.tgz 2742ms (cache miss)
+#19 13.28 npm http fetch GET 200 https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 2778ms (cache miss)
+#19 13.29 npm http fetch GET 200 https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 2879ms (cache miss)
+#19 13.32 npm http fetch GET 200 https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 2815ms (cache miss)
+#19 13.37 npm http fetch GET 200 https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 3035ms (cache miss)
+#19 13.39 npm http fetch GET 200 https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 2899ms (cache miss)
+#19 13.42 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 3038ms (cache miss)
+#19 13.49 npm http fetch GET 200 https://registry.npmjs.org/@brave/brave-search-mcp-server/-/brave-search-mcp-server-2.0.60.tgz 3219ms (cache miss)
+#19 15.64 npm http fetch GET 200 https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 5124ms (cache miss)
+#19 16.07 npm http fetch GET 200 https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 5544ms (cache miss)
+#19 16.20 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.22.0.tgz 5671ms (cache miss)
+#19 20.74 npm http fetch GET 200 https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 10246ms (cache miss)
+#19 20.83 
+#19 20.83 added 89 packages in 20s
+#19 20.83 
+#19 20.83 24 packages are looking for funding
+#19 20.83   run `npm fund` for details
+#19 20.84 npm verbose cwd /
+#19 20.84 npm verbose os Linux 6.17.2-1-pve
+#19 20.84 npm verbose node v25.2.1
+#19 20.84 npm verbose npm  v11.6.2
+#19 20.85 npm notice
+#19 20.85 npm notice New patch version of npm available! 11.6.2 -> 11.6.4
+#19 20.85 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+#19 20.85 npm notice To update run: npm install -g npm@11.6.4
+#19 20.85 npm notice
+#19 20.85 npm verbose exit 0
+#19 20.85 npm info ok
+#19 20.97 Package installed successfully
+#19 DONE 21.1s
+
+#20 [linux/arm64 7/7] RUN echo "Installing Supergateway..." &&     npm install -g supergateway@latest --loglevel verbose &&     npm cache clean --force
+#20 0.121 Installing Supergateway...
+#20 1.411 npm verbose cli /usr/local/bin/node /usr/local/bin/npm
+#20 1.416 npm info using npm@11.6.2
+#20 1.416 npm info using node@v25.2.1
+#20 1.440 npm verbose title npm install supergateway@latest
+#20 1.445 npm verbose argv "install" "--global" "supergateway@latest" "--loglevel" "verbose"
+#20 1.449 npm verbose logfile logs-max:10 dir:/root/.npm/_logs/2025-11-26T03_23_44_870Z-
+#20 1.474 npm verbose logfile /root/.npm/_logs/2025-11-26T03_23_44_870Z-debug-0.log
+#20 4.662 npm http fetch GET 200 https://registry.npmjs.org/supergateway 525ms (cache miss)
+#20 4.784 npm http fetch GET 200 https://registry.npmjs.org/supergateway 86ms (cache miss)
+#20 5.035 npm http cache https://registry.npmjs.org/@modelcontextprotocol%2fsdk 200ms (cache hit)
+#20 5.076 npm http cache https://registry.npmjs.org/body-parser 236ms (cache hit)
+#20 5.100 npm http cache https://registry.npmjs.org/cors 257ms (cache hit)
+#20 5.121 npm http cache https://registry.npmjs.org/express 275ms (cache hit)
+#20 5.338 npm http cache https://registry.npmjs.org/zod 275ms (cache hit)
+#20 5.536 npm http fetch GET 200 https://registry.npmjs.org/uuid 687ms (cache miss)
+#20 5.620 npm http fetch GET 200 https://registry.npmjs.org/ws 767ms (cache miss)
+#20 5.659 npm http fetch GET 200 https://registry.npmjs.org/yargs 804ms (cache miss)
+#20 5.731 npm http cache https://registry.npmjs.org/@cfworker%2fjson-schema 14ms (cache hit)
+#20 5.898 npm http fetch GET 200 https://registry.npmjs.org/bufferutil 131ms (cache miss)
+#20 5.963 npm http fetch GET 200 https://registry.npmjs.org/utf-8-validate 52ms (cache miss)
+#20 6.117 npm http cache https://registry.npmjs.org/ajv 85ms (cache hit)
+#20 6.159 npm http cache https://registry.npmjs.org/content-type 123ms (cache hit)
+#20 6.168 npm http cache https://registry.npmjs.org/ajv-formats 135ms (cache hit)
+#20 6.182 npm http cache https://registry.npmjs.org/eventsource 143ms (cache hit)
+#20 6.199 npm http cache https://registry.npmjs.org/eventsource-parser 158ms (cache hit)
+#20 6.212 npm http cache https://registry.npmjs.org/cross-spawn 174ms (cache hit)
+#20 6.229 npm http cache https://registry.npmjs.org/express-rate-limit 178ms (cache hit)
+#20 6.287 npm http cache https://registry.npmjs.org/pkce-challenge 133ms (cache hit)
+#20 6.300 npm http cache https://registry.npmjs.org/zod-to-json-schema 103ms (cache hit)
+#20 6.357 npm http cache https://registry.npmjs.org/zod 180ms (cache hit)
+#20 6.477 npm http cache https://registry.npmjs.org/qs 263ms (cache hit)
+#20 6.524 npm http cache https://registry.npmjs.org/depd 303ms (cache hit)
+#20 6.534 npm http cache https://registry.npmjs.org/raw-body 369ms (cache hit)
+#20 6.553 npm http cache https://registry.npmjs.org/bytes 301ms (cache hit)
+#20 6.600 npm http cache https://registry.npmjs.org/debug 306ms (cache hit)
+#20 6.616 npm http cache https://registry.npmjs.org/raw-body 86ms (cache hit)
+#20 6.630 npm http cache https://registry.npmjs.org/unpipe 316ms (cache hit)
+#20 6.641 npm http cache https://registry.npmjs.org/http-errors 81ms (cache hit)
+#20 6.652 npm http cache https://registry.npmjs.org/type-is 130ms (cache hit)
+#20 6.663 npm http cache https://registry.npmjs.org/iconv-lite 120ms (cache hit)
+#20 6.690 npm http fetch GET 200 https://registry.npmjs.org/destroy 239ms (cache miss)
+#20 6.711 npm http cache https://registry.npmjs.org/vary 83ms (cache hit)
+#20 6.719 npm http cache https://registry.npmjs.org/object-assign 84ms (cache hit)
+#20 6.726 npm http cache https://registry.npmjs.org/on-finished 112ms (cache hit)
+#20 6.734 npm http cache https://registry.npmjs.org/etag 84ms (cache hit)
+#20 6.745 npm http cache https://registry.npmjs.org/send 85ms (cache hit)
+#20 6.761 npm http cache https://registry.npmjs.org/vary 87ms (cache hit)
+#20 6.786 npm http cache https://registry.npmjs.org/fresh 90ms (cache hit)
+#20 6.807 npm http cache https://registry.npmjs.org/cookie 90ms (cache hit)
+#20 6.818 npm http cache https://registry.npmjs.org/statuses 63ms (cache hit)
+#20 6.826 npm http cache https://registry.npmjs.org/parseurl 85ms (cache hit)
+#20 6.838 npm http cache https://registry.npmjs.org/accepts 114ms (cache hit)
+#20 6.850 npm http cache https://registry.npmjs.org/encodeurl 84ms (cache hit)
+#20 6.884 npm http fetch GET 200 https://registry.npmjs.org/methods 152ms (cache miss)
+#20 6.936 npm http cache https://registry.npmjs.org/proxy-addr 144ms (cache hit)
+#20 6.950 npm http cache https://registry.npmjs.org/escape-html 134ms (cache hit)
+#20 6.966 npm http cache https://registry.npmjs.org/finalhandler 117ms (cache hit)
+#20 6.976 npm http cache https://registry.npmjs.org/range-parser 120ms (cache hit)
+#20 7.010 npm http fetch GET 200 https://registry.npmjs.org/utils-merge 177ms (cache miss)
+#20 7.021 npm http cache https://registry.npmjs.org/serve-static 131ms (cache hit)
+#20 7.037 npm http fetch GET 200 https://registry.npmjs.org/safe-buffer 211ms (cache miss)
+#20 7.059 npm http cache https://registry.npmjs.org/path-to-regexp 104ms (cache hit)
+#20 7.078 npm http cache https://registry.npmjs.org/cookie-signature 98ms (cache hit)
+#20 7.094 npm http cache https://registry.npmjs.org/setprototypeof 120ms (cache hit)
+#20 7.121 npm http fetch GET 200 https://registry.npmjs.org/array-flatten 177ms (cache miss)
+#20 7.179 npm http cache https://registry.npmjs.org/merge-descriptors 163ms (cache hit)
+#20 7.194 npm http cache https://registry.npmjs.org/content-disposition 162ms (cache hit)
+#20 7.224 npm http fetch GET 200 https://registry.npmjs.org/y18n 180ms (cache miss)
+#20 7.241 npm http fetch GET 200 https://registry.npmjs.org/cliui 169ms (cache miss)
+#20 7.251 npm http fetch GET 200 https://registry.npmjs.org/escalade 166ms (cache miss)
+#20 7.257 npm http fetch GET 200 https://registry.npmjs.org/string-width 157ms (cache miss)
+#20 7.272 npm http fetch GET 200 https://registry.npmjs.org/yargs-parser 145ms (cache miss)
+#20 7.286 npm http fetch GET 200 https://registry.npmjs.org/get-caller-file 101ms (cache miss)
+#20 7.294 npm http fetch GET 200 https://registry.npmjs.org/require-directory 94ms (cache miss)
+#20 7.458 npm http cache https://registry.npmjs.org/fast-deep-equal 47ms (cache hit)
+#20 7.479 npm http cache https://registry.npmjs.org/fast-uri 70ms (cache hit)
+#20 7.501 npm http cache https://registry.npmjs.org/require-from-string 87ms (cache hit)
+#20 7.519 npm http cache https://registry.npmjs.org/which 102ms (cache hit)
+#20 7.561 npm http cache https://registry.npmjs.org/json-schema-traverse 145ms (cache hit)
+#20 7.566 npm http cache https://registry.npmjs.org/shebang-command 145ms (cache hit)
+#20 7.570 npm http cache https://registry.npmjs.org/path-key 151ms (cache hit)
+#20 7.588 npm http cache https://registry.npmjs.org/once 113ms (cache hit)
+#20 7.595 npm http cache https://registry.npmjs.org/mime-types 80ms (cache hit)
+#20 7.604 npm http cache https://registry.npmjs.org/router 105ms (cache hit)
+#20 7.780 npm http cache https://registry.npmjs.org/inherits 54ms (cache hit)
+#20 7.786 npm http cache https://registry.npmjs.org/ms 63ms (cache hit)
+#20 7.793 npm http cache https://registry.npmjs.org/toidentifier 67ms (cache hit)
+#20 7.797 npm http cache https://registry.npmjs.org/ee-first 67ms (cache hit)
+#20 7.801 npm http cache https://registry.npmjs.org/side-channel 64ms (cache hit)
+#20 7.806 npm http cache https://registry.npmjs.org/safer-buffer 76ms (cache hit)
+#20 7.810 npm http cache https://registry.npmjs.org/media-typer 65ms (cache hit)
+#20 7.871 npm http cache https://registry.npmjs.org/shebang-regex 25ms (cache hit)
+#20 7.875 npm http cache https://registry.npmjs.org/isexe 28ms (cache hit)
+#20 8.075 npm http cache https://registry.npmjs.org/negotiator 45ms (cache hit)
+#20 8.087 npm http cache https://registry.npmjs.org/forwarded 53ms (cache hit)
+#20 8.095 npm http cache https://registry.npmjs.org/ipaddr.js 59ms (cache hit)
+#20 8.112 npm http fetch GET 200 https://registry.npmjs.org/mime 63ms (cache miss)
+#20 8.152 npm http cache https://registry.npmjs.org/mime-db 12ms (cache hit)
+#20 8.238 npm http cache https://registry.npmjs.org/es-errors 33ms (cache hit)
+#20 8.244 npm http cache https://registry.npmjs.org/object-inspect 37ms (cache hit)
+#20 8.253 npm http cache https://registry.npmjs.org/side-channel-map 44ms (cache hit)
+#20 8.257 npm http cache https://registry.npmjs.org/side-channel-list 48ms (cache hit)
+#20 8.260 npm http cache https://registry.npmjs.org/side-channel-weakmap 48ms (cache hit)
+#20 8.374 npm http cache https://registry.npmjs.org/call-bound 30ms (cache hit)
+#20 8.380 npm http cache https://registry.npmjs.org/get-intrinsic 29ms (cache hit)
+#20 8.386 npm http cache https://registry.npmjs.org/get-intrinsic 40ms (cache hit)
+#20 8.391 npm http cache https://registry.npmjs.org/call-bound 42ms (cache hit)
+#20 8.463 npm http cache https://registry.npmjs.org/call-bind-apply-helpers 53ms (cache hit)
+#20 8.472 npm http cache https://registry.npmjs.org/get-proto 55ms (cache hit)
+#20 8.479 npm http cache https://registry.npmjs.org/gopd 65ms (cache hit)
+#20 8.487 npm http cache https://registry.npmjs.org/function-bind 66ms (cache hit)
+#20 8.491 npm http cache https://registry.npmjs.org/hasown 77ms (cache hit)
+#20 8.496 npm http cache https://registry.npmjs.org/has-symbols 79ms (cache hit)
+#20 8.502 npm http cache https://registry.npmjs.org/es-object-atoms 76ms (cache hit)
+#20 8.517 npm http cache https://registry.npmjs.org/math-intrinsics 48ms (cache hit)
+#20 8.521 npm http cache https://registry.npmjs.org/es-define-property 44ms (cache hit)
+#20 8.586 npm http cache https://registry.npmjs.org/dunder-proto 8ms (cache hit)
+#20 8.753 npm http cache https://registry.npmjs.org/string-width 99ms (cache hit)
+#20 8.761 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi 109ms (cache miss)
+#20 8.777 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi 121ms (cache miss)
+#20 8.815 npm http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point 157ms (cache miss)
+#20 8.821 npm http fetch GET 200 https://registry.npmjs.org/wrap-ansi 171ms (cache miss)
+#20 8.828 npm http fetch GET 200 https://registry.npmjs.org/emoji-regex 170ms (cache miss)
+#20 8.901 npm http fetch GET 200 https://registry.npmjs.org/ansi-regex 50ms (cache miss)
+#20 8.907 npm http fetch GET 200 https://registry.npmjs.org/ansi-styles 55ms (cache miss)
+#20 8.985 npm http fetch GET 200 https://registry.npmjs.org/color-convert 47ms (cache miss)
+#20 9.055 npm http fetch GET 200 https://registry.npmjs.org/color-name 55ms (cache miss)
+#20 9.238 npm http cache https://registry.npmjs.org/wrappy 19ms (cache hit)
+#20 9.242 npm http cache https://registry.npmjs.org/is-promise 19ms (cache hit)
+#20 10.12 npm http cache supergateway@https://registry.npmjs.org/supergateway/-/supergateway-3.4.3.tgz 3ms (cache hit)
+#20 10.15 npm http cache is-promise@https://registry.npmjs.org/is-promise/-/is-promise-4.0.0.tgz 0ms (cache hit)
+#20 10.16 npm http cache router@https://registry.npmjs.org/router/-/router-2.2.0.tgz 0ms (cache hit)
+#20 10.16 npm http cache wrappy@https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz 0ms (cache hit)
+#20 10.16 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#20 10.16 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-8.3.0.tgz 0ms (cache hit)
+#20 10.17 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#20 10.17 npm http cache once@https://registry.npmjs.org/once/-/once-1.4.0.tgz 0ms (cache hit)
+#20 10.17 npm http cache color-name@https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 0ms (cache hit)
+#20 10.18 npm http cache color-convert@https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 1ms (cache hit)
+#20 10.19 npm http cache ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 0ms (cache hit)
+#20 10.19 npm http cache ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 0ms (cache hit)
+#20 10.19 npm http cache is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz 0ms (cache hit)
+#20 10.19 npm http cache emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 0ms (cache hit)
+#20 10.19 npm http cache wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz 0ms (cache hit)
+#20 10.19 npm http cache strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 0ms (cache hit)
+#20 10.20 npm http cache yargs-parser@https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz 0ms (cache hit)
+#20 10.20 npm http cache y18n@https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz 0ms (cache hit)
+#20 10.20 npm http cache string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 0ms (cache hit)
+#20 10.20 npm http cache require-directory@https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz 0ms (cache hit)
+#20 10.20 npm http cache get-caller-file@https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz 0ms (cache hit)
+#20 10.20 npm http cache escalade@https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz 0ms (cache hit)
+#20 10.21 npm http cache cliui@https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz 0ms (cache hit)
+#20 10.21 npm http cache isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 0ms (cache hit)
+#20 10.21 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz 0ms (cache hit)
+#20 10.21 npm http cache dunder-proto@https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz 0ms (cache hit)
+#20 10.21 npm http cache math-intrinsics@https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz 0ms (cache hit)
+#20 10.21 npm http cache hasown@https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz 0ms (cache hit)
+#20 10.22 npm http cache has-symbols@https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz 0ms (cache hit)
+#20 10.22 npm http cache gopd@https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz 0ms (cache hit)
+#20 10.22 npm http cache get-proto@https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz 0ms (cache hit)
+#20 10.22 npm http cache es-object-atoms@https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz 0ms (cache hit)
+#20 10.22 npm http cache es-define-property@https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz 0ms (cache hit)
+#20 10.22 npm http cache function-bind@https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz 0ms (cache hit)
+#20 10.23 npm http cache call-bind-apply-helpers@https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz 0ms (cache hit)
+#20 10.23 npm http cache get-intrinsic@https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz 0ms (cache hit)
+#20 10.23 npm http cache call-bound@https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz 0ms (cache hit)
+#20 10.23 npm http cache side-channel-weakmap@https://registry.npmjs.org/side-channel-weakmap/-/side-channel-weakmap-1.0.2.tgz 1ms (cache hit)
+#20 10.23 npm http cache side-channel-map@https://registry.npmjs.org/side-channel-map/-/side-channel-map-1.0.1.tgz 0ms (cache hit)
+#20 10.24 npm http cache side-channel-list@https://registry.npmjs.org/side-channel-list/-/side-channel-list-1.0.0.tgz 0ms (cache hit)
+#20 10.24 npm http cache object-inspect@https://registry.npmjs.org/object-inspect/-/object-inspect-1.13.4.tgz 0ms (cache hit)
+#20 10.24 npm http cache es-errors@https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz 0ms (cache hit)
+#20 10.24 npm http cache shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 0ms (cache hit)
+#20 10.24 npm http cache side-channel@https://registry.npmjs.org/side-channel/-/side-channel-1.1.0.tgz 0ms (cache hit)
+#20 10.25 npm http cache mime@https://registry.npmjs.org/mime/-/mime-1.6.0.tgz 0ms (cache hit)
+#20 10.25 npm http cache ipaddr.js@https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz 0ms (cache hit)
+#20 10.25 npm http cache forwarded@https://registry.npmjs.org/forwarded/-/forwarded-0.2.0.tgz 0ms (cache hit)
+#20 10.25 npm http cache ee-first@https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz 0ms (cache hit)
+#20 10.25 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 0ms (cache hit)
+#20 10.26 npm http cache safer-buffer@https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz 0ms (cache hit)
+#20 10.26 npm http cache inherits@https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz 0ms (cache hit)
+#20 10.26 npm http cache toidentifier@https://registry.npmjs.org/toidentifier/-/toidentifier-1.0.1.tgz 0ms (cache hit)
+#20 10.26 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz 0ms (cache hit)
+#20 10.26 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 0ms (cache hit)
+#20 10.27 npm http cache utils-merge@https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz 0ms (cache hit)
+#20 10.27 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz 0ms (cache hit)
+#20 10.27 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-1.16.2.tgz 0ms (cache hit)
+#20 10.27 npm http cache setprototypeof@https://registry.npmjs.org/setprototypeof/-/setprototypeof-1.2.0.tgz 0ms (cache hit)
+#20 10.27 npm http cache send@https://registry.npmjs.org/send/-/send-0.19.0.tgz 0ms (cache hit)
+#20 10.27 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz 0ms (cache hit)
+#20 10.28 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#20 10.28 npm http cache safe-buffer@https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz 0ms (cache hit)
+#20 10.28 npm http cache range-parser@https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz 0ms (cache hit)
+#20 10.28 npm http cache proxy-addr@https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz 0ms (cache hit)
+#20 10.28 npm http cache path-to-regexp@https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.12.tgz 0ms (cache hit)
+#20 10.28 npm http cache parseurl@https://registry.npmjs.org/parseurl/-/parseurl-1.3.3.tgz 0ms (cache hit)
+#20 10.29 npm http cache methods@https://registry.npmjs.org/methods/-/methods-1.1.2.tgz 0ms (cache hit)
+#20 10.29 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.3.tgz 0ms (cache hit)
+#20 10.29 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz 0ms (cache hit)
+#20 10.29 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-1.3.1.tgz 0ms (cache hit)
+#20 10.29 npm http cache etag@https://registry.npmjs.org/etag/-/etag-1.8.1.tgz 0ms (cache hit)
+#20 10.29 npm http cache escape-html@https://registry.npmjs.org/escape-html/-/escape-html-1.0.3.tgz 0ms (cache hit)
+#20 10.30 npm http cache encodeurl@https://registry.npmjs.org/encodeurl/-/encodeurl-2.0.0.tgz 0ms (cache hit)
+#20 10.30 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz 0ms (cache hit)
+#20 10.30 npm http cache cookie@https://registry.npmjs.org/cookie/-/cookie-0.7.1.tgz 0ms (cache hit)
+#20 10.30 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-0.5.4.tgz 0ms (cache hit)
+#20 10.30 npm http cache array-flatten@https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz 0ms (cache hit)
+#20 10.30 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz 0ms (cache hit)
+#20 10.30 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 0ms (cache hit)
+#20 10.31 npm http cache which@https://registry.npmjs.org/which/-/which-2.0.2.tgz 0ms (cache hit)
+#20 10.31 npm http cache shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 0ms (cache hit)
+#20 10.31 npm http cache path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 0ms (cache hit)
+#20 10.31 npm http cache vary@https://registry.npmjs.org/vary/-/vary-1.1.2.tgz 0ms (cache hit)
+#20 10.31 npm http cache object-assign@https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz 0ms (cache hit)
+#20 10.31 npm http cache unpipe@https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz 0ms (cache hit)
+#20 10.32 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz 0ms (cache hit)
+#20 10.32 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.13.0.tgz 0ms (cache hit)
+#20 10.32 npm http cache on-finished@https://registry.npmjs.org/on-finished/-/on-finished-2.4.1.tgz 0ms (cache hit)
+#20 10.32 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz 0ms (cache hit)
+#20 10.32 npm http cache destroy@https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz 0ms (cache hit)
+#20 10.32 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.0.tgz 0ms (cache hit)
+#20 10.33 npm http cache depd@https://registry.npmjs.org/depd/-/depd-2.0.0.tgz 0ms (cache hit)
+#20 10.33 npm http cache debug@https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 0ms (cache hit)
+#20 10.33 npm http cache bytes@https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz 0ms (cache hit)
+#20 10.33 npm http cache require-from-string@https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz 0ms (cache hit)
+#20 10.33 npm http cache json-schema-traverse@https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz 0ms (cache hit)
+#20 10.34 npm http cache fast-uri@https://registry.npmjs.org/fast-uri/-/fast-uri-3.1.0.tgz 0ms (cache hit)
+#20 10.34 npm http cache fast-deep-equal@https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz 0ms (cache hit)
+#20 10.34 npm http cache zod-to-json-schema@https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.0.tgz 0ms (cache hit)
+#20 10.34 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-3.0.2.tgz 0ms (cache hit)
+#20 10.34 npm http cache statuses@https://registry.npmjs.org/statuses/-/statuses-2.0.2.tgz 0ms (cache hit)
+#20 10.35 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#20 10.35 npm http cache http-errors@https://registry.npmjs.org/http-errors/-/http-errors-2.0.1.tgz 0ms (cache hit)
+#20 10.35 npm http cache pkce-challenge@https://registry.npmjs.org/pkce-challenge/-/pkce-challenge-5.0.1.tgz 0ms (cache hit)
+#20 10.35 npm http cache express-rate-limit@https://registry.npmjs.org/express-rate-limit/-/express-rate-limit-7.5.1.tgz 0ms (cache hit)
+#20 10.35 npm http cache eventsource-parser@https://registry.npmjs.org/eventsource-parser/-/eventsource-parser-3.0.6.tgz 0ms (cache hit)
+#20 10.35 npm http cache eventsource@https://registry.npmjs.org/eventsource/-/eventsource-3.0.7.tgz 0ms (cache hit)
+#20 10.36 npm http cache cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz 0ms (cache hit)
+#20 10.36 npm http cache content-type@https://registry.npmjs.org/content-type/-/content-type-1.0.5.tgz 1ms (cache hit)
+#20 10.36 npm http cache ajv@https://registry.npmjs.org/ajv/-/ajv-8.17.1.tgz 0ms (cache hit)
+#20 10.36 npm http cache ajv-formats@https://registry.npmjs.org/ajv-formats/-/ajv-formats-3.0.1.tgz 0ms (cache hit)
+#20 10.36 npm http cache zod@https://registry.npmjs.org/zod/-/zod-3.25.76.tgz 0ms (cache hit)
+#20 10.36 npm http cache yargs@https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz 0ms (cache hit)
+#20 10.37 npm http cache ws@https://registry.npmjs.org/ws/-/ws-8.18.3.tgz 0ms (cache hit)
+#20 10.37 npm http cache uuid@https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz 0ms (cache hit)
+#20 10.37 npm http cache express@https://registry.npmjs.org/express/-/express-4.21.2.tgz 0ms (cache hit)
+#20 10.37 npm http cache cors@https://registry.npmjs.org/cors/-/cors-2.8.5.tgz 0ms (cache hit)
+#20 10.37 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-1.20.3.tgz 0ms (cache hit)
+#20 10.37 npm http cache raw-body@https://registry.npmjs.org/raw-body/-/raw-body-2.5.2.tgz 0ms (cache hit)
+#20 10.38 npm http cache @modelcontextprotocol/sdk@https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.23.0.tgz 0ms (cache hit)
+#20 10.38 npm http cache media-typer@https://registry.npmjs.org/media-typer/-/media-typer-1.1.0.tgz 0ms (cache hit)
+#20 10.38 npm http cache mime-db@https://registry.npmjs.org/mime-db/-/mime-db-1.54.0.tgz 0ms (cache hit)
+#20 10.38 npm http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+#20 10.38 npm http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.7.0.tgz 0ms (cache hit)
+#20 10.38 npm http cache negotiator@https://registry.npmjs.org/negotiator/-/negotiator-1.0.0.tgz 0ms (cache hit)
+#20 10.38 npm http cache type-is@https://registry.npmjs.org/type-is/-/type-is-2.0.1.tgz 0ms (cache hit)
+#20 10.39 npm http cache serve-static@https://registry.npmjs.org/serve-static/-/serve-static-2.2.0.tgz 0ms (cache hit)
+#20 10.39 npm http cache send@https://registry.npmjs.org/send/-/send-1.2.0.tgz 0ms (cache hit)
+#20 10.39 npm http cache qs@https://registry.npmjs.org/qs/-/qs-6.14.0.tgz 0ms (cache hit)
+#20 10.39 npm http cache mime-types@https://registry.npmjs.org/mime-types/-/mime-types-3.0.2.tgz 0ms (cache hit)
+#20 10.39 npm http cache merge-descriptors@https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-2.0.0.tgz 0ms (cache hit)
+#20 10.39 npm http cache fresh@https://registry.npmjs.org/fresh/-/fresh-2.0.0.tgz 0ms (cache hit)
+#20 10.40 npm http cache finalhandler@https://registry.npmjs.org/finalhandler/-/finalhandler-2.1.0.tgz 0ms (cache hit)
+#20 10.40 npm http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+#20 10.40 npm http cache cookie-signature@https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.2.2.tgz 0ms (cache hit)
+#20 10.40 npm http cache content-disposition@https://registry.npmjs.org/content-disposition/-/content-disposition-1.0.1.tgz 0ms (cache hit)
+#20 10.40 npm http cache accepts@https://registry.npmjs.org/accepts/-/accepts-2.0.0.tgz 0ms (cache hit)
+#20 10.41 npm http cache body-parser@https://registry.npmjs.org/body-parser/-/body-parser-2.2.1.tgz 0ms (cache hit)
+#20 10.41 npm http cache express@https://registry.npmjs.org/express/-/express-5.1.0.tgz 0ms (cache hit)
+#20 13.67 npm http fetch GET 200 https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 3180ms (cache miss)
+#20 13.67 npm http fetch GET 200 https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 3188ms (cache miss)
+#20 13.67 npm http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 3184ms (cache miss)
+#20 13.68 npm http fetch GET 200 https://registry.npmjs.org/statuses/-/statuses-2.0.1.tgz 3134ms (cache miss)
+#20 13.70 npm http fetch GET 200 https://registry.npmjs.org/cliui/-/cliui-8.0.1.tgz 3184ms (cache miss)
+#20 13.71 npm http fetch GET 200 https://registry.npmjs.org/mime/-/mime-1.6.0.tgz 3179ms (cache miss)
+#20 13.73 npm http fetch GET 200 https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz 3191ms (cache miss)
+#20 13.73 npm http fetch GET 200 https://registry.npmjs.org/mime-types/-/mime-types-2.1.35.tgz 3192ms (cache miss)
+#20 13.73 npm http fetch GET 200 https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz 3193ms (cache miss)
+#20 13.73 npm http fetch GET 200 https://registry.npmjs.org/serve-static/-/serve-static-1.16.2.tgz 3191ms (cache miss)
+#20 13.74 npm http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 3239ms (cache miss)
+#20 13.76 npm http fetch GET 200 https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz 3210ms (cache miss)
+#20 13.76 npm http fetch GET 200 https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz 3203ms (cache miss)
+#20 13.77 npm http fetch GET 200 https://registry.npmjs.org/finalhandler/-/finalhandler-1.3.1.tgz 3203ms (cache miss)
+#20 13.77 npm http fetch GET 200 https://registry.npmjs.org/content-disposition/-/content-disposition-0.5.4.tgz 3199ms (cache miss)
+#20 13.77 npm http fetch GET 200 https://registry.npmjs.org/accepts/-/accepts-1.3.8.tgz 3196ms (cache miss)
+#20 13.79 npm http fetch GET 200 https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz 3269ms (cache miss)
+#20 13.79 npm http fetch GET 200 https://registry.npmjs.org/methods/-/methods-1.1.2.tgz 3236ms (cache miss)
+#20 13.80 npm http fetch GET 200 https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz 3214ms (cache miss)
+#20 13.82 npm http fetch GET 200 https://registry.npmjs.org/send/-/send-0.19.0.tgz 3268ms (cache miss)
+#20 13.82 npm http fetch GET 200 https://registry.npmjs.org/encodeurl/-/encodeurl-1.0.2.tgz 3270ms (cache miss)
+#20 13.82 npm http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz 3329ms (cache miss)
+#20 13.82 npm http fetch GET 200 https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz 3249ms (cache miss)
+#20 13.83 npm http fetch GET 200 https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz 3329ms (cache miss)
+#20 13.83 npm http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.0.0.tgz 3250ms (cache miss)
+#20 13.85 npm http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 3359ms (cache miss)
+#20 13.85 npm http fetch GET 200 https://registry.npmjs.org/merge-descriptors/-/merge-descriptors-1.0.3.tgz 3291ms (cache miss)
+#20 13.85 npm http fetch GET 200 https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-0.1.12.tgz 3298ms (cache miss)
+#20 13.86 npm http fetch GET 200 https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz 3289ms (cache miss)
+#20 13.86 npm http fetch GET 200 https://registry.npmjs.org/http-errors/-/http-errors-2.0.0.tgz 3270ms (cache miss)
+#20 13.87 npm http fetch GET 200 https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz 3362ms (cache miss)
+#20 13.89 npm http fetch GET 200 https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 3382ms (cache miss)
+#20 13.90 npm http fetch GET 200 https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz 3305ms (cache miss)
+#20 13.90 npm http fetch GET 200 https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 3410ms (cache miss)
+#20 13.92 npm http fetch GET 200 https://registry.npmjs.org/cookie/-/cookie-0.7.1.tgz 3347ms (cache miss)
+#20 13.92 npm http fetch GET 200 https://registry.npmjs.org/require-directory/-/require-directory-2.1.1.tgz 3408ms (cache miss)
+#20 13.96 npm http fetch GET 200 https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz 3442ms (cache miss)
+#20 14.00 npm http fetch GET 200 https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz 3493ms (cache miss)
+#20 14.00 npm http fetch GET 200 https://registry.npmjs.org/raw-body/-/raw-body-2.5.2.tgz 3386ms (cache miss)
+#20 14.02 npm http fetch GET 200 https://registry.npmjs.org/debug/-/debug-2.6.9.tgz 3425ms (cache miss)
+#20 14.03 npm http fetch GET 200 https://registry.npmjs.org/mime-db/-/mime-db-1.52.0.tgz 3499ms (cache miss)
+#20 14.16 npm http fetch GET 200 https://registry.npmjs.org/body-parser/-/body-parser-1.20.3.tgz 3542ms (cache miss)
+#20 14.21 npm http fetch GET 200 https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz 3708ms (cache miss)
+#20 14.22 npm http fetch GET 200 https://registry.npmjs.org/ws/-/ws-8.18.3.tgz 3614ms (cache miss)
+#20 14.29 npm http fetch GET 200 https://registry.npmjs.org/qs/-/qs-6.13.0.tgz 3703ms (cache miss)
+#20 14.34 npm http fetch GET 200 https://registry.npmjs.org/express/-/express-4.21.2.tgz 3728ms (cache miss)
+#20 14.44 npm http fetch GET 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz 3855ms (cache miss)
+#20 14.54 npm http fetch GET 200 https://registry.npmjs.org/supergateway/-/supergateway-3.4.3.tgz 4091ms (cache miss)
+#20 14.58 npm http fetch GET 200 https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz 3973ms (cache miss)
+#20 15.18 npm http fetch GET 200 https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz 4567ms (cache miss)
+#20 17.32 npm http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol/sdk/-/sdk-1.23.0.tgz 6698ms (cache miss)
+#20 21.34 
+#20 21.34 added 139 packages in 20s
+#20 21.35 
+#20 21.35 30 packages are looking for funding
+#20 21.35   run `npm fund` for details
+#20 21.36 npm verbose cwd /
+#20 21.36 npm verbose os Linux 6.17.2-1-pve
+#20 21.36 npm verbose node v25.2.1
+#20 21.36 npm verbose npm  v11.6.2
+#20 21.36 npm verbose exit 0
+#20 21.36 npm info ok
+#20 22.74 npm warn using --force Recommended protections disabled.
+#20 DONE 24.3s
+
+#21 exporting to image
+#21 exporting layers
+#21 exporting layers 8.5s done
+#21 preparing layers for inline cache
+#21 preparing layers for inline cache 2.5s done
+#21 exporting manifest sha256:2e2947cc224c0b4bd261ffe4d4d42f25b1f57fa8e9b6f388400adabeb0c6576c done
+#21 exporting config sha256:29f7276cd40d4b2cc40f583e5507b1e8c5c6ca99cfa58de9880bf51be661198d 0.0s done
+#21 exporting manifest sha256:a8bba157451d892a072b0acc78192af6467707ab17a2f4d896b35d0235cd4edf 0.0s done
+#21 exporting config sha256:d207dbea3f458ba0f257a2b3f8ccbbe3f6c2882af9fd51a8388409e854141440 0.1s done
+#21 exporting manifest list sha256:1b0fdbab78bcdd9955619641980444f9c65ad55346665c4cbf045090756078f9 done
+#21 pushing layers
+#21 ...
+
+#22 [auth] mekayelanik/brave-search-mcp:pull,push token for registry-1.docker.io
+#22 DONE 0.0s
+
+#21 exporting to image
+#21 pushing layers 10.0s done
+#21 pushing manifest for docker.io/mekayelanik/brave-search-mcp:2.0.60-26112025@sha256:1b0fdbab78bcdd9955619641980444f9c65ad55346665c4cbf045090756078f9
+#21 pushing manifest for docker.io/mekayelanik/brave-search-mcp:2.0.60-26112025@sha256:1b0fdbab78bcdd9955619641980444f9c65ad55346665c4cbf045090756078f9 3.8s done
+#21 pushing layers 1.3s done
+#21 pushing manifest for docker.io/mekayelanik/brave-search-mcp:2.0.60@sha256:1b0fdbab78bcdd9955619641980444f9c65ad55346665c4cbf045090756078f9
+#21 pushing manifest for docker.io/mekayelanik/brave-search-mcp:2.0.60@sha256:1b0fdbab78bcdd9955619641980444f9c65ad55346665c4cbf045090756078f9 2.5s done
+#21 DONE 29.4s
+
+#23 exporting cache to registry
+#23 preparing build cache for export
+#23 writing layer sha256:07dcbee5253819782edb2099fb819aa6aaec65ff0d1592b3aeccfe7eb9b574fc
+#23 ...
+
+#24 [auth] mekayelanik/brave-search-mcp:pull,push token for registry-1.docker.io
+#24 DONE 0.0s
+
+#23 exporting cache to registry
+#23 writing layer sha256:07dcbee5253819782edb2099fb819aa6aaec65ff0d1592b3aeccfe7eb9b574fc 1.4s done
+#23 writing layer sha256:28442a143f7161225d91af5f68a9f6d101d0623d1cf924cd6d18264b1fd7f108
+#23 writing layer sha256:28442a143f7161225d91af5f68a9f6d101d0623d1cf924cd6d18264b1fd7f108 0.3s done
+#23 writing layer sha256:2c1ce468d9f3d941396801f6e3afc8921466650dd05430fe644cd3537713d27f
+#23 writing layer sha256:2c1ce468d9f3d941396801f6e3afc8921466650dd05430fe644cd3537713d27f done
+#23 writing layer sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b
+#23 writing layer sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 0.3s done
+#23 writing layer sha256:38f397668c5e8ad3856e8043875abd3132e0a8d362c228d220c6316ad0c9a5a9
+#23 writing layer sha256:38f397668c5e8ad3856e8043875abd3132e0a8d362c228d220c6316ad0c9a5a9 0.3s done
+#23 writing layer sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea
+#23 writing layer sha256:396c1724a40c7c5d13a80d8caafe06579781e1595c3deb2632baa7056a3292ea 0.3s done
+#23 writing layer sha256:58ddda1aafde5cd586e31d2fd95ba8bf157df328055f487ceb9d8c8737c99aab
+#23 writing layer sha256:58ddda1aafde5cd586e31d2fd95ba8bf157df328055f487ceb9d8c8737c99aab 0.3s done
+#23 writing layer sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39
+#23 writing layer sha256:6b59a28fa20117e6048ad0616b8d8c901877ef15ff4c7f18db04e4f01f43bc39 0.3s done
+#23 writing layer sha256:7a0087983a2f24c1e668edeb8c9a52844428da03e4fd785e545b1a56a7a5c077
+#23 writing layer sha256:7a0087983a2f24c1e668edeb8c9a52844428da03e4fd785e545b1a56a7a5c077 0.3s done
+#23 writing layer sha256:81539c624feb8831b070098763fc2814f7872c902b3ef035785a0075d916d07b
+#23 writing layer sha256:81539c624feb8831b070098763fc2814f7872c902b3ef035785a0075d916d07b 0.3s done
+#23 writing layer sha256:8ce6b5d8c2bcb7c8016f08f0e2aad09cf8bd78211627fcac1d13bb21659087a6
+#23 writing layer sha256:8ce6b5d8c2bcb7c8016f08f0e2aad09cf8bd78211627fcac1d13bb21659087a6 0.3s done
+#23 writing layer sha256:8d296ea4f49ed4f7d59ff70054bff6efe0a9d8e181e0640f2aa895bfb72765b8
+#23 writing layer sha256:8d296ea4f49ed4f7d59ff70054bff6efe0a9d8e181e0640f2aa895bfb72765b8 0.3s done
+#23 writing layer sha256:a0f86d2dac629e40e5be1dbd5f1cfcbb29ea8b5acf4a39c1a4c407b1ba4a4bcb
+#23 writing layer sha256:a0f86d2dac629e40e5be1dbd5f1cfcbb29ea8b5acf4a39c1a4c407b1ba4a4bcb 0.3s done
+#23 writing layer sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77
+#23 writing layer sha256:a59fba5609312daf83a03993fc08f675e2d9afafd3801e71f803edecfd7f4b77 0.3s done
+#23 writing layer sha256:bea030fe9ca2b229f61975f09d13ac2ff8c62e6d471451d8fcb8fa4f6ea8f954
+#23 writing layer sha256:bea030fe9ca2b229f61975f09d13ac2ff8c62e6d471451d8fcb8fa4f6ea8f954 0.3s done
+#23 writing layer sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d
+#23 writing layer sha256:f5e8b9b9f61e8e5c234ece120ef97a6e830cc332dac34683e78d0185ddca8c0d 0.3s done
+#23 writing layer sha256:fa71668465c0a78d99916ef0ca161964e4926bf83d5809e334d890f308e28bd5
+#23 writing layer sha256:fa71668465c0a78d99916ef0ca161964e4926bf83d5809e334d890f308e28bd5 0.3s done
+#23 writing config sha256:4fd633355b17088cc5faa373b44646223c77ad54145920064a473bc7a7e026e9
+#23 writing config sha256:4fd633355b17088cc5faa373b44646223c77ad54145920064a473bc7a7e026e9 1.5s done
+#23 writing cache image manifest sha256:55afe55ebde81c545604a383631b4032acc8e5f110544e6d7c13614e23669225
+#23 preparing build cache for export 9.8s done
+#23 writing cache image manifest sha256:55afe55ebde81c545604a383631b4032acc8e5f110544e6d7c13614e23669225 2.3s done
+#23 DONE 9.8s
+WARNING: current commit information was not captured by the build: failed to read current commit information with git rev-parse --is-inside-work-tree

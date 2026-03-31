@@ -1,0 +1,61 @@
+#0 building with "ispyagentdvr-optimized" instance using docker-container driver
+
+#1 [internal] load build definition from Dockerfile.brave-search-mcp
+#1 transferring dockerfile: 146B done
+#1 DONE 0.0s
+
+#2 [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.54
+#2 DONE 0.3s
+
+#3 [linux/arm64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.54
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [linux/arm64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d
+#5 resolve docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d done
+#5 DONE 0.0s
+
+#6 [linux/amd64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d
+#6 resolve docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d done
+#6 DONE 0.0s
+
+#7 importing cache manifest from mekayelanik/brave-search-mcp:buildcache-2.0.54
+#7 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+#7 DONE 1.0s
+
+#5 [linux/arm64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d
+#5 CACHED
+
+#6 [linux/amd64 1/1] FROM docker.io/mekayelanik/brave-search-mcp:2.0.54@sha256:a5fae4dfbf4823ffaf5133576de8d0f1ac6db1ee592229a82cb50d837339e01d
+#6 CACHED
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 0.2s done
+#8 preparing layers for inline cache
+#8 preparing layers for inline cache 0.4s done
+#8 exporting manifest sha256:30ac5a2e34adf0f80c3357466b29c1c1aaa42a729b07998d84954a5f9b8df5d6 done
+#8 exporting config sha256:4a9c23378bf6964827cfcc2cce219768c82c6014a6b5d0b4a391c410d85dc026 done
+#8 exporting manifest sha256:d55a10b27915308e96540b8ce36eb97da3711da71bc58c6f990134c3318386f4 done
+#8 exporting config sha256:f9a1334b551912f0653e52659e69e1549ba02ad698079e704b8df98d15ae4bcb done
+#8 exporting manifest list sha256:b0bf38f2a3e7c63cf3369232c134079e781d8e21a78153fd15dcf666347f5017 done
+#8 pushing layers
+#8 ...
+
+#9 [auth] mekayelanik/brave-search-mcp:pull,push token for registry-1.docker.io
+#9 DONE 0.0s
+
+#8 exporting to image
+#8 pushing layers 3.3s done
+#8 pushing manifest for docker.io/mekayelanik/brave-search-mcp:stable@sha256:b0bf38f2a3e7c63cf3369232c134079e781d8e21a78153fd15dcf666347f5017
+#8 pushing manifest for docker.io/mekayelanik/brave-search-mcp:stable@sha256:b0bf38f2a3e7c63cf3369232c134079e781d8e21a78153fd15dcf666347f5017 2.5s done
+#8 DONE 6.9s
+
+#10 exporting cache to registry
+#10 preparing build cache for export
+#10 preparing build cache for export done
+#10 skipping cache export for empty result done
+#10 DONE 0.0s

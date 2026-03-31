@@ -1,0 +1,34 @@
+#0 building with "ultra-optimized" instance using docker-container driver
+
+#1 [internal] load build definition from Dockerfile.brave-search-mcp
+#1 transferring dockerfile: 146B done
+#1 DONE 0.0s
+
+#2 [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63
+#2 ...
+
+#3 [auth] mekayelanik/brave-search-mcp:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [linux/arm64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63
+#4 ...
+
+#2 [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63
+#2 ERROR: docker.io/mekayelanik/brave-search-mcp:2.0.63: not found
+
+#4 [linux/arm64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63
+#4 ERROR: docker.io/mekayelanik/brave-search-mcp:2.0.63: not found
+------
+ > [linux/arm64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63:
+------
+------
+ > [linux/amd64 internal] load metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63:
+------
+WARNING: current commit information was not captured by the build: failed to read current commit information with git rev-parse --is-inside-work-tree
+Dockerfile.brave-search-mcp:2
+--------------------
+   1 |     ARG BASE_IMAGE=mekayelanik/brave-search-mcp:2.0.63
+   2 | >>> FROM mekayelanik/brave-search-mcp:2.0.63
+   3 |     
+--------------------
+ERROR: failed to build: failed to solve: mekayelanik/brave-search-mcp:2.0.63: failed to resolve source metadata for docker.io/mekayelanik/brave-search-mcp:2.0.63: docker.io/mekayelanik/brave-search-mcp:2.0.63: not found
