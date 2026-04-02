@@ -16,18 +16,6 @@
 
 ### Multi-Architecture Docker Image for Privacy-Respecting Web Search
 
-<div align="left">
-
-<img alt="brave-search-mcp" src="https://img.shields.io/badge/Brave Search-MCP-00E9A3?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiA3TDEyIDEyTDIyIDdMMTIgMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yIDEyTDEyIDE3TDIyIDEyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMiAxN0wxMiAyMkwyMiAxNyIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+&logoColor=white" width="400">
-
-[![Docker Pulls](https://img.shields.io/docker/pulls/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
-[![Docker Stars](https://img.shields.io/docker/stars/mekayelanik/brave-search-mcp.svg?style=flat-square)](https://hub.docker.com/r/mekayelanik/brave-search-mcp)
-[![License](https://img.shields.io/badge/license-GPL-blue.svg?style=flat-square)](https://raw.githubusercontent.com/MekayelAnik/brave-search-mcp-docker/refs/heads/main/LICENSE)
-
-**[Official Website](https://brave.com/search/api/)** • **[Documentation](https://github.com/nicholasgriffintn/brave-search-mcp-server)** • **[Docker Hub](https://hub.docker.com/r/mekayelanik/brave-search-mcp)**
-
-</div>
-
 ---
 
 ## 📋 Table of Contents
