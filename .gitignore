@@ -3,3 +3,6 @@
 Dockerfile.brave-search-mcp
 /Dockerfile.brave-search-mcp
 /Dockerfile
+
+# Node.js compile cache (V8 bytecode cache, auto-generated)
+node-compile-cache/
