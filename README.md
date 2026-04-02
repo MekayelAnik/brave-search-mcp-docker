@@ -1,4 +1,19 @@
+<p align="center"><img src="https://brave.com/static-assets/images/brave-logo-sans-text.svg" alt="Brave Search Logo" width="80"></p>
+
 # Brave Search MCP Server
+
+<p align="center">
+  <a href="https://hub.docker.com/r/mekayelanik/brave-search-mcp"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/mekayelanik/brave-search-mcp?style=flat-square&logo=docker"></a>
+  <a href="https://hub.docker.com/r/mekayelanik/brave-search-mcp"><img alt="Docker Stars" src="https://img.shields.io/docker/stars/mekayelanik/brave-search-mcp?style=flat-square&logo=docker"></a>
+  <a href="https://github.com/mekayelanik/brave-search-mcp-docker/pkgs/container/brave-search-mcp"><img alt="GHCR" src="https://img.shields.io/badge/GHCR-ghcr.io%2Fmekayelanik%2Fbrave-search-mcp-blue?style=flat-square&logo=github"></a>
+  <a href="https://github.com/mekayelanik/brave-search-mcp-docker/blob/main/LICENSE"><img alt="License: GPL-3.0" src="https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square"></a>
+  <a href="https://hub.docker.com/r/mekayelanik/brave-search-mcp"><img alt="Platforms" src="https://img.shields.io/badge/Platforms-amd64%20%7C%20arm64-lightgrey?style=flat-square"></a>
+  <a href="https://github.com/MekayelAnik/brave-search-mcp-docker/stargazers"><img alt="GitHub Stars" src="https://img.shields.io/github/stars/MekayelAnik/brave-search-mcp-docker?style=flat-square"></a>
+  <a href="https://github.com/MekayelAnik/brave-search-mcp-docker/forks"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/MekayelAnik/brave-search-mcp-docker?style=flat-square"></a>
+  <a href="https://github.com/MekayelAnik/brave-search-mcp-docker/issues"><img alt="GitHub Issues" src="https://img.shields.io/github/issues/MekayelAnik/brave-search-mcp-docker?style=flat-square"></a>
+  <a href="https://github.com/MekayelAnik/brave-search-mcp-docker/commits/main"><img alt="Last Commit" src="https://img.shields.io/github/last-commit/MekayelAnik/brave-search-mcp-docker?style=flat-square"></a>
+</p>
+
 ### Multi-Architecture Docker Image for Privacy-Respecting Web Search
 
 <div align="left">
