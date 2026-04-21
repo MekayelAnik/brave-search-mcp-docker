@@ -76,7 +76,7 @@ Brave Search MCP Server provides privacy-respecting web search capabilities thro
 |:----|:---------:|:------------|:---------|
 | `stable` | ⭐⭐⭐ | Most stable release | **Recommended for production** |
 | `latest` | ⭐⭐⭐ | Latest stable release | Stay current with stable features |
-| `2.0.79` | ⭐⭐⭐ | Specific version | Version pinning for consistency |
+| `2.0.80` | ⭐⭐⭐ | Specific version | Version pinning for consistency |
 | `beta` | ⚠️ | Beta releases | **Testing only** |
 
 ### System Requirements
